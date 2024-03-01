@@ -121,6 +121,13 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 			l_lower_name: STRING
 			how_inherited: STRING
 		do
+			if not query.implementation_class.upper_name.is_equal(a_class.upper_name) then
+				l_lower_name := query.implementation_feature.lower_name
+				how_inherited := "???"
+				error_handler.report_info_message (how_inherited + " field: " + query.implementation_class.upper_name + "." + l_lower_name +
+						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+			end
+
 			if l_other_precursor /= Void then
 				if attached l_other_precursor as l_first_precursor then
 				-- https://github.com/gobo-eiffel/gobo/issues/70#issuecomment-1973828362
