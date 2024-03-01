@@ -1,0 +1,592 @@
+Degree 6: 0/0/0 0:0:0.159
+Degree 5: 0/0/0 0:0:7.059
+Degree 4: 0/0/0 0:0:2.625
+[renamed field] STUDENT.addr => RESEARCH_ASSISTANT.student_addr
+
+inherited field: READABLE_INDEXABLE.lower => ARRAY.lower
+[renamed field] FACULTY.addr => RESEARCH_ASSISTANT.faculty_addr
+
+
+inherited field: READABLE_STRING_32.area_lower => IMMUTABLE_STRING_32.area_lower
+inherited field: READABLE_INDEXABLE.upper => ARRAY.upper
+
+
+inherited field: READABLE_STRING_8.area_lower => IMMUTABLE_STRING_8.area_lower
+inherited field: READABLE_STRING_32.count => IMMUTABLE_STRING_32.count
+
+[renamed field] INDEXABLE.upper => STRING_32.count
+
+[renamed field] INDEXABLE.upper => STRING_8.count
+
+inherited field: READABLE_STRING_GENERAL.count => IMMUTABLE_STRING_32.count
+inherited field: READABLE_STRING_8.count => IMMUTABLE_STRING_8.count
+
+[renamed field] READABLE_INDEXABLE.upper => READABLE_STRING_8.count
+
+
+inherited field: READABLE_STRING_32.area => STRING_32.area
+
+
+inherited field: READABLE_STRING_GENERAL.count => IMMUTABLE_STRING_8.count
+
+inherited field: TO_SPECIAL.area => STRING_32.area
+inherited field: READABLE_STRING_GENERAL.count => READABLE_STRING_8.count
+
+inherited field: READABLE_STRING_8.area => STRING_8.area
+
+inherited field: TREE.parent => DYNAMIC_TREE.parent
+inherited field: TO_SPECIAL.area => STRING_8.area
+
+inherited field: TREE.parent => FIXED_TREE.parent
+
+
+renamed field: READABLE_INDEXABLE.upper => READABLE_STRING_8.count
+
+inherited field: READABLE_STRING_8.count => STRING_8.count
+
+inherited field: READABLE_STRING_32.count => STRING_32.count
+
+
+inherited field: TREE.arity => FIXED_TREE.arity
+inherited field: READABLE_STRING_GENERAL.count => STRING_8.count
+
+inherited field: READABLE_STRING_GENERAL.count => STRING_32.count
+
+inherited field: DYNAMIC_TREE.parent => ARRAYED_TREE.parent
+renamed field: READABLE_INDEXABLE.upper => STRING_8.count
+
+
+renamed field: READABLE_INDEXABLE.upper => STRING_32.count
+
+[renamed field] BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
+inherited field: FINITE.count => STRING_32.count
+
+inherited field: FINITE.count => STRING_8.count
+
+
+inherited field: CELL.item => FIXED_TREE.item
+
+inherited field: TREE.parent => BINARY_TREE.parent
+
+inherited field: CELL.item => ARRAYED_TREE.item
+
+inherited field: BINARY_TREE.parent => BINARY_SEARCH_TREE.parent
+
+inherited field: TREE.child_index => BINARY_TREE.child_index
+
+
+inherited field: TREE.item => ARRAYED_TREE.item
+
+inherited field: CELL.item => BINARY_SEARCH_TREE.item
+inherited field: CELL.item => BINARY_TREE.item
+
+
+inherited field: TREE.item => FIXED_TREE.item
+
+[renamed field] LINKABLE.right => LINKED_TREE.right_sibling
+
+[renamed field] BI_LINKABLE.right => TWO_WAY_TREE.right_sibling
+inherited field: TREE.item => BINARY_SEARCH_TREE.item
+[renamed field] LINKED_LIST.active => LINKED_TREE.child
+
+
+inherited field: TREE.item => BINARY_TREE.item
+
+
+inherited field: TREE.child_index => BINARY_SEARCH_TREE.child_index
+
+[renamed field] LINKED_LIST.after => LINKED_TREE.child_after
+
+inherited field: LINEAR.index => ARRAYED_STACK.index
+
+inherited field: LINKED_LIST.count => LINKED_STACK.count
+inherited field: FINITE.count => ARRAYED_QUEUE.count
+
+[renamed field] TWO_WAY_LIST.active => TWO_WAY_TREE.child
+
+inherited field: LINKED_LIST.count => LINKED_QUEUE.count
+
+
+[renamed field] LINKED_LIST.before => LINKED_TREE.child_before
+
+inherited field: FINITE.count => LINKED_QUEUE.count
+inherited field: LINKED_LIST.last_element => LINKED_PRIORITY_QUEUE.last_element
+
+[renamed field] TWO_WAY_LIST.after => TWO_WAY_TREE.child_after
+
+[renamed field] LINKED_LIST.count => LINKED_TREE.arity
+
+
+inherited field: LIST.after => LINKED_QUEUE.after
+
+inherited field: LINKED_LIST.first_element => LINKED_PRIORITY_QUEUE.first_element
+
+inherited field: LIST.before => LINKED_QUEUE.before
+
+[renamed field] LINKED_LIST.first_element => LINKED_TREE.first_child
+
+[renamed field] TWO_WAY_LIST.before => TWO_WAY_TREE.child_before
+inherited field: LINKED_LIST.count => LINKED_PRIORITY_QUEUE.count
+
+inherited field: ARRAYED_QUEUE.count => BOUNDED_QUEUE.count
+
+inherited field: FINITE.count => LINKED_STACK.count
+
+inherited field: FINITE.count => LINKED_PRIORITY_QUEUE.count
+
+
+inherited field: DYNAMIC_TREE.parent => LINKED_TREE.parent
+
+inherited field: LIST.after => LINKED_STACK.after
+
+inherited field: FINITE.count => BOUNDED_QUEUE.count
+
+inherited field: TREE.first_child => LINKED_TREE.first_child
+inherited field: LINKED_LIST.after => LINKED_PRIORITY_QUEUE.after
+
+[renamed field] TWO_WAY_LIST.count => TWO_WAY_TREE.arity
+inherited field: LINEAR.index => BOUNDED_STACK.index
+
+inherited field: LIST.before => LINKED_STACK.before
+
+inherited field: ITERATOR.target => LINEAR_ITERATOR.target
+
+
+inherited field: LIST.after => LINKED_PRIORITY_QUEUE.after
+
+
+inherited field: LINEAR_ITERATOR.target => TWO_WAY_CHAIN_ITERATOR.target
+
+inherited field: LINKED_LIST.before => LINKED_PRIORITY_QUEUE.before
+
+inherited field: LINEAR_ITERATOR.target => CURSOR_TREE_ITERATOR.target
+
+renamed field: LINKED_LIST.first_element => LINKED_TREE.first_child
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => ARRAY_ITERATION_CURSOR.first_index
+
+[renamed field] TWO_WAY_LIST.first_element => TWO_WAY_TREE.first_child
+inherited field: LIST.before => LINKED_PRIORITY_QUEUE.before
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => ARRAY_ITERATION_CURSOR.target
+
+
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => STRING_32_ITERATION_CURSOR.target
+
+renamed field: LINKED_LIST.after => LINKED_TREE.child_after
+inherited field: LINKED_LIST_CURSOR.active => TWO_WAY_LIST_CURSOR.active
+
+
+
+[renamed field] TWO_WAY_LIST.last_element => TWO_WAY_TREE.last_child
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => ARRAYED_LIST_ITERATION_CURSOR.target
+
+
+inherited field: LINKED_LIST_ITERATION_CURSOR.target => TWO_WAY_LIST_ITERATION_CURSOR.target
+
+inherited field: TREE.child_after => LINKED_TREE.child_after
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => STRING_8_ITERATION_CURSOR.target
+
+inherited field: GENERAL_SPECIAL_ITERATION_CURSOR.area_first_index => STRING_32_ITERATION_CURSOR.area_first_index
+
+inherited field: LINKED_LIST_ITERATION_CURSOR.active => TWO_WAY_LIST_ITERATION_CURSOR.active
+
+inherited field: GENERAL_SPECIAL_ITERATION_CURSOR.area_first_index => STRING_8_ITERATION_CURSOR.area_first_index
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_LIST_ITERATION_CURSOR.is_reversed
+
+inherited field: DYNAMIC_TREE.parent => TWO_WAY_TREE.parent
+
+renamed field: LINKED_LIST.before => LINKED_TREE.child_before
+inherited field: INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_LIST_ITERATION_CURSOR.step
+
+
+[renamed field] TWO_WAY_LIST_ITERATION_CURSOR.active => TWO_WAY_TREE_ITERATION_CURSOR.node
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_LIST_ITERATION_CURSOR.last_index
+
+
+inherited field: TWO_WAY_LIST_CURSOR.active => TWO_WAY_TREE_CURSOR.active
+
+inherited field: TREE.child_before => LINKED_TREE.child_before
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_LIST_ITERATION_CURSOR.first_index
+
+inherited field: TREE.first_child => TWO_WAY_TREE.first_child
+inherited field: TREE_ITERATION_CURSOR.node => TWO_WAY_TREE_ITERATION_CURSOR.node
+
+renamed field: LINKED_LIST.count => LINKED_TREE.arity
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_LIST_ITERATION_CURSOR.target_index
+
+[renamed field] GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
+
+renamed field: TWO_WAY_LIST_ITERATION_CURSOR.active => TWO_WAY_TREE_ITERATION_CURSOR.node
+
+
+[renamed field] LINKED_LIST_ITERATION_CURSOR.active => LINKED_TREE_ITERATION_CURSOR.node
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_TREE_ITERATION_CURSOR.is_reversed
+
+inherited field: TREE.arity => LINKED_TREE.arity
+
+renamed field: GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
+inherited field: TREE_ITERATION_CURSOR.node => LINKED_TREE_ITERATION_CURSOR.node
+
+renamed field: LINKABLE.right => LINKED_TREE.right_sibling
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_TREE_ITERATION_CURSOR.step
+
+
+renamed field: LINKED_LIST_ITERATION_CURSOR.active => LINKED_TREE_ITERATION_CURSOR.node
+
+inherited field: TREE.right_sibling => LINKED_TREE.right_sibling
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_TREE_ITERATION_CURSOR.last_index
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_TREE_ITERATION_CURSOR.is_reversed
+
+inherited field: CELL.item => LINKED_TREE.item
+
+renamed field: TWO_WAY_LIST.first_element => TWO_WAY_TREE.first_child
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => LINKED_TREE_ITERATION_CURSOR.step
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => SPECIAL_ITERATION_CURSOR.target
+
+inherited field: TREE.last_child => TWO_WAY_TREE.last_child
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_TREE_ITERATION_CURSOR.first_index
+
+inherited field: TREE.item => LINKED_TREE.item
+
+
+[renamed field] READABLE_INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_TREE_ITERATION_CURSOR.target_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => LINKED_TREE_ITERATION_CURSOR.last_index
+
+renamed field: LINKED_LIST.active => LINKED_TREE.child
+
+
+inherited field: LINKED_LIST_ITERATION_CURSOR.target => TWO_WAY_TREE_ITERATION_CURSOR.target
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => LINKED_TREE_ITERATION_CURSOR.first_index
+
+inherited field: TREE.child => LINKED_TREE.child
+
+inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => HASH_TABLE_ITERATION_CURSOR.target
+
+inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => LINKED_LIST_ITERATION_CURSOR.target
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => LINKED_TREE_ITERATION_CURSOR.target_index
+
+inherited field: LINKED_LIST_CURSOR.active => LINKED_TREE_CURSOR.active
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => HASH_TABLE_ITERATION_CURSOR.is_reversed
+
+inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => LINKED_TREE_ITERATION_CURSOR.target
+
+renamed field: TWO_WAY_LIST.last_element => TWO_WAY_TREE.last_child
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => HASH_TABLE_ITERATION_CURSOR.step
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_LIST_ITERATION_CURSOR.is_reversed
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => READABLE_INDEXABLE_ITERATION_CURSOR.target_index
+renamed field: LINKED_LIST.after => TWO_WAY_TREE.child_after
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => HASH_TABLE_ITERATION_CURSOR.last_index
+
+
+inherited field: TREE.child_after => TWO_WAY_TREE.child_after
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => READABLE_INDEXABLE_ITERATION_CURSOR.first_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => HASH_TABLE_ITERATION_CURSOR.first_index
+
+inherited field: FINITE.count => HASH_TABLE.count
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => LINKED_LIST_ITERATION_CURSOR.step
+
+renamed field: LINKED_LIST.before => TWO_WAY_TREE.child_before
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => READABLE_INDEXABLE_ITERATION_CURSOR.last_index
+
+inherited field: TREE.child_before => TWO_WAY_TREE.child_before
+
+renamed field: INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => LINKED_LIST_ITERATION_CURSOR.last_index
+
+inherited field: FINITE.count => STRING_TABLE.count
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => LINKED_LIST_ITERATION_CURSOR.first_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => READABLE_INDEXABLE_ITERATION_CURSOR.step
+inherited field: READABLE_INDEXABLE.upper => ARRAY2.upper
+renamed field: LINKED_LIST.count => TWO_WAY_TREE.arity
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => LINKED_LIST_ITERATION_CURSOR.target_index
+
+inherited field: READABLE_INDEXABLE.lower => ARRAY2.lower
+
+inherited field: ARRAYED_LIST.index => ARRAYED_SET.index
+
+inherited field: TREE.arity => TWO_WAY_TREE.arity
+
+inherited field: LINEAR_SUBSET.index => ARRAYED_SET.index
+
+inherited field: LINEAR.after => BINARY_SEARCH_TREE_SET.after
+
+inherited field: LINKED_LIST.count => LINKED_SET.count
+
+
+inherited field: TRAVERSABLE_SUBSET.after => BINARY_SEARCH_TREE_SET.after
+
+inherited field: LINKED_LIST.last_element => TWO_WAY_SORTED_SET.last_element
+
+renamed field: LINKABLE.right => TWO_WAY_TREE.right_sibling
+
+inherited field: TRAVERSABLE_SUBSET.count => LINKED_SET.count
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed
+
+inherited field: BILINEAR.before => BINARY_SEARCH_TREE_SET.before
+
+inherited field: LINKED_LIST.first_element => TWO_WAY_SORTED_SET.first_element
+
+inherited field: TREE.right_sibling => TWO_WAY_TREE.right_sibling
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => READABLE_INDEXABLE_ITERATION_CURSOR.target
+
+
+inherited field: LINKED_LIST.last_element => PART_SORTED_SET.last_element
+inherited field: LINKED_LIST.before => LINKED_SET.before
+
+
+renamed field: BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
+inherited field: LINEAR_SUBSET.before => LINKED_SET.before
+
+
+inherited field: LINKED_LIST.count => TWO_WAY_SORTED_SET.count
+
+inherited field: LINKED_LIST.first_element => PART_SORTED_SET.first_element
+
+inherited field: TRAVERSABLE_SUBSET.count => TWO_WAY_SORTED_SET.count
+
+inherited field: LINKED_LIST.after => LINKED_SET.after
+
+inherited field: TREE.left_sibling => TWO_WAY_TREE.left_sibling
+
+inherited field: CURSOR_TREE.after => RECURSIVE_CURSOR_TREE.after
+
+inherited field: LINKED_LIST.count => PART_SORTED_SET.count
+
+inherited field: SET.count => TWO_WAY_SORTED_SET.count
+
+inherited field: TRAVERSABLE_SUBSET.after => LINKED_SET.after
+
+inherited field: LINKED_LIST.after => TWO_WAY_SORTED_SET.after
+
+inherited field: CURSOR_TREE.before => RECURSIVE_CURSOR_TREE.before
+
+inherited field: TRAVERSABLE_SUBSET.count => PART_SORTED_SET.count
+
+inherited field: TRAVERSABLE_SUBSET.after => TWO_WAY_SORTED_SET.after
+inherited field: CELL.item => TWO_WAY_TREE.item
+
+inherited field: LINKED_LIST.before => PART_SORTED_SET.before
+
+
+inherited field: TREE.item => TWO_WAY_TREE.item
+
+inherited field: LINKED_LIST.first_element => TWO_WAY_LIST.first_element
+
+inherited field: LINKED_LIST.last_element => SORTED_TWO_WAY_LIST.last_element
+
+inherited field: LINEAR_SUBSET.before => PART_SORTED_SET.before
+
+inherited field: LINKED_LIST.first_element => SORTED_TWO_WAY_LIST.first_element
+
+renamed field: LINKED_LIST.active => TWO_WAY_TREE.child
+
+inherited field: LINKED_LIST.count => SORTED_TWO_WAY_LIST.count
+
+inherited field: LINEAR.after => TWO_WAY_SORTED_SET.after
+
+inherited field: LINKED_LIST.after => PART_SORTED_SET.after
+
+inherited field: LINKED_LIST.last_element => TWO_WAY_LIST.last_element
+
+inherited field: TRAVERSABLE_SUBSET.after => PART_SORTED_SET.after
+
+inherited field: READABLE_INDEXABLE.count => SORTED_TWO_WAY_LIST.count
+
+inherited field: LINKED_LIST.before => TWO_WAY_SORTED_SET.before
+
+inherited field: TREE.child => TWO_WAY_TREE.child
+
+inherited field: READABLE_INDEXABLE.count => TWO_WAY_LIST.count
+
+inherited field: LINEAR.index => MULTI_ARRAY_LIST.index
+
+inherited field: LINKED_LIST.after => SORTED_TWO_WAY_LIST.after
+inherited field: LINEAR_SUBSET.before => TWO_WAY_SORTED_SET.before
+
+
+inherited field: READABLE_INDEXABLE.count => LINKED_LIST.count
+
+inherited field: READABLE_INDEXABLE.count => MULTI_ARRAY_LIST.count
+inherited field: LIST.after => TWO_WAY_LIST.after
+
+inherited field: LIST.after => SORTED_TWO_WAY_LIST.after
+
+inherited field: LIST.after => LINKED_LIST.after
+
+
+inherited field: LIST.before => TWO_WAY_LIST.before
+
+inherited field: LINKED_LIST.before => SORTED_TWO_WAY_LIST.before
+
+inherited field: BILINEAR.before => TWO_WAY_SORTED_SET.before
+inherited field: LIST.before => LINKED_LIST.before
+
+inherited field: ARRAYED_LIST.capacity => FIXED_LIST.capacity
+
+[renamed field] TO_SPECIAL.area => ARRAYED_LIST.area_v2
+
+inherited field: BOUNDED.capacity => FIXED_LIST.capacity
+
+inherited field: LINKED_LIST.last_element => PART_SORTED_TWO_WAY_LIST.last_element
+
+inherited field: LINEAR.index => FIXED_LIST.index
+
+inherited field: LIST.before => SORTED_TWO_WAY_LIST.before
+
+inherited field: LINEAR.index => ARRAYED_LIST.index
+
+
+inherited field: LINKED_CIRCULAR.list => TWO_WAY_CIRCULAR.list
+
+inherited field: LINKED_LIST.first_element => PART_SORTED_TWO_WAY_LIST.first_element
+
+inherited field: LINKED_LIST.count => PART_SORTED_TWO_WAY_LIST.count
+inherited field: LINEAR.index => FIBONACCI.index
+
+inherited field: FINITE.count => MISMATCH_INFORMATION.count
+
+
+inherited field: FINITE.count => CLASS_NAME_TRANSLATIONS.count
+
+inherited field: READABLE_INDEXABLE.count => PART_SORTED_TWO_WAY_LIST.count
+
+inherited field: LINEAR.index => PRIMES.index
+
+inherited field: LINEAR.index => COUNTABLE_SEQUENCE.index
+
+inherited field: LINKED_LIST.after => PART_SORTED_TWO_WAY_LIST.after
+
+inherited field: LINEAR.index => RANDOM.index
+
+inherited field: IO_MEDIUM.is_closed => STREAM.is_closed
+
+inherited field: LIST.after => PART_SORTED_TWO_WAY_LIST.after
+
+inherited field: READABLE_STRING_8.area => DIRECTORY_NAME.area
+
+[renamed field] TO_SPECIAL.area => FILE_INFO.buffered_file_info
+
+inherited field: LINKED_LIST.before => PART_SORTED_TWO_WAY_LIST.before
+
+inherited field: TO_SPECIAL.area => DIRECTORY_NAME.area
+
+inherited field: LIST.before => PART_SORTED_TWO_WAY_LIST.before
+
+renamed field: IO_MEDIUM.handle_available => RAW_FILE.descriptor_available
+
+inherited field: READABLE_STRING_8.count => DIRECTORY_NAME.count
+
+renamed field: IO_MEDIUM.handle_available => PLAIN_TEXT_FILE.descriptor_available
+
+inherited field: READABLE_STRING_8.area => FILE_NAME.area
+inherited field: READABLE_STRING_GENERAL.count => DIRECTORY_NAME.count
+
+[renamed field] IO_MEDIUM.handle_available => FILE.descriptor_available
+
+inherited field: READABLE_INDEXABLE.lower => INTEGER_INTERVAL.lower
+
+renamed field: READABLE_INDEXABLE.upper => DIRECTORY_NAME.count
+
+renamed field: IO_MEDIUM.handle_available => CONSOLE.descriptor_available
+
+inherited field: READABLE_INDEXABLE.upper => INTEGER_INTERVAL.upper
+
+renamed field: IO_MEDIUM.handle_available => FILE.descriptor_available
+
+
+inherited field: TO_SPECIAL.area => FILE_NAME.area
+
+inherited field: FINITE.count => DIRECTORY_NAME.count
+
+inherited field: READABLE_STRING_8.area => PATH_NAME.area
+
+inherited field: READABLE_STRING_8.count => FILE_NAME.count
+
+inherited field: TO_SPECIAL.area => PATH_NAME.area
+
+inherited field: READABLE_STRING_GENERAL.count => FILE_NAME.count
+
+inherited field: READABLE_STRING_8.count => PATH_NAME.count
+
+renamed field: READABLE_INDEXABLE.upper => FILE_NAME.count
+
+inherited field: READABLE_STRING_GENERAL.count => PATH_NAME.count
+[renamed field] RT_DBG_VALUE_RECORD.position => RT_DBG_FIELD_RECORD.index
+
+[renamed field] READABLE_INDEXABLE.upper => READABLE_STRING_32.count
+
+inherited field: FINITE.count => FILE_NAME.count
+
+inherited field: LINEAR.index => SEQ_STRING.index
+
+inherited field: READABLE_STRING_GENERAL.count => READABLE_STRING_32.count
+
+[renamed field] RT_DBG_VALUE_RECORD.position => RT_DBG_ATTRIBUTE_RECORD.offset
+
+renamed field: READABLE_INDEXABLE.upper => PATH_NAME.count
+
+renamed field: READABLE_INDEXABLE.upper => READABLE_STRING_32.count
+
+
+inherited field: READABLE_INDEXABLE.upper => ACTIVE_INTEGER_INTERVAL.upper
+
+inherited field: LINEAR.index => INTERACTIVE_LIST.index
+
+inherited field: READABLE_STRING_8.area => SEQ_STRING.area
+inherited field: LINEAR.index => ACTIVE_LIST.index
+
+inherited field: READABLE_INDEXABLE.lower => ACTIVE_INTEGER_INTERVAL.lower
+
+inherited field: FINITE.count => PATH_NAME.count
+[renamed field] HASH_TABLE.capacity => SED_OBJECTS_TABLE.table_capacity
+
+
+inherited field: LINEAR.index => ACTION_SEQUENCE.index
+
+inherited field: SED_BINARY_READER_WRITER.medium => SED_MEDIUM_READER_WRITER.medium
+
+
+inherited field: SED_BINARY_READER_WRITER.medium => SED_MEDIUM_READER_WRITER_1.medium
+
+[renamed field] HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
+
+inherited field: TO_SPECIAL.area => SEQ_STRING.area
+
+renamed field: HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
+
+inherited field: READABLE_STRING_8.count => SEQ_STRING.count
+
+inherited field: SED_ABSTRACT_OBJECTS_TABLE.capacity => SED_OBJECTS_TABLE.capacity
+
+inherited field: FINITE.count => SEQ_STRING.count
+
+Total Time: 0/0/0 0:0:10.527
