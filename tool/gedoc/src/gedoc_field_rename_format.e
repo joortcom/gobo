@@ -131,6 +131,43 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 			end
 		end
 
+	process_parent_clauses(a_class: ET_CLASS)
+		local
+			i, k, nb, nr: INTEGER
+			j, nb2: INTEGER
+			l_parent_list: ET_PARENT_LIST
+			parent: ET_PARENT
+			l_item: ET_RENAME_ITEM
+			l_rename: ET_RENAME
+		do
+			if attached a_class.parent_clauses as l_parent_clauses then
+				nb := l_parent_clauses.count
+				from i := 1 until i > nb loop
+					l_parent_list := l_parent_clauses.item (i)
+					nb2 := l_parent_list.count
+					from j := 1 until j > nb2 loop
+						parent := l_parent_list.parent (j)
+						if attached parent.renames as l_renames then
+							nr := l_renames.count
+							from k := 1 until k > nr loop
+								l_item := l_renames.item(k)
+								l_rename := l_item.rename_pair
+								if attached a_class.named_query(l_rename.new_name.feature_name) as query then
+									if query.is_attribute then
+					    error_handler.report_info_message ("[renamed field] " + parent.type.upper_name + "." + l_rename.old_name.lower_name +
+						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+									end
+								end
+								k := k + 1
+							end
+						end
+						j := j + 1
+					end
+					i := i + 1
+				end
+			end
+		end
+
 	process_implicit_converts (a_class: ET_CLASS)
 			-- Process implicit conversions in `a_class' if it has not been marked yet.
 		require
@@ -147,6 +184,7 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 					if a_class.is_none then
 						-- Do nothing.
 					else
+						process_parent_clauses(a_class)
 						nb := a_class.queries.count
 						from i := 1 until i > nb loop
 							query := a_class.queries.item(i)
