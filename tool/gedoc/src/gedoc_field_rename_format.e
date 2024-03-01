@@ -119,14 +119,21 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 	process_et_feature(a_class: ET_CLASS; l_other_precursor: detachable ET_FEATURE; query: ET_QUERY)
 		local
 			l_lower_name: STRING
+			how_inherited: STRING
 		do
 			if l_other_precursor /= Void then
 				if attached l_other_precursor as l_first_precursor then
+				-- https://github.com/gobo-eiffel/gobo/issues/70#issuecomment-1973828362
+				-- If it has a precursor, it means that it is inherited.
 					l_lower_name := l_first_precursor.lower_name
-					if not l_lower_name.is_equal(query.lower_name) then
-					    error_handler.report_info_message ("[renamed field] " + l_first_precursor.implementation_class.upper_name + "." + l_lower_name +
-						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+					if l_lower_name.is_equal(query.lower_name) then
+						how_inherited := "inherited"
+					else
+
+						how_inherited := "renamed"
 					end
+					error_handler.report_info_message (how_inherited + " field: " + l_first_precursor.implementation_class.upper_name + "." + l_lower_name +
+						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
 				end
 			end
 		end
