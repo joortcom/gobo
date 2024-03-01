@@ -28,7 +28,7 @@ gobo:
 
 fmt=field_rename
 demo:
-	../../gedoc --format=$(fmt) app.ecf
+	../../gedoc --format=$(fmt) app.ecf > inherited_fields.path
 
 clean:
 	$(RM) -fr app a.out EIFGENs/ app.make app.sh *.c *.h *.out *.o
