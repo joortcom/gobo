@@ -1,592 +1,2594 @@
-Degree 6: 0/0/0 0:0:0.159
-Degree 5: 0/0/0 0:0:7.059
-Degree 4: 0/0/0 0:0:2.625
+Degree 6: 0/0/0 0:0:0.147
+Degree 5: 0/0/0 0:0:7.039
+Degree 4: 0/0/0 0:0:2.390
+??? field: PERSON.addr => FACULTY.addr
+
 [renamed field] STUDENT.addr => RESEARCH_ASSISTANT.student_addr
+??? field: PERSON.name => FACULTY.name
+
 
 inherited field: READABLE_INDEXABLE.lower => ARRAY.lower
+
+??? field: PERSON.addr => STUDENT.addr
 [renamed field] FACULTY.addr => RESEARCH_ASSISTANT.faculty_addr
 
 
-inherited field: READABLE_STRING_32.area_lower => IMMUTABLE_STRING_32.area_lower
 inherited field: READABLE_INDEXABLE.upper => ARRAY.upper
 
+??? field: ROUTINE.open_types => FUNCTION.open_types
+
+??? field: PERSON.addr => RESEARCH_ASSISTANT.student_addr
+
+??? field: ROUTINE.written_type_id_inline_agent => FUNCTION.written_type_id_inline_agent
+
+??? field: PERSON.addr => RESEARCH_ASSISTANT.faculty_addr
+
+??? field: PERSON.name => STUDENT.name
+
+??? field: ROUTINE.is_basic => FUNCTION.is_basic
+
+??? field: TO_SPECIAL.area => ARRAY.area
+
+??? field: PERSON.addr => RESEARCH_ASSISTANT.addr
+??? field: ROUTINE.routine_id => FUNCTION.routine_id
+
+
+??? field: CONTAINER.object_comparison => ARRAY.object_comparison
 
 inherited field: READABLE_STRING_8.area_lower => IMMUTABLE_STRING_8.area_lower
+??? field: ROUTINE.encaps_rout_disp => FUNCTION.encaps_rout_disp
+
+??? field: PERSON.name => RESEARCH_ASSISTANT.name
+
+inherited field: READABLE_STRING_32.area_lower => IMMUTABLE_STRING_32.area_lower
+??? field: ROUTINE.open_map => FUNCTION.open_map
+
+
+
+??? field: ROUTINE.open_types => PREDICATE.open_types
+
+??? field: ROUTINE.open_types => PROCEDURE.open_types
+
+??? field: ROUTINE.calc_rout_addr => FUNCTION.calc_rout_addr
+
+??? field: READABLE_STRING_32.area => IMMUTABLE_STRING_32.area
+
+??? field: READABLE_STRING_8.area => IMMUTABLE_STRING_8.area
+??? field: ROUTINE.written_type_id_inline_agent => PROCEDURE.written_type_id_inline_agent
+
+??? field: ROUTINE.written_type_id_inline_agent => PREDICATE.written_type_id_inline_agent
+
+??? field: ROUTINE.rout_disp => FUNCTION.rout_disp
+
+
+??? field: ROUTINE.is_basic => PROCEDURE.is_basic
+
+??? field: ROUTINE.is_basic => PREDICATE.is_basic
+??? field: ROUTINE.closed_operands => FUNCTION.closed_operands
+
+
+??? field: ROUTINE.routine_id => PROCEDURE.routine_id
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => IMMUTABLE_STRING_32.internal_case_insensitive_hash_code
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => IMMUTABLE_STRING_8.internal_case_insensitive_hash_code
+
+??? field: ROUTINE.open_count => FUNCTION.open_count
+??? field: ROUTINE.encaps_rout_disp => PROCEDURE.encaps_rout_disp
+
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => IMMUTABLE_STRING_32.internal_hash_code
+
+??? field: ROUTINE.open_map => PROCEDURE.open_map
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => IMMUTABLE_STRING_8.internal_hash_code
+
+??? field: ROUTINE.routine_id => PREDICATE.routine_id
+
+??? field: READABLE_STRING_32.count => IMMUTABLE_STRING_32.count
+
+??? field: ROUTINE.is_target_closed => FUNCTION.is_target_closed
+
+??? field: ROUTINE.encaps_rout_disp => PREDICATE.encaps_rout_disp
+
+??? field: ROUTINE.calc_rout_addr => PROCEDURE.calc_rout_addr
+
 inherited field: READABLE_STRING_32.count => IMMUTABLE_STRING_32.count
+
+??? field: ROUTINE.rout_disp => PROCEDURE.rout_disp
+
+??? field: ROUTINE.operands => FUNCTION.operands
+
+??? field: READABLE_STRING_32.count => IMMUTABLE_STRING_32.count
+
+??? field: ROUTINE.open_map => PREDICATE.open_map
+
+??? field: READABLE_STRING_8.count => IMMUTABLE_STRING_8.count
+??? field: ROUTINE.closed_operands => PROCEDURE.closed_operands
+
+
+??? field: ROUTINE.calc_rout_addr => PREDICATE.calc_rout_addr
+
+??? field: ROUTINE.open_count => PROCEDURE.open_count
+
+inherited field: READABLE_STRING_GENERAL.count => IMMUTABLE_STRING_32.count
+[renamed field] INDEXABLE.upper => STRING_8.count
+
+
+inherited field: READABLE_STRING_8.count => IMMUTABLE_STRING_8.count
+
+??? field: ROUTINE.is_target_closed => PROCEDURE.is_target_closed
+
+??? field: ROUTINE.rout_disp => PREDICATE.rout_disp
+
+inherited field: READABLE_STRING_8.area => STRING_8.area
+??? field: ROUTINE.operands => PROCEDURE.operands
+
+??? field: READABLE_STRING_8.count => IMMUTABLE_STRING_8.count
+
+??? field: ROUTINE.closed_operands => PREDICATE.closed_operands
 
 [renamed field] INDEXABLE.upper => STRING_32.count
 
-[renamed field] INDEXABLE.upper => STRING_8.count
+inherited field: READABLE_STRING_GENERAL.count => IMMUTABLE_STRING_8.count
 
-inherited field: READABLE_STRING_GENERAL.count => IMMUTABLE_STRING_32.count
-inherited field: READABLE_STRING_8.count => IMMUTABLE_STRING_8.count
+??? field: ROUTINE.open_count => PREDICATE.open_count
 
-[renamed field] READABLE_INDEXABLE.upper => READABLE_STRING_8.count
-
+inherited field: TO_SPECIAL.area => STRING_8.area
 
 inherited field: READABLE_STRING_32.area => STRING_32.area
 
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => STRING_8.internal_case_insensitive_hash_code
 
-inherited field: READABLE_STRING_GENERAL.count => IMMUTABLE_STRING_8.count
+[renamed field] READABLE_INDEXABLE.upper => READABLE_STRING_8.count
+
+??? field: ROUTINE.is_target_closed => PREDICATE.is_target_closed
 
 inherited field: TO_SPECIAL.area => STRING_32.area
+??? field: READABLE_STRING_GENERAL.internal_hash_code => STRING_8.internal_hash_code
+??? field: ROUTINE.operands => PREDICATE.operands
+
+
+
+
 inherited field: READABLE_STRING_GENERAL.count => READABLE_STRING_8.count
+??? field: READABLE_STRING_8.count => STRING_8.count
 
-inherited field: READABLE_STRING_8.area => STRING_8.area
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => STRING_32.internal_case_insensitive_hash_code
 
-inherited field: TREE.parent => DYNAMIC_TREE.parent
-inherited field: TO_SPECIAL.area => STRING_8.area
-
-inherited field: TREE.parent => FIXED_TREE.parent
-
-
-renamed field: READABLE_INDEXABLE.upper => READABLE_STRING_8.count
+??? field: FUNCTION.last_result => PREDICATE.last_result
 
 inherited field: READABLE_STRING_8.count => STRING_8.count
 
-inherited field: READABLE_STRING_32.count => STRING_32.count
+renamed field: READABLE_INDEXABLE.upper => READABLE_STRING_8.count
 
 
-inherited field: TREE.arity => FIXED_TREE.arity
+??? field: ENCODING_I.last_was_wide_string => UNICODE_CONVERSION.last_was_wide_string
+
+??? field: READABLE_STRING_8.count => STRING_8.count
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => READABLE_STRING_8.internal_case_insensitive_hash_code
+
+??? field: EXCEPTION.internal_trace => CONVERSION_FAILURE.internal_trace
+??? field: ENCODING_I.last_conversion_successful => UNICODE_CONVERSION.last_conversion_successful
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => STRING_32.internal_hash_code
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => READABLE_STRING_8.internal_hash_code
+
+
+??? field: ENCODING_I.last_converted_string => UNICODE_CONVERSION.last_converted_string
+
+
+??? field: READABLE_STRING_32.count => STRING_32.count
+??? field: ENCODING_I.last_was_wide_string => ENCODING_IMP.last_was_wide_string
+
+inherited field: TREE.parent => DYNAMIC_TREE.parent
+
 inherited field: READABLE_STRING_GENERAL.count => STRING_8.count
 
-inherited field: READABLE_STRING_GENERAL.count => STRING_32.count
+??? field: EXCEPTION.internal_is_ignorable => CONVERSION_FAILURE.internal_is_ignorable
+??? field: ENCODING_I.last_conversion_successful => ENCODING_IMP.last_conversion_successful
 
+??? field: CONTAINER.object_comparison => DYNAMIC_TREE.object_comparison
+
+
+
+??? field: READABLE_STRING_8.count => STRING_8.count
+??? field: ENCODING_I.last_converted_string => ENCODING_IMP.last_converted_string
+
+inherited field: READABLE_STRING_32.count => STRING_32.count
+??? field: EXCEPTION.c_description => CONVERSION_FAILURE.c_description
+
+
+inherited field: TREE.parent => FIXED_TREE.parent
 inherited field: DYNAMIC_TREE.parent => ARRAYED_TREE.parent
+
+
+
+??? field: READABLE_STRING_32.count => STRING_32.count
+inherited field: TREE.arity => FIXED_TREE.arity
+
+
+??? field: EXCEPTION.throwing_exception => CONVERSION_FAILURE.throwing_exception
+
+??? field: CELL.item => ARRAYED_TREE.item
+
 renamed field: READABLE_INDEXABLE.upper => STRING_8.count
 
+inherited field: READABLE_STRING_GENERAL.count => STRING_32.count
+??? field: CELL.item => FIXED_TREE.item
 
-renamed field: READABLE_INDEXABLE.upper => STRING_32.count
+??? field: EXCEPTION.line_number => CONVERSION_FAILURE.line_number
 
-[renamed field] BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
-inherited field: FINITE.count => STRING_32.count
+??? field: READABLE_STRING_8.count => STRING_8.count
+inherited field: CELL.item => ARRAYED_TREE.item
 
-inherited field: FINITE.count => STRING_8.count
 
 
 inherited field: CELL.item => FIXED_TREE.item
 
-inherited field: TREE.parent => BINARY_TREE.parent
+??? field: CELL.item => ARRAYED_TREE.item
 
-inherited field: CELL.item => ARRAYED_TREE.item
+??? field: EXCEPTION.type_name => CONVERSION_FAILURE.type_name
+??? field: READABLE_STRING_32.count => STRING_32.count
 
-inherited field: BINARY_TREE.parent => BINARY_SEARCH_TREE.parent
+inherited field: FINITE.count => STRING_8.count
 
-inherited field: TREE.child_index => BINARY_TREE.child_index
 
+??? field: CONTAINER.object_comparison => STRING_8.object_comparison
 
 inherited field: TREE.item => ARRAYED_TREE.item
 
-inherited field: CELL.item => BINARY_SEARCH_TREE.item
-inherited field: CELL.item => BINARY_TREE.item
+renamed field: READABLE_INDEXABLE.upper => STRING_32.count
 
+??? field: CELL.item => FIXED_TREE.item
+
+??? field: CONTAINER.object_comparison => ARRAYED_TREE.object_comparison
+
+??? field: READABLE_STRING_32.count => STRING_32.count
 
 inherited field: TREE.item => FIXED_TREE.item
 
-[renamed field] LINKABLE.right => LINKED_TREE.right_sibling
+[renamed field] BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
+
+inherited field: FINITE.count => STRING_32.count
+
+??? field: CONTAINER.object_comparison => FIXED_TREE.object_comparison
 
 [renamed field] BI_LINKABLE.right => TWO_WAY_TREE.right_sibling
-inherited field: TREE.item => BINARY_SEARCH_TREE.item
-[renamed field] LINKED_LIST.active => LINKED_TREE.child
 
-
-inherited field: TREE.item => BINARY_TREE.item
-
-
-inherited field: TREE.child_index => BINARY_SEARCH_TREE.child_index
-
-[renamed field] LINKED_LIST.after => LINKED_TREE.child_after
-
-inherited field: LINEAR.index => ARRAYED_STACK.index
-
-inherited field: LINKED_LIST.count => LINKED_STACK.count
-inherited field: FINITE.count => ARRAYED_QUEUE.count
-
+inherited field: TREE.parent => BINARY_TREE.parent
 [renamed field] TWO_WAY_LIST.active => TWO_WAY_TREE.child
 
-inherited field: LINKED_LIST.count => LINKED_QUEUE.count
+inherited field: BINARY_TREE.parent => BINARY_SEARCH_TREE.parent
 
-
-[renamed field] LINKED_LIST.before => LINKED_TREE.child_before
-
-inherited field: FINITE.count => LINKED_QUEUE.count
-inherited field: LINKED_LIST.last_element => LINKED_PRIORITY_QUEUE.last_element
+??? field: CONTAINER.object_comparison => STRING_32.object_comparison
 
 [renamed field] TWO_WAY_LIST.after => TWO_WAY_TREE.child_after
 
-[renamed field] LINKED_LIST.count => LINKED_TREE.arity
+??? field: CELL.item => BINARY_SEARCH_TREE.item
 
 
-inherited field: LIST.after => LINKED_QUEUE.after
+[renamed field] LINKABLE.right => LINKED_TREE.right_sibling
 
-inherited field: LINKED_LIST.first_element => LINKED_PRIORITY_QUEUE.first_element
-
-inherited field: LIST.before => LINKED_QUEUE.before
-
-[renamed field] LINKED_LIST.first_element => LINKED_TREE.first_child
+??? field: EXCEPTION.recipient_name => CONVERSION_FAILURE.recipient_name
+inherited field: CELL.item => BINARY_SEARCH_TREE.item
 
 [renamed field] TWO_WAY_LIST.before => TWO_WAY_TREE.child_before
-inherited field: LINKED_LIST.count => LINKED_PRIORITY_QUEUE.count
-
-inherited field: ARRAYED_QUEUE.count => BOUNDED_QUEUE.count
-
-inherited field: FINITE.count => LINKED_STACK.count
-
-inherited field: FINITE.count => LINKED_PRIORITY_QUEUE.count
 
 
-inherited field: DYNAMIC_TREE.parent => LINKED_TREE.parent
+inherited field: TREE.child_index => BINARY_TREE.child_index
 
-inherited field: LIST.after => LINKED_STACK.after
+[renamed field] LINKED_LIST.active => LINKED_TREE.child
 
-inherited field: FINITE.count => BOUNDED_QUEUE.count
-
-inherited field: TREE.first_child => LINKED_TREE.first_child
-inherited field: LINKED_LIST.after => LINKED_PRIORITY_QUEUE.after
+??? field: CELL.item => BINARY_SEARCH_TREE.item
 
 [renamed field] TWO_WAY_LIST.count => TWO_WAY_TREE.arity
-inherited field: LINEAR.index => BOUNDED_STACK.index
+[renamed field] LINKED_LIST.after => LINKED_TREE.child_after
 
-inherited field: LIST.before => LINKED_STACK.before
+??? field: CONTAINER.object_comparison => TREE.object_comparison
+inherited field: TREE.item => BINARY_SEARCH_TREE.item
 
-inherited field: ITERATOR.target => LINEAR_ITERATOR.target
-
-
-inherited field: LIST.after => LINKED_PRIORITY_QUEUE.after
+??? field: CELL.item => BINARY_TREE.item
 
 
-inherited field: LINEAR_ITERATOR.target => TWO_WAY_CHAIN_ITERATOR.target
 
-inherited field: LINKED_LIST.before => LINKED_PRIORITY_QUEUE.before
-
-inherited field: LINEAR_ITERATOR.target => CURSOR_TREE_ITERATOR.target
-
-renamed field: LINKED_LIST.first_element => LINKED_TREE.first_child
-
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => ARRAY_ITERATION_CURSOR.first_index
-
+[renamed field] LINKED_LIST.before => LINKED_TREE.child_before
 [renamed field] TWO_WAY_LIST.first_element => TWO_WAY_TREE.first_child
-inherited field: LIST.before => LINKED_PRIORITY_QUEUE.before
-inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => ARRAY_ITERATION_CURSOR.target
 
+??? field: CONTAINER.object_comparison => BINARY_SEARCH_TREE.object_comparison
 
-inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => STRING_32_ITERATION_CURSOR.target
-
-renamed field: LINKED_LIST.after => LINKED_TREE.child_after
-inherited field: LINKED_LIST_CURSOR.active => TWO_WAY_LIST_CURSOR.active
-
+inherited field: CELL.item => BINARY_TREE.item
 
 
 [renamed field] TWO_WAY_LIST.last_element => TWO_WAY_TREE.last_child
-inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => ARRAYED_LIST_ITERATION_CURSOR.target
 
+??? field: CONTAINER.object_comparison => BILINEAR.object_comparison
+??? field: CELL.item => BINARY_TREE.item
 
-inherited field: LINKED_LIST_ITERATION_CURSOR.target => TWO_WAY_LIST_ITERATION_CURSOR.target
-
-inherited field: TREE.child_after => LINKED_TREE.child_after
-inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => STRING_8_ITERATION_CURSOR.target
-
-inherited field: GENERAL_SPECIAL_ITERATION_CURSOR.area_first_index => STRING_32_ITERATION_CURSOR.area_first_index
-
-inherited field: LINKED_LIST_ITERATION_CURSOR.active => TWO_WAY_LIST_ITERATION_CURSOR.active
-
-inherited field: GENERAL_SPECIAL_ITERATION_CURSOR.area_first_index => STRING_8_ITERATION_CURSOR.area_first_index
-
-
-inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_LIST_ITERATION_CURSOR.is_reversed
+??? field: BINARY_TREE.child_index => BINARY_SEARCH_TREE.child_index
 
 inherited field: DYNAMIC_TREE.parent => TWO_WAY_TREE.parent
 
-renamed field: LINKED_LIST.before => LINKED_TREE.child_before
-inherited field: INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_LIST_ITERATION_CURSOR.step
+inherited field: TREE.item => BINARY_TREE.item
 
-
-[renamed field] TWO_WAY_LIST_ITERATION_CURSOR.active => TWO_WAY_TREE_ITERATION_CURSOR.node
-inherited field: INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_LIST_ITERATION_CURSOR.last_index
-
-
-inherited field: TWO_WAY_LIST_CURSOR.active => TWO_WAY_TREE_CURSOR.active
-
-inherited field: TREE.child_before => LINKED_TREE.child_before
-
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_LIST_ITERATION_CURSOR.first_index
+inherited field: TREE.child_index => BINARY_SEARCH_TREE.child_index
 
 inherited field: TREE.first_child => TWO_WAY_TREE.first_child
-inherited field: TREE_ITERATION_CURSOR.node => TWO_WAY_TREE_ITERATION_CURSOR.node
 
-renamed field: LINKED_LIST.count => LINKED_TREE.arity
-inherited field: INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_LIST_ITERATION_CURSOR.target_index
+??? field: CONTAINER.object_comparison => BINARY_TREE.object_comparison
 
-[renamed field] GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
-
-renamed field: TWO_WAY_LIST_ITERATION_CURSOR.active => TWO_WAY_TREE_ITERATION_CURSOR.node
-
-
-[renamed field] LINKED_LIST_ITERATION_CURSOR.active => LINKED_TREE_ITERATION_CURSOR.node
-
-
-inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_TREE_ITERATION_CURSOR.is_reversed
-
-inherited field: TREE.arity => LINKED_TREE.arity
-
-renamed field: GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
-inherited field: TREE_ITERATION_CURSOR.node => LINKED_TREE_ITERATION_CURSOR.node
-
-renamed field: LINKABLE.right => LINKED_TREE.right_sibling
-
-inherited field: INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_TREE_ITERATION_CURSOR.step
-
-
-renamed field: LINKED_LIST_ITERATION_CURSOR.active => LINKED_TREE_ITERATION_CURSOR.node
-
-inherited field: TREE.right_sibling => LINKED_TREE.right_sibling
-
-inherited field: INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_TREE_ITERATION_CURSOR.last_index
-inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_TREE_ITERATION_CURSOR.is_reversed
-
-inherited field: CELL.item => LINKED_TREE.item
+??? field: BINARY_TREE.right_child => BINARY_SEARCH_TREE.right_child
 
 renamed field: TWO_WAY_LIST.first_element => TWO_WAY_TREE.first_child
 
 
-inherited field: INDEXABLE_ITERATION_CURSOR.step => LINKED_TREE_ITERATION_CURSOR.step
-inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => SPECIAL_ITERATION_CURSOR.target
+??? field: CONTAINER.object_comparison => TRAVERSABLE.object_comparison
 
+??? field: BINARY_TREE.left_child => BINARY_SEARCH_TREE.left_child
+
+[renamed field] LINKED_LIST.count => LINKED_TREE.arity
 inherited field: TREE.last_child => TWO_WAY_TREE.last_child
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_TREE_ITERATION_CURSOR.first_index
 
-inherited field: TREE.item => LINKED_TREE.item
+??? field: CONTAINER.object_comparison => LINEAR.object_comparison
 
-
-[renamed field] READABLE_INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
-
-inherited field: INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_TREE_ITERATION_CURSOR.target_index
-
-inherited field: INDEXABLE_ITERATION_CURSOR.last_index => LINKED_TREE_ITERATION_CURSOR.last_index
-
-renamed field: LINKED_LIST.active => LINKED_TREE.child
-
-
-inherited field: LINKED_LIST_ITERATION_CURSOR.target => TWO_WAY_TREE_ITERATION_CURSOR.target
-
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => LINKED_TREE_ITERATION_CURSOR.first_index
-
-inherited field: TREE.child => LINKED_TREE.child
-
-inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => HASH_TABLE_ITERATION_CURSOR.target
-
-inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => LINKED_LIST_ITERATION_CURSOR.target
-
-inherited field: INDEXABLE_ITERATION_CURSOR.target_index => LINKED_TREE_ITERATION_CURSOR.target_index
-
-inherited field: LINKED_LIST_CURSOR.active => LINKED_TREE_CURSOR.active
-inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => HASH_TABLE_ITERATION_CURSOR.is_reversed
-
-inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => LINKED_TREE_ITERATION_CURSOR.target
+??? field: LINKED_LIST.count => LINKED_STACK.count
 
 renamed field: TWO_WAY_LIST.last_element => TWO_WAY_TREE.last_child
 
+??? field: CONTAINER.object_comparison => HIERARCHICAL.object_comparison
 
-inherited field: INDEXABLE_ITERATION_CURSOR.step => HASH_TABLE_ITERATION_CURSOR.step
+inherited field: LINKED_LIST.count => LINKED_STACK.count
 
-inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_LIST_ITERATION_CURSOR.is_reversed
-inherited field: INDEXABLE_ITERATION_CURSOR.target_index => READABLE_INDEXABLE_ITERATION_CURSOR.target_index
+??? field: TWO_WAY_LIST.sublist => TWO_WAY_TREE.sublist
+[renamed field] LINKED_LIST.first_element => LINKED_TREE.first_child
+
+??? field: TO_SPECIAL.area => ARRAYED_STACK.area_v2
+
+
+
+??? field: LINKED_LIST.count => LINKED_STACK.count
+
+inherited field: DYNAMIC_TREE.parent => LINKED_TREE.parent
+
+??? field: CONTAINER.object_comparison => ARRAYED_STACK.object_comparison
+
+inherited field: FINITE.count => LINKED_STACK.count
+
+inherited field: TREE.first_child => LINKED_TREE.first_child
+
+??? field: CONTAINER.object_comparison => STACK.object_comparison
+??? field: ARRAYED_LIST.index => ARRAYED_STACK.index
+
+??? field: LINKED_LIST.active => LINKED_STACK.active
+
+renamed field: LINKED_LIST.first_element => LINKED_TREE.first_child
+
+
+inherited field: LINEAR.index => ARRAYED_STACK.index
+
+??? field: LINKED_LIST.first_element => LINKED_STACK.first_element
+
+??? field: CONTAINER.object_comparison => TWO_WAY_TREE.object_comparison
+
+??? field: CONTAINER.object_comparison => LINKED_TREE.object_comparison
+
+??? field: LINKED_LIST.count => LINKED_QUEUE.count
+
+??? field: LINKED_LIST.after => LINKED_TREE.child_after
+
+??? field: CONTAINER.object_comparison => LINKED_STACK.object_comparison
+
+??? field: LINKED_LIST.after => TWO_WAY_TREE.child_after
+
+inherited field: FINITE.count => ARRAYED_QUEUE.count
+renamed field: LINKED_LIST.after => LINKED_TREE.child_after
+
+??? field: LINKED_LIST.after => LINKED_STACK.after
+
+??? field: LINKED_LIST.after => LINKED_TREE.child_after
+
 renamed field: LINKED_LIST.after => TWO_WAY_TREE.child_after
 
+inherited field: LINKED_LIST.count => LINKED_QUEUE.count
 
-inherited field: INDEXABLE_ITERATION_CURSOR.last_index => HASH_TABLE_ITERATION_CURSOR.last_index
 
+inherited field: TREE.child_after => LINKED_TREE.child_after
 
+??? field: LINKED_LIST.after => TWO_WAY_TREE.child_after
+
+inherited field: LIST.after => LINKED_STACK.after
+
+??? field: LINKED_LIST.before => LINKED_TREE.child_before
+
+??? field: CONTAINER.object_comparison => ARRAYED_QUEUE.object_comparison
 inherited field: TREE.child_after => TWO_WAY_TREE.child_after
 
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => READABLE_INDEXABLE_ITERATION_CURSOR.first_index
+??? field: LINKED_LIST.before => LINKED_STACK.before
 
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => HASH_TABLE_ITERATION_CURSOR.first_index
+renamed field: LINKED_LIST.before => LINKED_TREE.child_before
 
-inherited field: FINITE.count => HASH_TABLE.count
 
-inherited field: INDEXABLE_ITERATION_CURSOR.step => LINKED_LIST_ITERATION_CURSOR.step
+??? field: LINKED_LIST.before => TWO_WAY_TREE.child_before
+
+inherited field: LIST.before => LINKED_STACK.before
+
+??? field: LINKED_LIST.count => LINKED_QUEUE.count
 
 renamed field: LINKED_LIST.before => TWO_WAY_TREE.child_before
 
-inherited field: INDEXABLE_ITERATION_CURSOR.last_index => READABLE_INDEXABLE_ITERATION_CURSOR.last_index
+inherited field: FINITE.count => LINKED_QUEUE.count
+
+??? field: CONTAINER.object_comparison => QUEUE.object_comparison
+
+??? field: LINKED_LIST.active => LINKED_QUEUE.active
+
+??? field: CONTAINER.object_comparison => HEAP_PRIORITY_QUEUE.object_comparison
+??? field: LINKED_LIST.before => LINKED_TREE.child_before
+
+??? field: CONTAINER.object_comparison => PRIORITY_QUEUE.object_comparison
+
+??? field: LINKED_LIST.first_element => LINKED_QUEUE.first_element
+
+
+inherited field: TREE.child_before => LINKED_TREE.child_before
+
+??? field: TWO_WAY_LIST.last_element => LINKED_PRIORITY_QUEUE.last_element
+
+??? field: CONTAINER.object_comparison => LINKED_QUEUE.object_comparison
+
+??? field: LINKED_LIST.count => LINKED_TREE.arity
+
+inherited field: LINKED_LIST.last_element => LINKED_PRIORITY_QUEUE.last_element
+
+??? field: LINKED_LIST.before => TWO_WAY_TREE.child_before
+
+??? field: LINKED_LIST.active => LINKED_PRIORITY_QUEUE.active
+
+??? field: LINKED_LIST.after => LINKED_QUEUE.after
+
+renamed field: LINKED_LIST.count => LINKED_TREE.arity
+
+??? field: CONTAINER.object_comparison => DISPENSER.object_comparison
 
 inherited field: TREE.child_before => TWO_WAY_TREE.child_before
 
-renamed field: INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
+??? field: TWO_WAY_LIST.first_element => LINKED_PRIORITY_QUEUE.first_element
 
-inherited field: INDEXABLE_ITERATION_CURSOR.last_index => LINKED_LIST_ITERATION_CURSOR.last_index
+??? field: LINKED_LIST.count => TWO_WAY_TREE.arity
 
-inherited field: FINITE.count => STRING_TABLE.count
+inherited field: LIST.after => LINKED_QUEUE.after
 
-inherited field: INDEXABLE_ITERATION_CURSOR.first_index => LINKED_LIST_ITERATION_CURSOR.first_index
+??? field: ARRAYED_QUEUE.count => BOUNDED_QUEUE.count
 
-inherited field: INDEXABLE_ITERATION_CURSOR.step => READABLE_INDEXABLE_ITERATION_CURSOR.step
-inherited field: READABLE_INDEXABLE.upper => ARRAY2.upper
+??? field: LINKED_LIST.count => LINKED_TREE.arity
+
+inherited field: LINKED_LIST.first_element => LINKED_PRIORITY_QUEUE.first_element
+
+inherited field: TREE.arity => LINKED_TREE.arity
+
+??? field: TWO_WAY_LIST.sublist => LINKED_PRIORITY_QUEUE.sublist
+
+??? field: LINKABLE.right => LINKED_TREE.right_sibling
+
+??? field: LINKED_LIST.count => LINKED_PRIORITY_QUEUE.count
+
+inherited field: ARRAYED_QUEUE.count => BOUNDED_QUEUE.count
 renamed field: LINKED_LIST.count => TWO_WAY_TREE.arity
 
+renamed field: LINKABLE.right => LINKED_TREE.right_sibling
+inherited field: LINKED_LIST.count => LINKED_PRIORITY_QUEUE.count
+??? field: LINKED_LIST.count => TWO_WAY_TREE.arity
 
-inherited field: INDEXABLE_ITERATION_CURSOR.target_index => LINKED_LIST_ITERATION_CURSOR.target_index
 
-inherited field: READABLE_INDEXABLE.lower => ARRAY2.lower
-
-inherited field: ARRAYED_LIST.index => ARRAYED_SET.index
 
 inherited field: TREE.arity => TWO_WAY_TREE.arity
 
-inherited field: LINEAR_SUBSET.index => ARRAYED_SET.index
 
-inherited field: LINEAR.after => BINARY_SEARCH_TREE_SET.after
+??? field: LINKED_LIST.before => LINKED_QUEUE.before
 
-inherited field: LINKED_LIST.count => LINKED_SET.count
+??? field: LINKED_LIST.count => LINKED_PRIORITY_QUEUE.count
 
+inherited field: LIST.before => LINKED_QUEUE.before
 
-inherited field: TRAVERSABLE_SUBSET.after => BINARY_SEARCH_TREE_SET.after
+inherited field: FINITE.count => LINKED_PRIORITY_QUEUE.count
 
-inherited field: LINKED_LIST.last_element => TWO_WAY_SORTED_SET.last_element
+??? field: LINKABLE.right => TWO_WAY_TREE.right_sibling
+
+??? field: ARRAYED_QUEUE.count => BOUNDED_QUEUE.count
+??? field: LINKABLE.right => LINKED_TREE.right_sibling
+
+??? field: CONTAINER.object_comparison => LINKED_PRIORITY_QUEUE.object_comparison
 
 renamed field: LINKABLE.right => TWO_WAY_TREE.right_sibling
 
-inherited field: TRAVERSABLE_SUBSET.count => LINKED_SET.count
+??? field: LINKED_LIST.after => LINKED_PRIORITY_QUEUE.after
 
-inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed
+??? field: TO_SPECIAL.area => BOUNDED_STACK.area_v2
 
-inherited field: BILINEAR.before => BINARY_SEARCH_TREE_SET.before
+inherited field: LINKED_LIST.after => LINKED_PRIORITY_QUEUE.after
 
-inherited field: LINKED_LIST.first_element => TWO_WAY_SORTED_SET.first_element
+
+inherited field: TREE.right_sibling => LINKED_TREE.right_sibling
+
+??? field: CONTAINER.object_comparison => BOUNDED_STACK.object_comparison
+
+inherited field: FINITE.count => BOUNDED_QUEUE.count
+??? field: LINKED_LIST.after => LINKED_PRIORITY_QUEUE.after
+
+??? field: LINKABLE.right => TWO_WAY_TREE.right_sibling
+
+??? field: ARRAYED_LIST.index => BOUNDED_STACK.index
+
+
+inherited field: LIST.after => LINKED_PRIORITY_QUEUE.after
 
 inherited field: TREE.right_sibling => TWO_WAY_TREE.right_sibling
-inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => READABLE_INDEXABLE_ITERATION_CURSOR.target
+
+??? field: CELL.item => LINKED_TREE.item
+inherited field: LINEAR.index => BOUNDED_STACK.index
+
+??? field: CONTAINER.object_comparison => BOUNDED_QUEUE.object_comparison
+
+inherited field: ITERATOR.target => LINEAR_ITERATOR.target
 
 
-inherited field: LINKED_LIST.last_element => PART_SORTED_SET.last_element
-inherited field: LINKED_LIST.before => LINKED_SET.before
+??? field: BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
 
+inherited field: CELL.item => LINKED_TREE.item
+
+??? field: LINKED_LIST.before => LINKED_PRIORITY_QUEUE.before
+
+??? field: ARRAYED_QUEUE.out_index => BOUNDED_QUEUE.out_index
+
+??? field: CELL.item => LINKED_TREE.item
 
 renamed field: BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
-inherited field: LINEAR_SUBSET.before => LINKED_SET.before
+
+??? field: ARRAYED_QUEUE.area => BOUNDED_QUEUE.area
+inherited field: LINKED_LIST.before => LINKED_PRIORITY_QUEUE.before
+
+inherited field: LINEAR_ITERATOR.target => CURSOR_TREE_ITERATOR.target
+
+??? field: BI_LINKABLE.left => TWO_WAY_TREE.left_sibling
 
 
-inherited field: LINKED_LIST.count => TWO_WAY_SORTED_SET.count
+??? field: LINKED_LIST.before => LINKED_PRIORITY_QUEUE.before
+inherited field: TREE.item => LINKED_TREE.item
 
-inherited field: LINKED_LIST.first_element => PART_SORTED_SET.first_element
 
-inherited field: TRAVERSABLE_SUBSET.count => TWO_WAY_SORTED_SET.count
-
-inherited field: LINKED_LIST.after => LINKED_SET.after
+inherited field: LINEAR_ITERATOR.target => TWO_WAY_CHAIN_ITERATOR.target
 
 inherited field: TREE.left_sibling => TWO_WAY_TREE.left_sibling
 
-inherited field: CURSOR_TREE.after => RECURSIVE_CURSOR_TREE.after
+inherited field: LIST.before => LINKED_PRIORITY_QUEUE.before
 
-inherited field: LINKED_LIST.count => PART_SORTED_SET.count
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => ARRAY_ITERATION_CURSOR.first_index
+??? field: LINKED_LIST.active => LINKED_TREE.child
 
-inherited field: SET.count => TWO_WAY_SORTED_SET.count
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => STRING_32_ITERATION_CURSOR.target
 
-inherited field: TRAVERSABLE_SUBSET.after => LINKED_SET.after
+??? field: CELL.item => TWO_WAY_TREE.item
 
-inherited field: LINKED_LIST.after => TWO_WAY_SORTED_SET.after
 
-inherited field: CURSOR_TREE.before => RECURSIVE_CURSOR_TREE.before
+renamed field: LINKED_LIST.active => LINKED_TREE.child
 
-inherited field: TRAVERSABLE_SUBSET.count => PART_SORTED_SET.count
+inherited field: GENERAL_SPECIAL_ITERATION_CURSOR.area_first_index => STRING_32_ITERATION_CURSOR.area_first_index
 
-inherited field: TRAVERSABLE_SUBSET.after => TWO_WAY_SORTED_SET.after
+inherited field: LINKED_LIST_CURSOR.active => TWO_WAY_LIST_CURSOR.active
+
+??? field: LINKED_LIST.active => LINKED_TREE.child
+
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => ARRAY_ITERATION_CURSOR.target
 inherited field: CELL.item => TWO_WAY_TREE.item
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_last_index => STRING_32_ITERATION_CURSOR.area_last_index
 
-inherited field: LINKED_LIST.before => PART_SORTED_SET.before
+
+inherited field: TREE.child => LINKED_TREE.child
+
+??? field: LINKED_LIST_CURSOR.before => TWO_WAY_LIST_CURSOR.before
+
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_index => STRING_32_ITERATION_CURSOR.area_index
+
+??? field: LINKED_LIST_CURSOR.after => TWO_WAY_LIST_CURSOR.after
+
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => ARRAYED_LIST_ITERATION_CURSOR.target
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_last_index => ARRAY_ITERATION_CURSOR.area_last_index
+??? field: CELL.item => TWO_WAY_TREE.item
+
+inherited field: LINKED_LIST_ITERATION_CURSOR.target => TWO_WAY_LIST_ITERATION_CURSOR.target
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area => STRING_32_ITERATION_CURSOR.area
 
 
 inherited field: TREE.item => TWO_WAY_TREE.item
 
-inherited field: LINKED_LIST.first_element => TWO_WAY_LIST.first_element
+inherited field: LINKED_LIST_ITERATION_CURSOR.active => TWO_WAY_LIST_ITERATION_CURSOR.active
 
-inherited field: LINKED_LIST.last_element => SORTED_TWO_WAY_LIST.last_element
+??? field: LINKED_LIST.active => TWO_WAY_TREE.child
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_last_index => ARRAYED_LIST_ITERATION_CURSOR.area_last_index
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_index => ARRAY_ITERATION_CURSOR.area_index
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => STRING_8_ITERATION_CURSOR.target
 
-inherited field: LINEAR_SUBSET.before => PART_SORTED_SET.before
 
-inherited field: LINKED_LIST.first_element => SORTED_TWO_WAY_LIST.first_element
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.version => TWO_WAY_LIST_ITERATION_CURSOR.version
+
+inherited field: GENERAL_SPECIAL_ITERATION_CURSOR.area_first_index => STRING_8_ITERATION_CURSOR.area_first_index
 
 renamed field: LINKED_LIST.active => TWO_WAY_TREE.child
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_LIST_ITERATION_CURSOR.is_reversed
 
-inherited field: LINKED_LIST.count => SORTED_TWO_WAY_LIST.count
 
-inherited field: LINEAR.after => TWO_WAY_SORTED_SET.after
 
-inherited field: LINKED_LIST.after => PART_SORTED_SET.after
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_LIST_ITERATION_CURSOR.is_reversed
 
-inherited field: LINKED_LIST.last_element => TWO_WAY_LIST.last_element
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_index => ARRAYED_LIST_ITERATION_CURSOR.area_index
 
-inherited field: TRAVERSABLE_SUBSET.after => PART_SORTED_SET.after
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_last_index => STRING_8_ITERATION_CURSOR.area_last_index
 
-inherited field: READABLE_INDEXABLE.count => SORTED_TWO_WAY_LIST.count
+??? field: LINKED_LIST.active => TWO_WAY_TREE.child
 
-inherited field: LINKED_LIST.before => TWO_WAY_SORTED_SET.before
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area => ARRAYED_LIST_ITERATION_CURSOR.area
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_index => STRING_8_ITERATION_CURSOR.area_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_LIST_ITERATION_CURSOR.step
 
 inherited field: TREE.child => TWO_WAY_TREE.child
 
-inherited field: READABLE_INDEXABLE.count => TWO_WAY_LIST.count
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area => STRING_8_ITERATION_CURSOR.area
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area => ARRAY_ITERATION_CURSOR.area
+
+[renamed field] TWO_WAY_LIST_ITERATION_CURSOR.active => TWO_WAY_TREE_ITERATION_CURSOR.node
+
+inherited field: TWO_WAY_LIST_CURSOR.active => TWO_WAY_TREE_CURSOR.active
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_LIST_ITERATION_CURSOR.step
+
+inherited field: TREE_ITERATION_CURSOR.node => TWO_WAY_TREE_ITERATION_CURSOR.node
+
+??? field: LINKED_LIST_CURSOR.before => TWO_WAY_TREE_CURSOR.before
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_LIST_ITERATION_CURSOR.last_index
+[renamed field] GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
+
+renamed field: TWO_WAY_LIST_ITERATION_CURSOR.active => TWO_WAY_TREE_ITERATION_CURSOR.node
+
+[renamed field] LINKED_LIST_ITERATION_CURSOR.active => LINKED_TREE_ITERATION_CURSOR.node
+??? field: LINKED_LIST_CURSOR.after => TWO_WAY_TREE_CURSOR.after
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_last_index => SPECIAL_ITERATION_CURSOR.area_last_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.version => TWO_WAY_TREE_ITERATION_CURSOR.version
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_LIST_ITERATION_CURSOR.last_index
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area_index => SPECIAL_ITERATION_CURSOR.area_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_TREE_ITERATION_CURSOR.is_reversed
+
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_LIST_ITERATION_CURSOR.first_index
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
+
+inherited field: TREE_ITERATION_CURSOR.node => LINKED_TREE_ITERATION_CURSOR.node
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => TWO_WAY_TREE_ITERATION_CURSOR.is_reversed
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_LIST_ITERATION_CURSOR.first_index
+
+renamed field: GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
+
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_TREE_ITERATION_CURSOR.step
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_LIST_ITERATION_CURSOR.target_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => TWO_WAY_TREE_ITERATION_CURSOR.step
+
+??? field: GENERAL_SPECIAL_ITERATION_CURSOR.area => SPECIAL_ITERATION_CURSOR.target
+
+renamed field: LINKED_LIST_ITERATION_CURSOR.active => LINKED_TREE_ITERATION_CURSOR.node
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_LIST_ITERATION_CURSOR.target_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_TREE_ITERATION_CURSOR.last_index
+
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => SPECIAL_ITERATION_CURSOR.target
+[renamed field] READABLE_INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => TWO_WAY_TREE_ITERATION_CURSOR.last_index
+
+inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => HASH_TABLE_ITERATION_CURSOR.target
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_TREE_ITERATION_CURSOR.first_index
+
+inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => LINKED_LIST_ITERATION_CURSOR.target
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.version => HASH_TABLE_ITERATION_CURSOR.version
+
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => TWO_WAY_TREE_ITERATION_CURSOR.first_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed => HASH_TABLE_ITERATION_CURSOR.is_reversed
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.version => LINKED_LIST_ITERATION_CURSOR.version
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_TREE_ITERATION_CURSOR.target_index
+
+inherited field: LINKED_LIST_CURSOR.active => LINKED_TREE_CURSOR.active
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => TWO_WAY_TREE_ITERATION_CURSOR.target_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => HASH_TABLE_ITERATION_CURSOR.is_reversed
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_LIST_ITERATION_CURSOR.is_reversed
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.version => LINKED_TREE_ITERATION_CURSOR.version
+??? field: TREE_ITERATION_CURSOR.child_index => TWO_WAY_TREE_ITERATION_CURSOR.child_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.step => HASH_TABLE_ITERATION_CURSOR.step
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_LIST_ITERATION_CURSOR.is_reversed
+
+
+??? field: TWO_WAY_LIST_ITERATION_CURSOR.target => TWO_WAY_TREE_ITERATION_CURSOR.target
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => HASH_TABLE_ITERATION_CURSOR.step
+
+??? field: LINKED_LIST_CURSOR.before => LINKED_TREE_CURSOR.before
+
+inherited field: LINKED_LIST_ITERATION_CURSOR.target => TWO_WAY_TREE_ITERATION_CURSOR.target
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_TREE_ITERATION_CURSOR.is_reversed
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.step => LINKED_LIST_ITERATION_CURSOR.step
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.last_index => HASH_TABLE_ITERATION_CURSOR.last_index
+
+??? field: LINKED_LIST_CURSOR.after => LINKED_TREE_CURSOR.after
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => LINKED_LIST_ITERATION_CURSOR.step
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => LINKED_TREE_ITERATION_CURSOR.is_reversed
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => READABLE_INDEXABLE_ITERATION_CURSOR.target_index
+
+inherited field: FINITE.count => HASH_TABLE.count
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => HASH_TABLE_ITERATION_CURSOR.last_index
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => READABLE_INDEXABLE_ITERATION_CURSOR.first_index
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.last_index => LINKED_LIST_ITERATION_CURSOR.last_index
+
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.step => LINKED_TREE_ITERATION_CURSOR.step
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.first_index => HASH_TABLE_ITERATION_CURSOR.first_index
+
+??? field: CONTAINER.object_comparison => HASH_TABLE.object_comparison
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => LINKED_LIST_ITERATION_CURSOR.last_index
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => READABLE_INDEXABLE_ITERATION_CURSOR.last_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => HASH_TABLE_ITERATION_CURSOR.first_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => LINKED_TREE_ITERATION_CURSOR.step
+??? field: HASH_TABLE.count => STRING_TABLE.count
+
+inherited field: INDEXABLE_ITERATION_CURSOR.step => READABLE_INDEXABLE_ITERATION_CURSOR.step
+
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
+
+inherited field: FINITE.count => STRING_TABLE.count
+
+inherited field: INDEXABLE_ITERATION_CURSOR.is_reversed => READABLE_INDEXABLE_ITERATION_CURSOR.is_reversed
+
+??? field: CONTAINER.object_comparison => STRING_TABLE.object_comparison
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.first_index => LINKED_LIST_ITERATION_CURSOR.first_index
+inherited field: TYPED_INDEXABLE_ITERATION_CURSOR.target => READABLE_INDEXABLE_ITERATION_CURSOR.target
+
+
+
+renamed field: INDEXABLE_ITERATION_CURSOR.target_index => HASH_TABLE_ITERATION_CURSOR.iteration_position
+??? field: HASH_TABLE.ht_deleted_key => STRING_TABLE.ht_deleted_key
+
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => LINKED_LIST_ITERATION_CURSOR.first_index
+
+??? field: HASH_TABLE.ht_deleted_item => STRING_TABLE.ht_deleted_item
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.last_index => LINKED_TREE_ITERATION_CURSOR.last_index
+??? field: CONTAINER.object_comparison => DYNAMIC_TABLE.object_comparison
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.target_index => LINKED_LIST_ITERATION_CURSOR.target_index
+
+??? field: HASH_TABLE.ht_lowest_deleted_position => STRING_TABLE.ht_lowest_deleted_position
+
+
+??? field: TO_SPECIAL.area => ARRAY2.area
+??? field: TO_SPECIAL.area => ARRAYED_SET.area_v2
+
+??? field: HASH_TABLE.deleted_item_position => STRING_TABLE.deleted_item_position
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => LINKED_LIST_ITERATION_CURSOR.target_index
+
+inherited field: INDEXABLE_ITERATION_CURSOR.last_index => LINKED_TREE_ITERATION_CURSOR.last_index
+??? field: CONTAINER.object_comparison => ARRAYED_SET.object_comparison
+
+??? field: CONTAINER.object_comparison => COMPARABLE_SET.object_comparison
+
+
+??? field: HASH_TABLE.control => STRING_TABLE.control
+
+??? field: ARRAYED_LIST.index => ARRAYED_SET.index
+
+??? field: HASH_TABLE.iteration_position => STRING_TABLE.iteration_position
+
+
+??? field: CONTAINER.object_comparison => TRAVERSABLE_SUBSET.object_comparison
+
+inherited field: ARRAYED_LIST.index => ARRAYED_SET.index
+
+??? field: HASH_TABLE.has_default => STRING_TABLE.has_default
+??? field: ARRAY.upper => ARRAY2.upper
+
+??? field: LINKED_LIST.active => LINKED_SET.active
+
+inherited field: READABLE_INDEXABLE.upper => ARRAY2.upper
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.first_index => LINKED_TREE_ITERATION_CURSOR.first_index
+??? field: ARRAYED_LIST.index => ARRAYED_SET.index
+
+??? field: LINKED_LIST.first_element => LINKED_SET.first_element
+
+
+
+??? field: ARRAY.lower => ARRAY2.lower
+
+??? field: CONTAINER.object_comparison => LINKED_SET.object_comparison
+
+inherited field: READABLE_INDEXABLE.lower => ARRAY2.lower
+
+??? field: HASH_TABLE.item_position => STRING_TABLE.item_position
+
+inherited field: LINEAR_SUBSET.index => ARRAYED_SET.index
+
+??? field: HASH_TABLE.deleted_marks => STRING_TABLE.deleted_marks
+
+??? field: LINKED_LIST.count => LINKED_SET.count
+
+??? field: CONTAINER.object_comparison => ARRAY2.object_comparison
+
+inherited field: INDEXABLE_ITERATION_CURSOR.first_index => LINKED_TREE_ITERATION_CURSOR.first_index
+??? field: HASH_TABLE.indexes_map => STRING_TABLE.indexes_map
+
+inherited field: LINKED_LIST.count => LINKED_SET.count
+
+??? field: CONTAINER.object_comparison => SUBSET.object_comparison
+
+
+??? field: HASH_TABLE.keys => STRING_TABLE.keys
+
+??? field: LINKED_LIST.count => LINKED_SET.count
+
+??? field: CONTAINER.object_comparison => LINEAR_SUBSET.object_comparison
+
+inherited field: TRAVERSABLE_SUBSET.count => LINKED_SET.count
+
+??? field: HASH_TABLE.content => STRING_TABLE.content
+
+inherited field: LINEAR.after => BINARY_SEARCH_TREE_SET.after
+
+??? field: LINKED_LIST.before => LINKED_SET.before
+
+??? field: READABLE_INDEXABLE_ITERATION_CURSOR.target_index => LINKED_TREE_ITERATION_CURSOR.target_index
+??? field: HASH_TABLE.hash_table_version_64 => STRING_TABLE.hash_table_version_64
+
+inherited field: TRAVERSABLE_SUBSET.after => BINARY_SEARCH_TREE_SET.after
+
+??? field: HASH_TABLE.capacity => STRING_TABLE.capacity
+
+
+inherited field: LINKED_LIST.before => LINKED_SET.before
+
+inherited field: BILINEAR.before => BINARY_SEARCH_TREE_SET.before
+
+??? field: LINKED_LIST.before => LINKED_SET.before
+
+??? field: TWO_WAY_LIST.last_element => TWO_WAY_SORTED_SET.last_element
+
+inherited field: INDEXABLE_ITERATION_CURSOR.target_index => LINKED_TREE_ITERATION_CURSOR.target_index
+
+??? field: HASH_TABLE.found_item => STRING_TABLE.found_item
+inherited field: LINEAR_SUBSET.before => LINKED_SET.before
+
+inherited field: LINKED_LIST.last_element => TWO_WAY_SORTED_SET.last_element
+
+??? field: LINKED_LIST.after => LINKED_SET.after
+
+??? field: CONTAINER.object_comparison => BINARY_SEARCH_TREE_SET.object_comparison
+
+
+??? field: LINKED_LIST.active => TWO_WAY_SORTED_SET.active
+
+inherited field: LINKED_LIST.after => LINKED_SET.after
+
+??? field: TREE_ITERATION_CURSOR.child_index => LINKED_TREE_ITERATION_CURSOR.child_index
+
+??? field: CONTAINER.object_comparison => SET.object_comparison
+
+??? field: TWO_WAY_LIST.last_element => PART_SORTED_SET.last_element
+??? field: LINKED_LIST.after => LINKED_SET.after
+
+
+??? field: TWO_WAY_LIST.first_element => TWO_WAY_SORTED_SET.first_element
+
+inherited field: CURSOR_TREE.after => RECURSIVE_CURSOR_TREE.after
+
+inherited field: LINKED_LIST.first_element => TWO_WAY_SORTED_SET.first_element
+
+inherited field: TRAVERSABLE_SUBSET.after => LINKED_SET.after
+
+??? field: LINKED_LIST_ITERATION_CURSOR.target => LINKED_TREE_ITERATION_CURSOR.target
+
+inherited field: LINKED_LIST.last_element => PART_SORTED_SET.last_element
+
+inherited field: CURSOR_TREE.before => RECURSIVE_CURSOR_TREE.before
+??? field: TWO_WAY_LIST.sublist => TWO_WAY_SORTED_SET.sublist
+
+??? field: CONTAINER.object_comparison => CURSOR_TREE.object_comparison
+
+??? field: LINKED_LIST.active => PART_SORTED_SET.active
+
+
+??? field: CONTAINER.object_comparison => TWO_WAY_SORTED_SET.object_comparison
+
+??? field: CONTAINER.object_comparison => COMPARABLE_STRUCT.object_comparison
+??? field: CONTAINER.object_comparison => RECURSIVE_CURSOR_TREE.object_comparison
+
+
+??? field: TWO_WAY_LIST.first_element => PART_SORTED_SET.first_element
+??? field: LINKED_LIST.count => TWO_WAY_SORTED_SET.count
+
+
+??? field: CURSOR_TREE.below => RECURSIVE_CURSOR_TREE.below
+
+??? field: CONTAINER.object_comparison => SORTED_STRUCT.object_comparison
+
+inherited field: READABLE_INDEXABLE_ITERATION_CURSOR.target => LINKED_TREE_ITERATION_CURSOR.target
+??? field: CONTAINER.object_comparison => INDEXABLE.object_comparison
+
+inherited field: LINKED_LIST.first_element => PART_SORTED_SET.first_element
+??? field: CONTAINER.object_comparison => ACTIVE.object_comparison
+
+??? field: CONTAINER.object_comparison => TABLE.object_comparison
+
+inherited field: LINKED_LIST.count => TWO_WAY_SORTED_SET.count
+
+
+??? field: CONTAINER.object_comparison => BAG.object_comparison
+
+??? field: CONTAINER.object_comparison => CURSOR_STRUCTURE.object_comparison
+
+
+??? field: LINKED_LIST.count => TWO_WAY_SORTED_SET.count
+
+??? field: CONTAINER.object_comparison => COLLECTION.object_comparison
+
+??? field: CIRCULAR.internal_exhausted => LINKED_CIRCULAR.internal_exhausted
+
+inherited field: TRAVERSABLE_SUBSET.count => TWO_WAY_SORTED_SET.count
+
+??? field: TWO_WAY_LIST.sublist => PART_SORTED_SET.sublist
+
+??? field: CONTAINER.object_comparison => PART_SORTED_LIST.object_comparison
+
+??? field: CONTAINER.object_comparison => CHAIN.object_comparison
+??? field: LINKED_LIST.count => TWO_WAY_SORTED_SET.count
+inherited field: LINKED_LIST.first_element => TWO_WAY_LIST.first_element
+
+
+
+??? field: CONTAINER.object_comparison => LINKED_CIRCULAR.object_comparison
+
+inherited field: LINKED_LIST.last_element => TWO_WAY_LIST.last_element
+
+inherited field: SET.count => TWO_WAY_SORTED_SET.count
 
 inherited field: LINEAR.index => MULTI_ARRAY_LIST.index
 
-inherited field: LINKED_LIST.after => SORTED_TWO_WAY_LIST.after
-inherited field: LINEAR_SUBSET.before => TWO_WAY_SORTED_SET.before
+??? field: TWO_WAY_LIST.last_element => SORTED_TWO_WAY_LIST.last_element
+??? field: LINKED_LIST.active => TWO_WAY_LIST.active
+
+??? field: LINKED_LIST.after => TWO_WAY_SORTED_SET.after
+
+??? field: LINKED_LIST.count => TWO_WAY_LIST.count
 
 
+??? field: CONTAINER.object_comparison => PART_SORTED_SET.object_comparison
+inherited field: READABLE_INDEXABLE.count => MULTI_ARRAY_LIST.count
+
+inherited field: READABLE_INDEXABLE.count => TWO_WAY_LIST.count
+
+inherited field: LINKED_LIST.after => TWO_WAY_SORTED_SET.after
+
+
+inherited field: LINKED_LIST.last_element => SORTED_TWO_WAY_LIST.last_element
+
+??? field: CONTAINER.object_comparison => TWO_WAY_LIST.object_comparison
+
+??? field: CONTAINER.object_comparison => MULTI_ARRAY_LIST.object_comparison
+
+??? field: LINKED_LIST.after => TWO_WAY_SORTED_SET.after
+
+??? field: LINKED_LIST.after => TWO_WAY_LIST.after
 inherited field: READABLE_INDEXABLE.count => LINKED_LIST.count
 
-inherited field: READABLE_INDEXABLE.count => MULTI_ARRAY_LIST.count
-inherited field: LIST.after => TWO_WAY_LIST.after
 
-inherited field: LIST.after => SORTED_TWO_WAY_LIST.after
+??? field: LINKED_LIST.active => SORTED_TWO_WAY_LIST.active
+inherited field: TRAVERSABLE_SUBSET.after => TWO_WAY_SORTED_SET.after
 
 inherited field: LIST.after => LINKED_LIST.after
 
+inherited field: LIST.after => TWO_WAY_LIST.after
 
-inherited field: LIST.before => TWO_WAY_LIST.before
 
-inherited field: LINKED_LIST.before => SORTED_TWO_WAY_LIST.before
+??? field: LINKED_LIST.after => TWO_WAY_SORTED_SET.after
 
-inherited field: BILINEAR.before => TWO_WAY_SORTED_SET.before
 inherited field: LIST.before => LINKED_LIST.before
 
-inherited field: ARRAYED_LIST.capacity => FIXED_LIST.capacity
+??? field: LINKED_LIST.count => PART_SORTED_SET.count
+
+inherited field: LINEAR.after => TWO_WAY_SORTED_SET.after
+
+??? field: LINKED_LIST.before => TWO_WAY_LIST.before
+
+??? field: TWO_WAY_LIST.first_element => SORTED_TWO_WAY_LIST.first_element
+
+??? field: LINKED_LIST.before => TWO_WAY_SORTED_SET.before
+
+inherited field: LINKED_LIST.count => PART_SORTED_SET.count
+
+??? field: CONTAINER.object_comparison => LINKED_LIST.object_comparison
+
+??? field: LINKED_LIST.count => PART_SORTED_SET.count
+
+inherited field: LIST.before => TWO_WAY_LIST.before
+inherited field: LINKED_LIST.before => TWO_WAY_SORTED_SET.before
+
+??? field: CONTAINER.object_comparison => SEQUENCE.object_comparison
+
+inherited field: TRAVERSABLE_SUBSET.count => PART_SORTED_SET.count
+
+
+??? field: LINKED_LIST.before => TWO_WAY_SORTED_SET.before
 
 [renamed field] TO_SPECIAL.area => ARRAYED_LIST.area_v2
 
+inherited field: LINKED_LIST.first_element => SORTED_TWO_WAY_LIST.first_element
+
+??? field: LINKED_LIST.before => PART_SORTED_SET.before
+
+??? field: CONTAINER.object_comparison => LIST.object_comparison
+
+inherited field: LINKED_LIST.before => PART_SORTED_SET.before
+
+??? field: TWO_WAY_LIST.sublist => SORTED_TWO_WAY_LIST.sublist
+inherited field: LINEAR_SUBSET.before => TWO_WAY_SORTED_SET.before
+
+inherited field: ARRAYED_LIST.capacity => FIXED_LIST.capacity
+
+??? field: LINKED_LIST.before => PART_SORTED_SET.before
+
+
+??? field: LINKED_LIST.before => TWO_WAY_SORTED_SET.before
+
 inherited field: BOUNDED.capacity => FIXED_LIST.capacity
 
-inherited field: LINKED_LIST.last_element => PART_SORTED_TWO_WAY_LIST.last_element
+inherited field: BILINEAR.before => TWO_WAY_SORTED_SET.before
+
+??? field: TO_SPECIAL.area => FIXED_LIST.area_v2
+
+inherited field: LINEAR_SUBSET.before => PART_SORTED_SET.before
+
+??? field: LINKED_LIST.count => SORTED_TWO_WAY_LIST.count
+
+??? field: CIRCULAR.internal_exhausted => DYNAMIC_CIRCULAR.internal_exhausted
+
+inherited field: LINEAR.index => ARRAYED_LIST.index
+
+inherited field: LINKED_LIST.count => SORTED_TWO_WAY_LIST.count
+
+??? field: CONTAINER.object_comparison => FIXED_LIST.object_comparison
+
+??? field: LINKED_LIST.after => PART_SORTED_SET.after
+??? field: TO_SPECIAL.area => ARRAYED_LIST.area_v2
+
+
+??? field: ARRAYED_LIST.index => FIXED_LIST.index
+
+inherited field: LINKED_LIST.after => PART_SORTED_SET.after
+
+??? field: CONTAINER.object_comparison => DYNAMIC_CIRCULAR.object_comparison
+
+??? field: CONTAINER.object_comparison => ARRAYED_LIST.object_comparison
+
+??? field: LINKED_LIST.count => SORTED_TWO_WAY_LIST.count
+??? field: LINKED_LIST.after => PART_SORTED_SET.after
+
+??? field: CELL.item => LINKABLE.item
 
 inherited field: LINEAR.index => FIXED_LIST.index
 
-inherited field: LIST.before => SORTED_TWO_WAY_LIST.before
 
-inherited field: LINEAR.index => ARRAYED_LIST.index
+inherited field: TRAVERSABLE_SUBSET.after => PART_SORTED_SET.after
+
+??? field: CONTAINER.object_comparison => SORTED_LIST.object_comparison
+
+??? field: TWO_WAY_LIST.last_element => PART_SORTED_TWO_WAY_LIST.last_element
+??? field: CIRCULAR.internal_exhausted => ARRAYED_CIRCULAR.internal_exhausted
 
 
 inherited field: LINKED_CIRCULAR.list => TWO_WAY_CIRCULAR.list
 
+??? field: CONTAINER.object_comparison => DYNAMIC_LIST.object_comparison
+
+??? field: CONTAINER.object_comparison => ARRAYED_CIRCULAR.object_comparison
+
+inherited field: READABLE_INDEXABLE.count => SORTED_TWO_WAY_LIST.count
+??? field: CIRCULAR.internal_exhausted => TWO_WAY_CIRCULAR.internal_exhausted
+
+
+??? field: CONTAINER.object_comparison => DYNAMIC_CHAIN.object_comparison
+
+??? field: CONTAINER.object_comparison => CIRCULAR.object_comparison
+
+inherited field: LINKED_LIST.last_element => PART_SORTED_TWO_WAY_LIST.last_element
+
+??? field: CELL.item => BI_LINKABLE.item
+
+??? field: CONTAINER.object_comparison => SORTED_TWO_WAY_LIST.object_comparison
+??? field: LINKED_CIRCULAR.starter => TWO_WAY_CIRCULAR.starter
+
+??? field: LINKED_LIST.active => PART_SORTED_TWO_WAY_LIST.active
+
+??? field: LINKABLE.right => BI_LINKABLE.right
+
+
+??? field: CONTAINER.object_comparison => TWO_WAY_CIRCULAR.object_comparison
+??? field: TWO_WAY_LIST.first_element => PART_SORTED_TWO_WAY_LIST.first_element
+
+??? field: CONTAINER.object_comparison => FINITE.object_comparison
+
+??? field: CONTAINER.object_comparison => BOUNDED.object_comparison
+
 inherited field: LINKED_LIST.first_element => PART_SORTED_TWO_WAY_LIST.first_element
 
+??? field: LINKED_LIST.after => SORTED_TWO_WAY_LIST.after
+
+
+??? field: CONTAINER.object_comparison => INFINITE.object_comparison
+
+??? field: CONTAINER.object_comparison => UNBOUNDED.object_comparison
+
+??? field: TWO_WAY_LIST.sublist => PART_SORTED_TWO_WAY_LIST.sublist
+??? field: CONTAINER.object_comparison => RESIZABLE.object_comparison
+
+??? field: CONTAINER.object_comparison => FIXED.object_comparison
+
+??? field: CONTAINER.object_comparison => BOX.object_comparison
+
+
+inherited field: LINKED_LIST.after => SORTED_TWO_WAY_LIST.after
+??? field: CONTAINER.object_comparison => COUNTABLE.object_comparison
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_exception_propagated => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.is_exception_propagated
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_exception_on_copy_suppressed => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.is_exception_on_copy_suppressed
+
+??? field: CONTAINER.object_comparison => FIBONACCI.object_comparison
+
+??? field: LINKED_LIST.count => PART_SORTED_TWO_WAY_LIST.count
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_skip_copy_semantics_reference => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.is_skip_copy_semantics_reference
+
+??? field: LINKED_LIST.after => SORTED_TWO_WAY_LIST.after
 inherited field: LINKED_LIST.count => PART_SORTED_TWO_WAY_LIST.count
+??? field: COUNTABLE_SEQUENCE.index => FIBONACCI.index
+
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_skip_transient => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.is_skip_transient
+
 inherited field: LINEAR.index => FIBONACCI.index
+
+inherited field: LIST.after => SORTED_TWO_WAY_LIST.after
+
+??? field: REFLECTED_OBJECT.dynamic_type => REFLECTED_COPY_SEMANTICS_OBJECT.dynamic_type
+??? field: OBJECT_GRAPH_TRAVERSABLE.has_reference_with_copy_semantics => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.has_reference_with_copy_semantics
+
+
+??? field: HASH_TABLE.count => MISMATCH_INFORMATION.count
+
+??? field: LINKED_LIST.before => SORTED_TWO_WAY_LIST.before
+??? field: OBJECT_GRAPH_TRAVERSABLE.has_failed => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.has_failed
 
 inherited field: FINITE.count => MISMATCH_INFORMATION.count
 
+??? field: LINKED_LIST.count => PART_SORTED_TWO_WAY_LIST.count
+??? field: OBJECT_GRAPH_TRAVERSABLE.visited_types => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.visited_types
 
-inherited field: FINITE.count => CLASS_NAME_TRANSLATIONS.count
+??? field: CONTAINER.object_comparison => MISMATCH_INFORMATION.object_comparison
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_exception_propagated => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.is_exception_propagated
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.visited_objects => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.visited_objects
+
+??? field: HASH_TABLE.ht_deleted_key => MISMATCH_INFORMATION.ht_deleted_key
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.object_action => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.object_action
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_exception_on_copy_suppressed => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.is_exception_on_copy_suppressed
+??? field: HASH_TABLE.ht_deleted_item => MISMATCH_INFORMATION.ht_deleted_item
 
 inherited field: READABLE_INDEXABLE.count => PART_SORTED_TWO_WAY_LIST.count
+??? field: OBJECT_GRAPH_TRAVERSABLE.on_processing_reference_action => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.on_processing_reference_action
 
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.on_processing_object_action => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.on_processing_object_action
+
+
+??? field: HASH_TABLE.ht_lowest_deleted_position => MISMATCH_INFORMATION.ht_lowest_deleted_position
+
+inherited field: LINKED_LIST.before => SORTED_TWO_WAY_LIST.before
+??? field: OBJECT_GRAPH_TRAVERSABLE.root_object => OBJECT_GRAPH_BREADTH_FIRST_TRAVERSABLE.root_object
+
+??? field: HASH_TABLE.deleted_item_position => MISMATCH_INFORMATION.deleted_item_position
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_skip_copy_semantics_reference => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.is_skip_copy_semantics_reference
+
+
+??? field: CONTAINER.object_comparison => PRIMES.object_comparison
+
+
+??? field: HASH_TABLE.control => MISMATCH_INFORMATION.control
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.is_skip_transient => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.is_skip_transient
+??? field: COUNTABLE_SEQUENCE.index => PRIMES.index
+
+??? field: HASH_TABLE.iteration_position => MISMATCH_INFORMATION.iteration_position
+
+
+??? field: LINKED_LIST.before => SORTED_TWO_WAY_LIST.before
 inherited field: LINEAR.index => PRIMES.index
 
-inherited field: LINEAR.index => COUNTABLE_SEQUENCE.index
+??? field: HASH_TABLE.has_default => MISMATCH_INFORMATION.has_default
+
+??? field: CONTAINER.object_comparison => PART_SORTED_TWO_WAY_LIST.object_comparison
+
+??? field: HASH_TABLE.count => CLASS_NAME_TRANSLATIONS.count
+
+??? field: HASH_TABLE.item_position => MISMATCH_INFORMATION.item_position
+
+
+??? field: LINKED_LIST.after => PART_SORTED_TWO_WAY_LIST.after
+inherited field: FINITE.count => CLASS_NAME_TRANSLATIONS.count
+
+??? field: HASH_TABLE.deleted_marks => MISMATCH_INFORMATION.deleted_marks
+??? field: CONTAINER.object_comparison => CLASS_NAME_TRANSLATIONS.object_comparison
+
+inherited field: LIST.before => SORTED_TWO_WAY_LIST.before
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.has_reference_with_copy_semantics => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.has_reference_with_copy_semantics
+??? field: HASH_TABLE.ht_deleted_key => CLASS_NAME_TRANSLATIONS.ht_deleted_key
+
+??? field: HASH_TABLE.indexes_map => MISMATCH_INFORMATION.indexes_map
 
 inherited field: LINKED_LIST.after => PART_SORTED_TWO_WAY_LIST.after
 
+??? field: HASH_TABLE.ht_deleted_item => CLASS_NAME_TRANSLATIONS.ht_deleted_item
+
+??? field: HASH_TABLE.keys => MISMATCH_INFORMATION.keys
+
+
+??? field: LINKED_LIST.after => PART_SORTED_TWO_WAY_LIST.after
+??? field: HASH_TABLE.ht_lowest_deleted_position => CLASS_NAME_TRANSLATIONS.ht_lowest_deleted_position
+
+??? field: HASH_TABLE.content => MISMATCH_INFORMATION.content
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.has_failed => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.has_failed
+??? field: HASH_TABLE.deleted_item_position => CLASS_NAME_TRANSLATIONS.deleted_item_position
+
+??? field: HASH_TABLE.hash_table_version_64 => MISMATCH_INFORMATION.hash_table_version_64
+
+
+
+??? field: HASH_TABLE.control => CLASS_NAME_TRANSLATIONS.control
+
+??? field: HASH_TABLE.capacity => MISMATCH_INFORMATION.capacity
+
+inherited field: LINEAR.index => COUNTABLE_SEQUENCE.index
+??? field: HASH_TABLE.iteration_position => CLASS_NAME_TRANSLATIONS.iteration_position
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.visited_types => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.visited_types
+??? field: HASH_TABLE.found_item => MISMATCH_INFORMATION.found_item
+
+inherited field: LIST.after => PART_SORTED_TWO_WAY_LIST.after
+??? field: HASH_TABLE.has_default => CLASS_NAME_TRANSLATIONS.has_default
+
+
+
+??? field: TO_SPECIAL.area => BOOL_STRING.area
+
+??? field: HASH_TABLE.item_position => CLASS_NAME_TRANSLATIONS.item_position
+
+??? field: CONTAINER.object_comparison => COUNTABLE_SEQUENCE.object_comparison
+
+??? field: LINKED_LIST.before => PART_SORTED_TWO_WAY_LIST.before
+??? field: CONTAINER.object_comparison => RANDOM.object_comparison
+
+
+
+??? field: HASH_TABLE.deleted_marks => CLASS_NAME_TRANSLATIONS.deleted_marks
+
+??? field: FORMAT_INTEGER.bracketted_negative => FORMAT_DOUBLE.bracketted_negative
+??? field: COUNTABLE_SEQUENCE.index => RANDOM.index
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.visited_objects => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.visited_objects
+??? field: HASH_TABLE.indexes_map => CLASS_NAME_TRANSLATIONS.indexes_map
+
+inherited field: LINKED_LIST.before => PART_SORTED_TWO_WAY_LIST.before
 inherited field: LINEAR.index => RANDOM.index
+
+
+??? field: HASH_TABLE.keys => CLASS_NAME_TRANSLATIONS.keys
+
+
+??? field: REFLECTED_OBJECT.dynamic_type => REFLECTED_REFERENCE_OBJECT.dynamic_type
+
+??? field: FORMAT_INTEGER.sign_string => FORMAT_DOUBLE.sign_string
+??? field: OBJECT_GRAPH_TRAVERSABLE.object_action => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.object_action
+
+??? field: HASH_TABLE.content => CLASS_NAME_TRANSLATIONS.content
 
 inherited field: IO_MEDIUM.is_closed => STREAM.is_closed
 
-inherited field: LIST.after => PART_SORTED_TWO_WAY_LIST.after
 
-inherited field: READABLE_STRING_8.area => DIRECTORY_NAME.area
+??? field: HASH_TABLE.hash_table_version_64 => CLASS_NAME_TRANSLATIONS.hash_table_version_64
 
-[renamed field] TO_SPECIAL.area => FILE_INFO.buffered_file_info
+??? field: OBJECT_GRAPH_TRAVERSABLE.on_processing_reference_action => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.on_processing_reference_action
+??? field: IO_MEDIUM.bytes_read => STREAM.bytes_read
 
-inherited field: LINKED_LIST.before => PART_SORTED_TWO_WAY_LIST.before
+??? field: FORMAT_INTEGER.sign_format => FORMAT_DOUBLE.sign_format
+??? field: HASH_TABLE.capacity => CLASS_NAME_TRANSLATIONS.capacity
 
-inherited field: TO_SPECIAL.area => DIRECTORY_NAME.area
+
+??? field: IO_MEDIUM.last_double => STREAM.last_double
+
+
+??? field: HASH_TABLE.found_item => CLASS_NAME_TRANSLATIONS.found_item
+
+??? field: LINKED_LIST.before => PART_SORTED_TWO_WAY_LIST.before
+??? field: IO_MEDIUM.last_real => STREAM.last_real
+
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.on_processing_object_action => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.on_processing_object_action
+??? field: STRING_8.area => DIRECTORY_NAME.area
+
+??? field: IO_MEDIUM.last_natural_8 => STREAM.last_natural_8
 
 inherited field: LIST.before => PART_SORTED_TWO_WAY_LIST.before
 
-renamed field: IO_MEDIUM.handle_available => RAW_FILE.descriptor_available
+inherited field: READABLE_STRING_8.area => DIRECTORY_NAME.area
 
+??? field: IO_MEDIUM.last_natural_16 => STREAM.last_natural_16
+
+
+??? field: STRING_8.area => DIRECTORY_NAME.area
+
+??? field: IO_MEDIUM.last_natural => STREAM.last_natural
+
+??? field: TO_SPECIAL.area => UNIX_FILE_INFO.buffered_file_info
+inherited field: TO_SPECIAL.area => DIRECTORY_NAME.area
+
+??? field: OBJECT_GRAPH_TRAVERSABLE.root_object => OBJECT_GRAPH_DEPTH_FIRST_TRAVERSABLE.root_object
+??? field: IO_MEDIUM.last_natural_64 => STREAM.last_natural_64
+
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => DIRECTORY_NAME.internal_case_insensitive_hash_code
+
+
+??? field: IO_MEDIUM.last_integer_8 => STREAM.last_integer_8
+
+??? field: FORMAT_INTEGER.trailing_sign => FORMAT_DOUBLE.trailing_sign
+??? field: READABLE_STRING_GENERAL.internal_hash_code => DIRECTORY_NAME.internal_hash_code
+
+??? field: IO_MEDIUM.last_integer_16 => STREAM.last_integer_16
+
+
+
+??? field: READABLE_STRING_8.count => DIRECTORY_NAME.count
+
+??? field: IO_MEDIUM.last_integer_64 => STREAM.last_integer_64
+
+??? field: FILE_INFO.internal_name_pointer => UNIX_FILE_INFO.internal_name_pointer
 inherited field: READABLE_STRING_8.count => DIRECTORY_NAME.count
 
-renamed field: IO_MEDIUM.handle_available => PLAIN_TEXT_FILE.descriptor_available
+??? field: IO_MEDIUM.last_integer => STREAM.last_integer
 
-inherited field: READABLE_STRING_8.area => FILE_NAME.area
+[renamed field] TO_SPECIAL.area => FILE_INFO.buffered_file_info
+??? field: IO_MEDIUM.last_string => STREAM.last_string
+
+
+??? field: FORMAT_INTEGER.justification => FORMAT_DOUBLE.justification
+
+??? field: READABLE_STRING_8.count => DIRECTORY_NAME.count
+
+
+??? field: FILE_INFO.internal_file_name => UNIX_FILE_INFO.internal_file_name
+??? field: IO_MEDIUM.last_character => STREAM.last_character
+
 inherited field: READABLE_STRING_GENERAL.count => DIRECTORY_NAME.count
+
+??? field: FORMAT_INTEGER.separator => FORMAT_DOUBLE.separator
+
+??? field: MEMORY_STRUCTURE.managed_pointer => MEM_INFO.managed_pointer
+
+??? field: TO_SPECIAL.area => FILE_INFO.buffered_file_info
+
+??? field: READABLE_STRING_8.count => DIRECTORY_NAME.count
+
+??? field: MEMORY_STRUCTURE.internal_item => MEM_INFO.internal_item
+
+??? field: FORMAT_INTEGER.width => FORMAT_DOUBLE.width
+renamed field: READABLE_INDEXABLE.upper => DIRECTORY_NAME.count
+
+??? field: MEMORY_STRUCTURE.shared => MEM_INFO.shared
+
+
+??? field: READABLE_STRING_8.count => DIRECTORY_NAME.count
+
+??? field: FILE.mode => RAW_FILE.mode
+
+??? field: FILE.mode => PLAIN_TEXT_FILE.mode
+
+??? field: FILE_INFO.is_following_symlinks => UNIX_FILE_INFO.is_following_symlinks
+
+inherited field: FINITE.count => DIRECTORY_NAME.count
+??? field: FILE.internal_detachable_name_pointer => PLAIN_TEXT_FILE.internal_detachable_name_pointer
+
+
+
+??? field: FILE.internal_detachable_name_pointer => RAW_FILE.internal_detachable_name_pointer
+
+??? field: FILE.internal_name => PLAIN_TEXT_FILE.internal_name
+
+??? field: FORMAT_INTEGER.fill_character => FORMAT_DOUBLE.fill_character
+
+??? field: FILE_INFO.exists => UNIX_FILE_INFO.exists
+
+??? field: FILE.file_pointer => PLAIN_TEXT_FILE.file_pointer
+
+??? field: FILE.internal_name => RAW_FILE.internal_name
+
+??? field: FILE.separator => PLAIN_TEXT_FILE.separator
+
+??? field: CONTAINER.object_comparison => DIRECTORY_NAME.object_comparison
+
+??? field: IO_MEDIUM.bytes_read => PLAIN_TEXT_FILE.bytes_read
+
+??? field: STRING_8.area => FILE_NAME.area
+
+??? field: MEMORY_STRUCTURE.managed_pointer => GC_INFO.managed_pointer
+??? field: IO_MEDIUM.last_double => PLAIN_TEXT_FILE.last_double
 
 [renamed field] IO_MEDIUM.handle_available => FILE.descriptor_available
 
-inherited field: READABLE_INDEXABLE.lower => INTEGER_INTERVAL.lower
-
-renamed field: READABLE_INDEXABLE.upper => DIRECTORY_NAME.count
-
-renamed field: IO_MEDIUM.handle_available => CONSOLE.descriptor_available
-
-inherited field: READABLE_INDEXABLE.upper => INTEGER_INTERVAL.upper
+??? field: FILE.file_pointer => RAW_FILE.file_pointer
+inherited field: READABLE_STRING_8.area => FILE_NAME.area
+??? field: IO_MEDIUM.last_real => PLAIN_TEXT_FILE.last_real
 
 renamed field: IO_MEDIUM.handle_available => FILE.descriptor_available
 
 
+
+??? field: IO_MEDIUM.last_natural_8 => PLAIN_TEXT_FILE.last_natural_8
+
+??? field: IO_MEDIUM.bytes_read => FILE.bytes_read
+??? field: MEMORY_STRUCTURE.internal_item => GC_INFO.internal_item
+
+??? field: IO_MEDIUM.last_natural_16 => PLAIN_TEXT_FILE.last_natural_16
+
+
+??? field: STRING_8.area => FILE_NAME.area
+
+??? field: MEMORY_STRUCTURE.shared => GC_INFO.shared
+??? field: IO_MEDIUM.last_natural => PLAIN_TEXT_FILE.last_natural
+
+??? field: FILE.separator => RAW_FILE.separator
+
+
 inherited field: TO_SPECIAL.area => FILE_NAME.area
+??? field: IO_MEDIUM.last_natural_64 => PLAIN_TEXT_FILE.last_natural_64
 
-inherited field: FINITE.count => DIRECTORY_NAME.count
 
-inherited field: READABLE_STRING_8.area => PATH_NAME.area
+??? field: IO_MEDIUM.bytes_read => RAW_FILE.bytes_read
+
+
+??? field: IO_MEDIUM.last_integer_8 => PLAIN_TEXT_FILE.last_integer_8
+??? field: IO_MEDIUM.last_double => RAW_FILE.last_double
+
+
+??? field: IO_MEDIUM.last_double => FILE.last_double
+
+inherited field: READABLE_INDEXABLE.lower => INTEGER_INTERVAL.lower
+??? field: IO_MEDIUM.last_integer_16 => PLAIN_TEXT_FILE.last_integer_16
+
+??? field: IO_MEDIUM.last_real => RAW_FILE.last_real
+
+??? field: IO_MEDIUM.last_real => FILE.last_real
+
+??? field: IO_MEDIUM.last_integer_64 => PLAIN_TEXT_FILE.last_integer_64
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => FILE_NAME.internal_case_insensitive_hash_code
+
+
+??? field: IO_MEDIUM.last_natural_8 => FILE.last_natural_8
+??? field: IO_MEDIUM.last_integer => PLAIN_TEXT_FILE.last_integer
+
+
+??? field: IO_MEDIUM.last_natural_8 => RAW_FILE.last_natural_8
+
+inherited field: READABLE_INDEXABLE.upper => INTEGER_INTERVAL.upper
+??? field: IO_MEDIUM.last_string => PLAIN_TEXT_FILE.last_string
+
+??? field: IO_MEDIUM.last_natural_16 => FILE.last_natural_16
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => FILE_NAME.internal_hash_code
+
+??? field: IO_MEDIUM.last_character => PLAIN_TEXT_FILE.last_character
+
+??? field: IO_MEDIUM.last_natural_16 => RAW_FILE.last_natural_16
+
+
+??? field: READABLE_STRING_8.count => FILE_NAME.count
+??? field: FILE.descriptor_available => PLAIN_TEXT_FILE.descriptor_available
+
+??? field: IO_MEDIUM.last_natural => RAW_FILE.last_natural
+
+??? field: IO_MEDIUM.last_natural => FILE.last_natural
+
+renamed field: IO_MEDIUM.handle_available => PLAIN_TEXT_FILE.descriptor_available
+
+??? field: CONTAINER.object_comparison => INTEGER_INTERVAL.object_comparison
+
+
+??? field: IO_MEDIUM.last_natural_64 => FILE.last_natural_64
+??? field: CONTAINER.object_comparison => PLAIN_TEXT_FILE.object_comparison
+
+
+??? field: IO_MEDIUM.last_natural_64 => RAW_FILE.last_natural_64
 
 inherited field: READABLE_STRING_8.count => FILE_NAME.count
 
-inherited field: TO_SPECIAL.area => PATH_NAME.area
+??? field: IO_MEDIUM.last_integer_8 => RAW_FILE.last_integer_8
+??? field: STRING_8.area => PATH_NAME.area
+
+??? field: FILE.mode => CONSOLE.mode
+
+??? field: READABLE_STRING_8.count => FILE_NAME.count
+
+inherited field: READABLE_STRING_8.area => PATH_NAME.area
+
+??? field: IO_MEDIUM.last_integer_8 => FILE.last_integer_8
+
 
 inherited field: READABLE_STRING_GENERAL.count => FILE_NAME.count
+??? field: STRING_8.area => PATH_NAME.area
 
-inherited field: READABLE_STRING_8.count => PATH_NAME.count
+??? field: IO_MEDIUM.last_integer_16 => FILE.last_integer_16
+
+??? field: FILE.internal_detachable_name_pointer => CONSOLE.internal_detachable_name_pointer
+
+inherited field: TO_SPECIAL.area => PATH_NAME.area
+
+??? field: IO_MEDIUM.last_integer_16 => RAW_FILE.last_integer_16
+
+
+??? field: FILE.internal_name => CONSOLE.internal_name
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => PATH_NAME.internal_case_insensitive_hash_code
+
+
+??? field: IO_MEDIUM.last_integer_64 => RAW_FILE.last_integer_64
+
+??? field: IO_MEDIUM.last_integer_64 => FILE.last_integer_64
+??? field: READABLE_STRING_GENERAL.internal_hash_code => PATH_NAME.internal_hash_code
+
+??? field: FILE.file_pointer => CONSOLE.file_pointer
+
+??? field: READABLE_STRING_8.count => FILE_NAME.count
+
+??? field: READABLE_STRING_8.count => PATH_NAME.count
+
+??? field: IO_MEDIUM.last_integer => RAW_FILE.last_integer
+
 
 renamed field: READABLE_INDEXABLE.upper => FILE_NAME.count
+inherited field: READABLE_STRING_8.count => PATH_NAME.count
+
+??? field: IO_MEDIUM.last_string => RAW_FILE.last_string
+
+
+??? field: FILE.separator => CONSOLE.separator
+??? field: READABLE_STRING_8.count => PATH_NAME.count
+
+??? field: IO_MEDIUM.last_character => RAW_FILE.last_character
+
+??? field: READABLE_STRING_8.count => FILE_NAME.count
+??? field: IO_MEDIUM.last_integer => FILE.last_integer
 
 inherited field: READABLE_STRING_GENERAL.count => PATH_NAME.count
-[renamed field] RT_DBG_VALUE_RECORD.position => RT_DBG_FIELD_RECORD.index
 
-[renamed field] READABLE_INDEXABLE.upper => READABLE_STRING_32.count
 
-inherited field: FINITE.count => FILE_NAME.count
 
-inherited field: LINEAR.index => SEQ_STRING.index
+??? field: PLAIN_TEXT_FILE.is_sequence_an_expected_numeric => CONSOLE.is_sequence_an_expected_numeric
 
-inherited field: READABLE_STRING_GENERAL.count => READABLE_STRING_32.count
+??? field: READABLE_STRING_8.count => PATH_NAME.count
 
-[renamed field] RT_DBG_VALUE_RECORD.position => RT_DBG_ATTRIBUTE_RECORD.offset
+??? field: FILE.descriptor_available => RAW_FILE.descriptor_available
+
+??? field: IO_MEDIUM.last_string => FILE.last_string
 
 renamed field: READABLE_INDEXABLE.upper => PATH_NAME.count
 
+??? field: PLAIN_TEXT_FILE.internal_encoding => CONSOLE.internal_encoding
+
+inherited field: FINITE.count => FILE_NAME.count
+
+??? field: READABLE_STRING_8.count => PATH_NAME.count
+
+??? field: IO_MEDIUM.last_character => FILE.last_character
+
+renamed field: IO_MEDIUM.handle_available => RAW_FILE.descriptor_available
+inherited field: FINITE.count => PATH_NAME.count
+
+??? field: CONTAINER.object_comparison => FILE_NAME.object_comparison
+
+??? field: CONTAINER.object_comparison => FILE.object_comparison
+
+
+??? field: CONTAINER.object_comparison => PATH_NAME.object_comparison
+
+??? field: PLAIN_TEXT_FILE.last_string_32 => CONSOLE.last_string_32
+??? field: EXCEPTION.internal_trace => OPERATING_SYSTEM_EXCEPTION.internal_trace
+??? field: EXCEPTION.internal_trace => LANGUAGE_EXCEPTION.internal_trace
+
+??? field: EXCEPTION.internal_trace => EIF_EXCEPTION.internal_trace
+
+??? field: CONTAINER.object_comparison => RAW_FILE.object_comparison
+
+
+??? field: EXCEPTION.internal_is_ignorable => LANGUAGE_EXCEPTION.internal_is_ignorable
+??? field: EXCEPTION.internal_is_ignorable => OPERATING_SYSTEM_EXCEPTION.internal_is_ignorable
+
+
+??? field: EXCEPTION.internal_is_ignorable => EIF_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => CHECK_VIOLATION.internal_trace
+??? field: EXCEPTION.c_description => OPERATING_SYSTEM_EXCEPTION.c_description
+
+??? field: EXCEPTION.c_description => LANGUAGE_EXCEPTION.c_description
+
+??? field: EXCEPTION.c_description => EIF_EXCEPTION.c_description
+
+??? field: EXCEPTION.throwing_exception => OPERATING_SYSTEM_EXCEPTION.throwing_exception
+
+
+??? field: EXCEPTION.throwing_exception => LANGUAGE_EXCEPTION.throwing_exception
+
+??? field: IO_MEDIUM.bytes_read => CONSOLE.bytes_read
+??? field: EXCEPTION.line_number => OPERATING_SYSTEM_EXCEPTION.line_number
+
+??? field: EXCEPTION.throwing_exception => EIF_EXCEPTION.throwing_exception
+
+
+??? field: EXCEPTION.line_number => LANGUAGE_EXCEPTION.line_number
+??? field: EXCEPTION.type_name => OPERATING_SYSTEM_EXCEPTION.type_name
+
+??? field: EXCEPTION.line_number => EIF_EXCEPTION.line_number
+
+
+??? field: EXCEPTION.internal_is_ignorable => CHECK_VIOLATION.internal_is_ignorable
+??? field: EXCEPTION.recipient_name => OPERATING_SYSTEM_EXCEPTION.recipient_name
+
+??? field: EXCEPTION.type_name => EIF_EXCEPTION.type_name
+
+??? field: IO_MEDIUM.last_double => CONSOLE.last_double
+
+
+??? field: EXCEPTION.internal_trace => ASSERTION_VIOLATION.internal_trace
+
+??? field: EXCEPTION.recipient_name => EIF_EXCEPTION.recipient_name
+
+
+??? field: EXCEPTION.c_description => CHECK_VIOLATION.c_description
+??? field: EXCEPTION.internal_is_ignorable => ASSERTION_VIOLATION.internal_is_ignorable
+
+
+??? field: EXCEPTION.internal_trace => DEVELOPER_EXCEPTION.internal_trace
+
+??? field: EXCEPTION.type_name => LANGUAGE_EXCEPTION.type_name
+??? field: EXCEPTION.c_description => ASSERTION_VIOLATION.c_description
+
+??? field: EXCEPTION.throwing_exception => CHECK_VIOLATION.throwing_exception
+
+??? field: EXCEPTION.internal_is_ignorable => DEVELOPER_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.throwing_exception => ASSERTION_VIOLATION.throwing_exception
+
+??? field: EXCEPTION.c_description => DEVELOPER_EXCEPTION.c_description
+??? field: EXCEPTION.line_number => ASSERTION_VIOLATION.line_number
+
+??? field: IO_MEDIUM.last_real => CONSOLE.last_real
+
+??? field: EXCEPTION.line_number => CHECK_VIOLATION.line_number
+
+??? field: EXCEPTION.type_name => ASSERTION_VIOLATION.type_name
+
+
+??? field: EXCEPTION.throwing_exception => DEVELOPER_EXCEPTION.throwing_exception
+
+??? field: EXCEPTION.type_name => CHECK_VIOLATION.type_name
+??? field: EXCEPTION.recipient_name => ASSERTION_VIOLATION.recipient_name
+
+??? field: EXCEPTION.recipient_name => LANGUAGE_EXCEPTION.recipient_name
+
+??? field: EXCEPTION.line_number => DEVELOPER_EXCEPTION.line_number
+
+
+??? field: EXCEPTION.internal_trace => VARIANT_VIOLATION.internal_trace
+
+??? field: EXCEPTION.internal_trace => MACHINE_EXCEPTION.internal_trace
+
+
+??? field: EXCEPTION.recipient_name => CHECK_VIOLATION.recipient_name
+??? field: EXCEPTION.internal_is_ignorable => VARIANT_VIOLATION.internal_is_ignorable
+
+
+??? field: EXCEPTION.internal_is_ignorable => MACHINE_EXCEPTION.internal_is_ignorable
+
+??? field: IO_MEDIUM.last_natural_8 => CONSOLE.last_natural_8
+??? field: EXCEPTION.c_description => VARIANT_VIOLATION.c_description
+
+
+??? field: EXCEPTION.internal_trace => BAD_INSPECT_VALUE.internal_trace
+
+??? field: EXCEPTION.type_name => DEVELOPER_EXCEPTION.type_name
+??? field: EXCEPTION.throwing_exception => VARIANT_VIOLATION.throwing_exception
+
+??? field: IO_MEDIUM.last_natural_16 => CONSOLE.last_natural_16
+
+??? field: EXCEPTION.c_description => MACHINE_EXCEPTION.c_description
+??? field: EXCEPTION.internal_is_ignorable => BAD_INSPECT_VALUE.internal_is_ignorable
+??? field: EXCEPTION.line_number => VARIANT_VIOLATION.line_number
+
+
+??? field: IO_MEDIUM.last_natural => CONSOLE.last_natural
+
+
+??? field: EXCEPTION.type_name => VARIANT_VIOLATION.type_name
+
+??? field: EXCEPTION.throwing_exception => MACHINE_EXCEPTION.throwing_exception
+
+??? field: IO_MEDIUM.last_natural_64 => CONSOLE.last_natural_64
+
+??? field: EXCEPTION.recipient_name => VARIANT_VIOLATION.recipient_name
+
+??? field: EXCEPTION.recipient_name => DEVELOPER_EXCEPTION.recipient_name
+??? field: EXCEPTION.internal_trace => EIFFEL_RUNTIME_EXCEPTION.internal_trace
+
+??? field: IO_MEDIUM.last_integer_8 => CONSOLE.last_integer_8
+
+??? field: EXCEPTION.line_number => MACHINE_EXCEPTION.line_number
+
+??? field: EXCEPTION.internal_is_ignorable => EIFFEL_RUNTIME_EXCEPTION.internal_is_ignorable
+
+
+??? field: IO_MEDIUM.last_integer_16 => CONSOLE.last_integer_16
+
+??? field: EXCEPTION.type_name => MACHINE_EXCEPTION.type_name
+??? field: EXCEPTION.c_description => EIFFEL_RUNTIME_EXCEPTION.c_description
+
+??? field: EXCEPTION.c_description => BAD_INSPECT_VALUE.c_description
+
+
+??? field: IO_MEDIUM.last_integer_64 => CONSOLE.last_integer_64
+??? field: EXCEPTION.throwing_exception => EIFFEL_RUNTIME_EXCEPTION.throwing_exception
+
+
+??? field: EXCEPTION.throwing_exception => BAD_INSPECT_VALUE.throwing_exception
+
+??? field: EXCEPTION.internal_trace => HARDWARE_EXCEPTION.internal_trace
+??? field: EXCEPTION.line_number => EIFFEL_RUNTIME_EXCEPTION.line_number
+
+??? field: IO_MEDIUM.last_integer => CONSOLE.last_integer
+
+
+??? field: EXCEPTION.line_number => BAD_INSPECT_VALUE.line_number
+??? field: EXCEPTION.type_name => EIFFEL_RUNTIME_EXCEPTION.type_name
+
+
+??? field: IO_MEDIUM.last_string => CONSOLE.last_string
+
+??? field: EXCEPTION.recipient_name => MACHINE_EXCEPTION.recipient_name
+??? field: EXCEPTION.recipient_name => EIFFEL_RUNTIME_EXCEPTION.recipient_name
+
+??? field: EXCEPTION.type_name => BAD_INSPECT_VALUE.type_name
+
+??? field: EXCEPTION.internal_is_ignorable => HARDWARE_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => LOOP_INVARIANT_VIOLATION.internal_trace
+
+??? field: EXCEPTION.c_description => HARDWARE_EXCEPTION.c_description
+
+
+
+??? field: EXCEPTION.internal_is_ignorable => LOOP_INVARIANT_VIOLATION.internal_is_ignorable
+
+??? field: EXCEPTION.throwing_exception => HARDWARE_EXCEPTION.throwing_exception
+
+??? field: EXCEPTION.internal_trace => OLD_VIOLATION.internal_trace
+
+??? field: EXCEPTION.recipient_name => BAD_INSPECT_VALUE.recipient_name
+??? field: EXCEPTION.c_description => LOOP_INVARIANT_VIOLATION.c_description
+
+??? field: EXCEPTION.line_number => HARDWARE_EXCEPTION.line_number
+
+??? field: EXCEPTION.internal_is_ignorable => OLD_VIOLATION.internal_is_ignorable
+
+??? field: EXCEPTION.throwing_exception => LOOP_INVARIANT_VIOLATION.throwing_exception
+
+??? field: IO_MEDIUM.last_character => CONSOLE.last_character
+
+
+??? field: EXCEPTION.c_description => OLD_VIOLATION.c_description
+??? field: EXCEPTION.line_number => LOOP_INVARIANT_VIOLATION.line_number
+
+??? field: FILE.descriptor_available => CONSOLE.descriptor_available
+
+??? field: EXCEPTION.type_name => HARDWARE_EXCEPTION.type_name
+
+??? field: EXCEPTION.type_name => LOOP_INVARIANT_VIOLATION.type_name
+
+??? field: EXCEPTION.internal_trace => PRECONDITION_VIOLATION.internal_trace
+
+
+??? field: EXCEPTION.recipient_name => HARDWARE_EXCEPTION.recipient_name
+
+renamed field: IO_MEDIUM.handle_available => CONSOLE.descriptor_available
+??? field: EXCEPTION.recipient_name => LOOP_INVARIANT_VIOLATION.recipient_name
+
+??? field: EXCEPTION.throwing_exception => OLD_VIOLATION.throwing_exception
+
+??? field: EXCEPTION.internal_is_ignorable => PRECONDITION_VIOLATION.internal_is_ignorable
+
+
+??? field: EXCEPTION.internal_trace => OPERATING_SYSTEM_SIGNAL_FAILURE.internal_trace
+
+??? field: EXCEPTION.line_number => OLD_VIOLATION.line_number
+
+??? field: EXCEPTION.c_description => PRECONDITION_VIOLATION.c_description
+
+??? field: EXCEPTION.internal_is_ignorable => OPERATING_SYSTEM_SIGNAL_FAILURE.internal_is_ignorable
+
+??? field: CONTAINER.object_comparison => CONSOLE.object_comparison
+
+??? field: EXCEPTION.internal_trace => COM_FAILURE.internal_trace
+
+??? field: EXCEPTION.c_description => OPERATING_SYSTEM_SIGNAL_FAILURE.c_description
+
+??? field: EXCEPTION.throwing_exception => PRECONDITION_VIOLATION.throwing_exception
+
+??? field: EXCEPTION.internal_trace => INVARIANT_VIOLATION.internal_trace
+
+??? field: EXCEPTION.throwing_exception => OPERATING_SYSTEM_SIGNAL_FAILURE.throwing_exception
+
+??? field: EXCEPTION.internal_is_ignorable => COM_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.type_name => OLD_VIOLATION.type_name
+
+??? field: EXCEPTION.line_number => OPERATING_SYSTEM_SIGNAL_FAILURE.line_number
+
+??? field: EXCEPTION.internal_is_ignorable => INVARIANT_VIOLATION.internal_is_ignorable
+
+??? field: EXCEPTION.line_number => PRECONDITION_VIOLATION.line_number
+
+??? field: EXCEPTION.type_name => OPERATING_SYSTEM_SIGNAL_FAILURE.type_name
+
+??? field: EXCEPTION.recipient_name => OLD_VIOLATION.recipient_name
+
+??? field: EXCEPTION.c_description => COM_FAILURE.c_description
+
+??? field: EXCEPTION.recipient_name => OPERATING_SYSTEM_SIGNAL_FAILURE.recipient_name
+
+??? field: EXCEPTION.type_name => PRECONDITION_VIOLATION.type_name
+??? field: EXCEPTION.internal_trace => OPERATING_SYSTEM_FAILURE.internal_trace
+
+??? field: EXCEPTION.throwing_exception => COM_FAILURE.throwing_exception
+
+??? field: EXCEPTION.c_description => INVARIANT_VIOLATION.c_description
+
+??? field: EXCEPTION.internal_is_ignorable => OPERATING_SYSTEM_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => SYS_EXCEPTION.internal_trace
+
+
+??? field: EXCEPTION.throwing_exception => INVARIANT_VIOLATION.throwing_exception
+??? field: EXCEPTION.c_description => OPERATING_SYSTEM_FAILURE.c_description
+
+??? field: EXCEPTION.internal_is_ignorable => SYS_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.line_number => COM_FAILURE.line_number
+
+??? field: EXCEPTION.throwing_exception => OPERATING_SYSTEM_FAILURE.throwing_exception
+
+??? field: EXCEPTION.recipient_name => PRECONDITION_VIOLATION.recipient_name
+??? field: EXCEPTION.c_description => SYS_EXCEPTION.c_description
+
+??? field: EXCEPTION.type_name => COM_FAILURE.type_name
+
+
+
+??? field: EXCEPTION.line_number => OPERATING_SYSTEM_FAILURE.line_number
+
+??? field: EXCEPTION.line_number => INVARIANT_VIOLATION.line_number
+
+??? field: EXCEPTION.recipient_name => COM_FAILURE.recipient_name
+
+??? field: EXCEPTION.type_name => OPERATING_SYSTEM_FAILURE.type_name
+
+??? field: EXCEPTION.internal_trace => FLOATING_POINT_FAILURE.internal_trace
+
+??? field: EXCEPTION.throwing_exception => SYS_EXCEPTION.throwing_exception
+??? field: EXCEPTION.recipient_name => OPERATING_SYSTEM_FAILURE.recipient_name
+
+??? field: EXCEPTION.internal_trace => ROUTINE_FAILURE.internal_trace
+
+??? field: EXCEPTION.internal_is_ignorable => FLOATING_POINT_FAILURE.internal_is_ignorable
+
+
+??? field: EXCEPTION.internal_trace => VOID_TARGET.internal_trace
+
+??? field: EXCEPTION.internal_is_ignorable => ROUTINE_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.c_description => FLOATING_POINT_FAILURE.c_description
+
+??? field: EXCEPTION.internal_is_ignorable => VOID_TARGET.internal_is_ignorable
+
+??? field: EXCEPTION.line_number => SYS_EXCEPTION.line_number
+
+??? field: EXCEPTION.type_name => INVARIANT_VIOLATION.type_name
+
+??? field: EXCEPTION.c_description => VOID_TARGET.c_description
+
+??? field: EXCEPTION.throwing_exception => FLOATING_POINT_FAILURE.throwing_exception
+
+??? field: EXCEPTION.c_description => ROUTINE_FAILURE.c_description
+
+??? field: EXCEPTION.throwing_exception => VOID_TARGET.throwing_exception
+
+??? field: EXCEPTION.recipient_name => INVARIANT_VIOLATION.recipient_name
+
+??? field: EXCEPTION.type_name => SYS_EXCEPTION.type_name
+
+??? field: EXCEPTION.line_number => VOID_TARGET.line_number
+
+??? field: EXCEPTION.throwing_exception => ROUTINE_FAILURE.throwing_exception
+
+??? field: EXCEPTION.internal_trace => VOID_ASSIGNED_TO_EXPANDED.internal_trace
+
+??? field: EXCEPTION.type_name => VOID_TARGET.type_name
+
+??? field: EXCEPTION.recipient_name => SYS_EXCEPTION.recipient_name
+
+??? field: EXCEPTION.line_number => FLOATING_POINT_FAILURE.line_number
+??? field: EXCEPTION.recipient_name => VOID_TARGET.recipient_name
+
+??? field: EXCEPTION.line_number => ROUTINE_FAILURE.line_number
+??? field: EXCEPTION.internal_trace => OBSOLETE_EXCEPTION.internal_trace
+
+??? field: EXCEPTION.internal_trace => POSTCONDITION_VIOLATION.internal_trace
+
+
+??? field: EXCEPTION.internal_is_ignorable => VOID_ASSIGNED_TO_EXPANDED.internal_is_ignorable
+??? field: EXCEPTION.internal_is_ignorable => OBSOLETE_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.internal_is_ignorable => POSTCONDITION_VIOLATION.internal_is_ignorable
+
+
+??? field: EXCEPTION.type_name => FLOATING_POINT_FAILURE.type_name
+??? field: EXCEPTION.c_description => OBSOLETE_EXCEPTION.c_description
+
+
+??? field: EXCEPTION.c_description => POSTCONDITION_VIOLATION.c_description
+
+??? field: EXCEPTION.type_name => ROUTINE_FAILURE.type_name
+??? field: EXCEPTION.throwing_exception => OBSOLETE_EXCEPTION.throwing_exception
+
+??? field: EXCEPTION.recipient_name => FLOATING_POINT_FAILURE.recipient_name
+
+
+??? field: EXCEPTION.throwing_exception => POSTCONDITION_VIOLATION.throwing_exception
+??? field: EXCEPTION.line_number => OBSOLETE_EXCEPTION.line_number
+
+
+??? field: EXCEPTION.c_description => VOID_ASSIGNED_TO_EXPANDED.c_description
+
+??? field: EXCEPTION.type_name => OBSOLETE_EXCEPTION.type_name
+
+??? field: STRING_SEARCHER.deltas_array => STRING_8_SEARCHER.deltas_array
+
+
+??? field: EXCEPTION.throwing_exception => VOID_ASSIGNED_TO_EXPANDED.throwing_exception
+??? field: EXCEPTION.recipient_name => OBSOLETE_EXCEPTION.recipient_name
+
+
+??? field: STRING_SEARCHER.deltas_array => STRING_32_SEARCHER.deltas_array
+
+??? field: EXCEPTION.line_number => POSTCONDITION_VIOLATION.line_number
+
+??? field: EXCEPTION.recipient_name => ROUTINE_FAILURE.recipient_name
+
+??? field: STRING_SEARCHER.deltas => STRING_32_SEARCHER.deltas
+
+??? field: EXCEPTION.line_number => VOID_ASSIGNED_TO_EXPANDED.line_number
+
+??? field: STRING_SEARCHER.deltas => STRING_8_SEARCHER.deltas
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => STRING_GENERAL.internal_case_insensitive_hash_code
+??? field: STRING_TO_NUMERIC_CONVERTOR.sign => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.sign
+
+??? field: EXCEPTION.type_name => VOID_ASSIGNED_TO_EXPANDED.type_name
+
+??? field: EXCEPTION.type_name => POSTCONDITION_VIOLATION.type_name
+??? field: STRING_TO_NUMERIC_CONVERTOR.last_state => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.last_state
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.sign => STRING_TO_INTEGER_CONVERTOR.sign
+??? field: STRING_TO_NUMERIC_CONVERTOR.conversion_type => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.conversion_type
+
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.trailing_separators => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.trailing_separators
+
+??? field: EXCEPTION.recipient_name => VOID_ASSIGNED_TO_EXPANDED.recipient_name
+
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => STRING_GENERAL.internal_hash_code
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.leading_separators => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.leading_separators
+
+
+??? field: EXCEPTION.recipient_name => POSTCONDITION_VIOLATION.recipient_name
+??? field: STRING_TO_NUMERIC_CONVERTOR.leading_separators_acceptable => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.leading_separators_acceptable
+
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => IMMUTABLE_STRING_GENERAL.internal_case_insensitive_hash_code
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.last_state => STRING_TO_INTEGER_CONVERTOR.last_state
+
+[renamed field] READABLE_INDEXABLE.upper => READABLE_STRING_32.count
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.trailing_separators_acceptable => HEXADECIMAL_STRING_TO_INTEGER_CONVERTER.trailing_separators_acceptable
+??? field: READABLE_STRING_GENERAL.internal_hash_code => IMMUTABLE_STRING_GENERAL.internal_hash_code
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.conversion_type => STRING_TO_INTEGER_CONVERTOR.conversion_type
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.sign => STRING_TO_REAL_CONVERTOR.sign
+
+
+inherited field: READABLE_STRING_GENERAL.count => READABLE_STRING_32.count
+
+inherited field: LINEAR.index => SEQ_STRING.index
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.last_state => STRING_TO_REAL_CONVERTOR.last_state
+??? field: STRING_TO_NUMERIC_CONVERTOR.trailing_separators => STRING_TO_INTEGER_CONVERTOR.trailing_separators
+
 renamed field: READABLE_INDEXABLE.upper => READABLE_STRING_32.count
 
+??? field: STRING_8.area => SEQ_STRING.area
 
-inherited field: READABLE_INDEXABLE.upper => ACTIVE_INTEGER_INTERVAL.upper
 
-inherited field: LINEAR.index => INTERACTIVE_LIST.index
+??? field: STRING_TO_NUMERIC_CONVERTOR.leading_separators => STRING_TO_INTEGER_CONVERTOR.leading_separators
+??? field: RT_DBG_VALUE_RECORD.breakable_info => RT_DBG_LOCAL_RECORD.breakable_info
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.conversion_type => STRING_TO_REAL_CONVERTOR.conversion_type
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => READABLE_STRING_32.internal_case_insensitive_hash_code
 
 inherited field: READABLE_STRING_8.area => SEQ_STRING.area
-inherited field: LINEAR.index => ACTIVE_LIST.index
+
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.trailing_separators => STRING_TO_REAL_CONVERTOR.trailing_separators
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => READABLE_STRING_32.internal_hash_code
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.leading_separators_acceptable => STRING_TO_INTEGER_CONVERTOR.leading_separators_acceptable
+
+??? field: STRING_8.area => SEQ_STRING.area
+??? field: STRING_TO_NUMERIC_CONVERTOR.trailing_separators_acceptable => STRING_TO_INTEGER_CONVERTOR.trailing_separators_acceptable
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.leading_separators => STRING_TO_REAL_CONVERTOR.leading_separators
+
+??? field: RT_DBG_VALUE_RECORD.type => RT_DBG_LOCAL_RECORD.type
+
+
+[renamed field] RT_DBG_VALUE_RECORD.position => RT_DBG_FIELD_RECORD.index
+??? field: RT_DBG_VALUE_RECORD.position => RT_DBG_LOCAL_RECORD.position
+
+
+[renamed field] RT_DBG_VALUE_RECORD.position => RT_DBG_ATTRIBUTE_RECORD.offset
+
+inherited field: TO_SPECIAL.area => SEQ_STRING.area
+
+??? field: TO_SPECIAL.area => INTERACTIVE_LIST.area_v2
+
+??? field: RT_DBG_VALUE_RECORD.breakable_info => RT_DBG_FIELD_RECORD.breakable_info
+??? field: RT_DBG_VALUE_RECORD.breakable_info => RT_DBG_ATTRIBUTE_RECORD.breakable_info
+
+??? field: CONTAINER.object_comparison => INTERACTIVE_LIST.object_comparison
+
+??? field: READABLE_STRING_GENERAL.internal_case_insensitive_hash_code => SEQ_STRING.internal_case_insensitive_hash_code
+
+
+??? field: RT_DBG_VALUE_RECORD.type => RT_DBG_ATTRIBUTE_RECORD.type
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.leading_separators_acceptable => STRING_TO_REAL_CONVERTOR.leading_separators_acceptable
+??? field: ARRAYED_LIST.index => INTERACTIVE_LIST.index
+
+??? field: RT_DBG_VALUE_RECORD.type => RT_DBG_FIELD_RECORD.type
+??? field: RT_DBG_VALUE_RECORD.position => RT_DBG_ATTRIBUTE_RECORD.offset
+
+??? field: READABLE_STRING_GENERAL.internal_hash_code => SEQ_STRING.internal_hash_code
+inherited field: LINEAR.index => INTERACTIVE_LIST.index
+
+
+
+??? field: INTEGER_INTERVAL.upper => ACTIVE_INTEGER_INTERVAL.upper
+
+??? field: INTERACTIVE_LIST.in_operation => ACTIVE_LIST.in_operation
+
+??? field: STRING_TO_NUMERIC_CONVERTOR.trailing_separators_acceptable => STRING_TO_REAL_CONVERTOR.trailing_separators_acceptable
+inherited field: READABLE_INDEXABLE.upper => ACTIVE_INTEGER_INTERVAL.upper
+
+??? field: READABLE_STRING_8.count => SEQ_STRING.count
+??? field: TO_SPECIAL.area => ACTIVE_LIST.area_v2
+
+
+??? field: INTEGER_INTERVAL.lower => ACTIVE_INTEGER_INTERVAL.lower
+
+
+??? field: CONTAINER.object_comparison => ACTIVE_LIST.object_comparison
+
+??? field: RT_DBG_VALUE_RECORD.position => RT_DBG_FIELD_RECORD.index
+
+
+??? field: ARRAYED_LIST.index => ACTIVE_LIST.index
 
 inherited field: READABLE_INDEXABLE.lower => ACTIVE_INTEGER_INTERVAL.lower
 
-inherited field: FINITE.count => PATH_NAME.count
 [renamed field] HASH_TABLE.capacity => SED_OBJECTS_TABLE.table_capacity
+inherited field: LINEAR.index => ACTIVE_LIST.index
+
+inherited field: READABLE_STRING_8.count => SEQ_STRING.count
+??? field: CONTAINER.object_comparison => ACTIVE_INTEGER_INTERVAL.object_comparison
+
+??? field: INTERACTIVE_LIST.in_operation => ACTION_SEQUENCE.in_operation
 
 
-inherited field: LINEAR.index => ACTION_SEQUENCE.index
+??? field: SED_READER_WRITER.is_pointer_value_stored => SED_BINARY_READER_WRITER.is_pointer_value_stored
 
 inherited field: SED_BINARY_READER_WRITER.medium => SED_MEDIUM_READER_WRITER.medium
+
+??? field: TO_SPECIAL.area => ACTION_SEQUENCE.area_v2
+
+
+??? field: SED_READER_WRITER.is_pointer_value_stored => SED_MEMORY_READER_WRITER.is_pointer_value_stored
+
+[renamed field] HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
+
+??? field: SED_READER_WRITER.is_pointer_value_stored => SED_MEDIUM_READER_WRITER.is_pointer_value_stored
+
+??? field: SED_BINARY_READER_WRITER.stored_pointer_bytes => SED_MEMORY_READER_WRITER.stored_pointer_bytes
+
+??? field: READABLE_STRING_8.count => SEQ_STRING.count
+
+??? field: SED_BINARY_READER_WRITER.stored_pointer_bytes => SED_MEDIUM_READER_WRITER.stored_pointer_bytes
+
+??? field: SED_BINARY_READER_WRITER.is_little_endian_storable => SED_MEMORY_READER_WRITER.is_little_endian_storable
+
+??? field: SED_ABSTRACT_OBJECTS_TABLE.last_index => SED_OBJECTS_TABLE.last_index
+??? field: SED_BINARY_READER_WRITER.buffer_position => SED_MEMORY_READER_WRITER.buffer_position
+
+??? field: SED_BINARY_READER_WRITER.is_little_endian_storable => SED_MEDIUM_READER_WRITER.is_little_endian_storable
+
+inherited field: FINITE.count => SEQ_STRING.count
+
+
+??? field: SED_BINARY_READER_WRITER.buffer_size => SED_MEMORY_READER_WRITER.buffer_size
+
+??? field: CONTAINER.object_comparison => ACTION_SEQUENCE.object_comparison
+??? field: SED_BINARY_READER_WRITER.buffer_position => SED_MEDIUM_READER_WRITER.buffer_position
+
+??? field: CONTAINER.object_comparison => SEQ_STRING.object_comparison
+??? field: SED_BINARY_READER_WRITER.medium => SED_MEMORY_READER_WRITER.medium
+
+??? field: HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
+??? field: SED_BINARY_READER_WRITER.buffer_size => SED_MEDIUM_READER_WRITER.buffer_size
+
+
+??? field: SED_BINARY_READER_WRITER.buffer => SED_MEMORY_READER_WRITER.buffer
+
+
+??? field: SED_BINARY_READER_WRITER.buffer => SED_MEDIUM_READER_WRITER.buffer
+
+??? field: ARRAYED_LIST.index => ACTION_SEQUENCE.index
+??? field: SED_BINARY_READER_WRITER.is_for_reading => SED_MEMORY_READER_WRITER.is_for_reading
+
+??? field: SED_BINARY_READER_WRITER.is_for_reading => SED_MEDIUM_READER_WRITER.is_for_reading
 
 
 inherited field: SED_BINARY_READER_WRITER.medium => SED_MEDIUM_READER_WRITER_1.medium
 
-[renamed field] HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
-
-inherited field: TO_SPECIAL.area => SEQ_STRING.area
+??? field: SED_STORABLE_FACILITIES.retrieved_errors => SED_MULTI_OBJECT_SERIALIZATION.retrieved_errors
 
 renamed field: HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
+??? field: SED_SESSION_DESERIALIZER.dynamic_type_table => SED_RECOVERABLE_DESERIALIZER.dynamic_type_table
 
-inherited field: READABLE_STRING_8.count => SEQ_STRING.count
+
+??? field: SED_READER_WRITER.is_pointer_value_stored => SED_MEDIUM_READER_WRITER_1.is_pointer_value_stored
+??? field: SED_SESSION_SERIALIZER.has_reference_with_copy_semantics => SED_INDEPENDENT_SERIALIZER.has_reference_with_copy_semantics
+
+??? field: SED_SESSION_DESERIALIZER.version => SED_RECOVERABLE_DESERIALIZER.version
+
+??? field: HASH_TABLE.count => SED_OBJECTS_TABLE.capacity
+
+
+??? field: SED_SESSION_SERIALIZER.version => SED_INDEPENDENT_SERIALIZER.version
+
+??? field: SED_SESSION_DESERIALIZER.has_reference_with_copy_semantics => SED_RECOVERABLE_DESERIALIZER.has_reference_with_copy_semantics
+
+
+??? field: SED_SESSION_SERIALIZER.object_indexes => SED_INDEPENDENT_SERIALIZER.object_indexes
+
+inherited field: LINEAR.index => ACTION_SEQUENCE.index
 
 inherited field: SED_ABSTRACT_OBJECTS_TABLE.capacity => SED_OBJECTS_TABLE.capacity
+??? field: SED_BINARY_READER_WRITER.stored_pointer_bytes => SED_MEDIUM_READER_WRITER_1.stored_pointer_bytes
+??? field: SED_SESSION_SERIALIZER.traversable => SED_INDEPENDENT_SERIALIZER.traversable
 
-inherited field: FINITE.count => SEQ_STRING.count
 
-Total Time: 0/0/0 0:0:10.527
+
+??? field: SED_SESSION_DESERIALIZER.object_references => SED_RECOVERABLE_DESERIALIZER.object_references
+
+??? field: SED_SESSION_SERIALIZER.reflected_object => SED_INDEPENDENT_SERIALIZER.reflected_object
+
+??? field: CONTAINER.object_comparison => SED_OBJECTS_TABLE.object_comparison
+
+??? field: SED_SESSION_DESERIALIZER.reflected_object => SED_RECOVERABLE_DESERIALIZER.reflected_object
+
+??? field: SED_SESSION_SERIALIZER.reflector => SED_INDEPENDENT_SERIALIZER.reflector
+
+??? field: SED_BINARY_READER_WRITER.is_little_endian_storable => SED_MEDIUM_READER_WRITER_1.is_little_endian_storable
+??? field: SED_SESSION_SERIALIZER.has_reference_with_copy_semantics => SED_RECOVERABLE_SERIALIZER.has_reference_with_copy_semantics
+
+??? field: HASH_TABLE.ht_deleted_key => SED_OBJECTS_TABLE.ht_deleted_key
+??? field: SED_SESSION_SERIALIZER.is_root_object_set => SED_INDEPENDENT_SERIALIZER.is_root_object_set
+
+??? field: SED_SESSION_DESERIALIZER.reflector => SED_RECOVERABLE_DESERIALIZER.reflector
+
+??? field: SED_SESSION_SERIALIZER.version => SED_RECOVERABLE_SERIALIZER.version
+
+
+??? field: SED_SESSION_SERIALIZER.serializer => SED_INDEPENDENT_SERIALIZER.serializer
+
+
+??? field: SED_SESSION_DESERIALIZER.errors => SED_RECOVERABLE_DESERIALIZER.errors
+
+??? field: HASH_TABLE.ht_deleted_item => SED_OBJECTS_TABLE.ht_deleted_item
+??? field: SED_SESSION_DESERIALIZER.last_decoded_object => SED_RECOVERABLE_DESERIALIZER.last_decoded_object
+
+??? field: SED_BINARY_READER_WRITER.buffer_position => SED_MEDIUM_READER_WRITER_1.buffer_position
+??? field: SED_SESSION_DESERIALIZER.dynamic_type_table => SED_INDEPENDENT_DESERIALIZER.dynamic_type_table
+
+??? field: SED_SESSION_SERIALIZER.object_indexes => SED_RECOVERABLE_SERIALIZER.object_indexes
+??? field: SED_SESSION_DESERIALIZER.deserializer => SED_RECOVERABLE_DESERIALIZER.deserializer
+
+
+??? field: SED_SESSION_DESERIALIZER.version => SED_INDEPENDENT_DESERIALIZER.version
+
+
+??? field: SED_SESSION_DESERIALIZER.has_reference_with_copy_semantics => SED_INDEPENDENT_DESERIALIZER.has_reference_with_copy_semantics
+
+??? field: HASH_TABLE.ht_lowest_deleted_position => SED_OBJECTS_TABLE.ht_lowest_deleted_position
+
+??? field: SED_SESSION_SERIALIZER.has_reference_with_copy_semantics => SED_BASIC_SERIALIZER.has_reference_with_copy_semantics
+
+??? field: SED_SESSION_DESERIALIZER.object_references => SED_INDEPENDENT_DESERIALIZER.object_references
+
+??? field: SED_BINARY_READER_WRITER.buffer_size => SED_MEDIUM_READER_WRITER_1.buffer_size
+??? field: SED_SESSION_DESERIALIZER.reflected_object => SED_INDEPENDENT_DESERIALIZER.reflected_object
+
+??? field: SED_SESSION_SERIALIZER.version => SED_BASIC_SERIALIZER.version
+
+??? field: SED_SESSION_SERIALIZER.traversable => SED_RECOVERABLE_SERIALIZER.traversable
+
+
+??? field: SED_SESSION_DESERIALIZER.reflector => SED_INDEPENDENT_DESERIALIZER.reflector
+
+
+??? field: SED_SESSION_SERIALIZER.object_indexes => SED_BASIC_SERIALIZER.object_indexes
+
+??? field: SED_BINARY_READER_WRITER.buffer => SED_MEDIUM_READER_WRITER_1.buffer
+??? field: SED_SESSION_DESERIALIZER.errors => SED_INDEPENDENT_DESERIALIZER.errors
+
+??? field: SED_SESSION_SERIALIZER.reflected_object => SED_RECOVERABLE_SERIALIZER.reflected_object
+
+??? field: SED_SESSION_SERIALIZER.traversable => SED_BASIC_SERIALIZER.traversable
+
+
+??? field: SED_SESSION_DESERIALIZER.last_decoded_object => SED_INDEPENDENT_DESERIALIZER.last_decoded_object
+
+??? field: SED_SESSION_SERIALIZER.reflector => SED_RECOVERABLE_SERIALIZER.reflector
+
+??? field: SED_SESSION_SERIALIZER.reflected_object => SED_BASIC_SERIALIZER.reflected_object
+
+??? field: SED_SESSION_DESERIALIZER.deserializer => SED_INDEPENDENT_DESERIALIZER.deserializer
+
+??? field: SED_BINARY_READER_WRITER.is_for_reading => SED_MEDIUM_READER_WRITER_1.is_for_reading
+
+??? field: HASH_TABLE.deleted_item_position => SED_OBJECTS_TABLE.deleted_item_position
+??? field: SED_SESSION_SERIALIZER.reflector => SED_BASIC_SERIALIZER.reflector
+
+??? field: SED_SESSION_DESERIALIZER.dynamic_type_table => SED_BASIC_DESERIALIZER.dynamic_type_table
+
+??? field: SED_SESSION_SERIALIZER.is_root_object_set => SED_RECOVERABLE_SERIALIZER.is_root_object_set
+
+??? field: SED_SESSION_DESERIALIZER.version => SED_BASIC_DESERIALIZER.version
+
+
+??? field: SED_SESSION_DESERIALIZER.has_reference_with_copy_semantics => SED_BASIC_DESERIALIZER.has_reference_with_copy_semantics
+
+??? field: HASH_TABLE.control => SED_OBJECTS_TABLE.control
+??? field: SED_SESSION_DESERIALIZER.object_references => SED_BASIC_DESERIALIZER.object_references
+
+??? field: SED_SESSION_SERIALIZER.serializer => SED_RECOVERABLE_SERIALIZER.serializer
+??? field: SED_SESSION_DESERIALIZER.reflected_object => SED_BASIC_DESERIALIZER.reflected_object
+
+??? field: SED_SESSION_SERIALIZER.is_root_object_set => SED_BASIC_SERIALIZER.is_root_object_set
+
+
+??? field: EXCEPTION.internal_trace => ADDRESS_APPLIED_TO_MELTED_FEATURE.internal_trace
+??? field: SED_SESSION_DESERIALIZER.reflector => SED_BASIC_DESERIALIZER.reflector
+
+
+
+??? field: HASH_TABLE.iteration_position => SED_OBJECTS_TABLE.iteration_position
+
+??? field: SED_SESSION_DESERIALIZER.errors => SED_BASIC_DESERIALIZER.errors
+
+??? field: EXCEPTION.internal_is_ignorable => ADDRESS_APPLIED_TO_MELTED_FEATURE.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.internal_trace
+
+??? field: SED_SESSION_DESERIALIZER.last_decoded_object => SED_BASIC_DESERIALIZER.last_decoded_object
+
+??? field: HASH_TABLE.has_default => SED_OBJECTS_TABLE.has_default
+
+??? field: SED_SESSION_SERIALIZER.serializer => SED_BASIC_SERIALIZER.serializer
+??? field: SED_SESSION_DESERIALIZER.deserializer => SED_BASIC_DESERIALIZER.deserializer
+
+??? field: EXCEPTION.internal_is_ignorable => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.c_description => ADDRESS_APPLIED_TO_MELTED_FEATURE.c_description
+
+
+??? field: EXCEPTION.internal_trace => EXTERNAL_FAILURE.internal_trace
+
+??? field: EXCEPTION.c_description => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.c_description
+
+??? field: EXCEPTION.throwing_exception => ADDRESS_APPLIED_TO_MELTED_FEATURE.throwing_exception
+??? field: EXCEPTION.internal_is_ignorable => EXTERNAL_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.internal_trace
+
+??? field: HASH_TABLE.item_position => SED_OBJECTS_TABLE.item_position
+
+??? field: EXCEPTION.c_description => EXTERNAL_FAILURE.c_description
+
+??? field: EXCEPTION.throwing_exception => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.throwing_exception
+
+
+??? field: HASH_TABLE.deleted_marks => SED_OBJECTS_TABLE.deleted_marks
+??? field: EXCEPTION.throwing_exception => EXTERNAL_FAILURE.throwing_exception
+
+
+??? field: EXCEPTION.line_number => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.line_number
+
+??? field: EXCEPTION.line_number => ADDRESS_APPLIED_TO_MELTED_FEATURE.line_number
+??? field: EXCEPTION.line_number => EXTERNAL_FAILURE.line_number
+
+??? field: HASH_TABLE.indexes_map => SED_OBJECTS_TABLE.indexes_map
+
+??? field: EXCEPTION.internal_is_ignorable => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.type_name => EXTERNAL_FAILURE.type_name
+
+??? field: EXCEPTION.type_name => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.type_name
+??? field: EXCEPTION.recipient_name => EXTERNAL_FAILURE.recipient_name
+
+
+??? field: EXCEPTION.c_description => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.c_description
+
+
+??? field: EXCEPTION.internal_trace => MISMATCH_FAILURE.internal_trace
+
+??? field: HASH_TABLE.keys => SED_OBJECTS_TABLE.keys
+??? field: EXCEPTION.recipient_name => EIFFELSTUDIO_SPECIFIC_LANGUAGE_EXCEPTION.recipient_name
+
+??? field: EXCEPTION.type_name => ADDRESS_APPLIED_TO_MELTED_FEATURE.type_name
+??? field: EXCEPTION.internal_is_ignorable => MISMATCH_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.throwing_exception => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.throwing_exception
+
+
+??? field: EXCEPTION.internal_trace => SERIALIZATION_FAILURE.internal_trace
+??? field: EXCEPTION.c_description => MISMATCH_FAILURE.c_description
+
+??? field: EXCEPTION.line_number => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.line_number
+
+
+??? field: HASH_TABLE.content => SED_OBJECTS_TABLE.content
+??? field: EXCEPTION.throwing_exception => MISMATCH_FAILURE.throwing_exception
+
+??? field: EXCEPTION.type_name => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.type_name
+
+
+??? field: EXCEPTION.recipient_name => ADDRESS_APPLIED_TO_MELTED_FEATURE.recipient_name
+??? field: EXCEPTION.line_number => MISMATCH_FAILURE.line_number
+
+??? field: EXCEPTION.recipient_name => EXCEPTION_IN_SIGNAL_HANDLER_FAILURE.recipient_name
+
+
+??? field: EXCEPTION.internal_is_ignorable => SERIALIZATION_FAILURE.internal_is_ignorable
+??? field: EXCEPTION.type_name => MISMATCH_FAILURE.type_name
+
+
+??? field: EXCEPTION.internal_trace => IO_FAILURE.internal_trace
+
+??? field: HASH_TABLE.hash_table_version_64 => SED_OBJECTS_TABLE.hash_table_version_64
+??? field: EXCEPTION.recipient_name => MISMATCH_FAILURE.recipient_name
+
+??? field: EXCEPTION.c_description => SERIALIZATION_FAILURE.c_description
+
+
+??? field: EXCEPTION.internal_is_ignorable => IO_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => CREATE_ON_DEFERRED.internal_trace
+
+??? field: EXCEPTION.throwing_exception => SERIALIZATION_FAILURE.throwing_exception
+
+??? field: EXCEPTION.internal_trace => NO_MORE_MEMORY.internal_trace
+
+??? field: EXCEPTION.internal_is_ignorable => CREATE_ON_DEFERRED.internal_is_ignorable
+
+??? field: EXCEPTION.c_description => IO_FAILURE.c_description
+
+
+??? field: EXCEPTION.internal_is_ignorable => NO_MORE_MEMORY.internal_is_ignorable
+??? field: EXCEPTION.c_description => CREATE_ON_DEFERRED.c_description
+
+??? field: EXCEPTION.throwing_exception => IO_FAILURE.throwing_exception
+
+??? field: EXCEPTION.line_number => SERIALIZATION_FAILURE.line_number
+
+??? field: EXCEPTION.throwing_exception => CREATE_ON_DEFERRED.throwing_exception
+
+??? field: HASH_TABLE.capacity => SED_OBJECTS_TABLE.table_capacity
+
+
+??? field: EXCEPTION.type_name => SERIALIZATION_FAILURE.type_name
+??? field: EXCEPTION.line_number => CREATE_ON_DEFERRED.line_number
+
+
+??? field: HASH_TABLE.found_item => SED_OBJECTS_TABLE.found_item
+??? field: EXCEPTION.line_number => IO_FAILURE.line_number
+
+??? field: EXCEPTION.type_name => CREATE_ON_DEFERRED.type_name
+
+??? field: EXCEPTION.c_description => NO_MORE_MEMORY.c_description
+
+??? field: EXCEPTION.type_name => IO_FAILURE.type_name
+
+??? field: EXCEPTION.recipient_name => CREATE_ON_DEFERRED.recipient_name
+
+
+??? field: EXCEPTION.internal_trace => DATA_EXCEPTION.internal_trace
+
+??? field: EXCEPTION.recipient_name => SERIALIZATION_FAILURE.recipient_name
+
+??? field: EXCEPTION.recipient_name => IO_FAILURE.recipient_name
+
+??? field: EXCEPTION.throwing_exception => NO_MORE_MEMORY.throwing_exception
+??? field: EXCEPTION.internal_trace => EIFFEL_RUNTIME_PANIC.internal_trace
+??? field: EXCEPTION.internal_is_ignorable => DATA_EXCEPTION.internal_is_ignorable
+
+??? field: EXCEPTION.internal_trace => RESUMPTION_FAILURE.internal_trace
+
+
+
+??? field: EXCEPTION.c_description => DATA_EXCEPTION.c_description
+
+??? field: EXCEPTION.internal_is_ignorable => RESUMPTION_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.internal_is_ignorable => EIFFEL_RUNTIME_PANIC.internal_is_ignorable
+
+??? field: EXCEPTION.throwing_exception => DATA_EXCEPTION.throwing_exception
+
+??? field: EXCEPTION.line_number => NO_MORE_MEMORY.line_number
+
+??? field: EXCEPTION.internal_trace => RESCUE_FAILURE.internal_trace
+
+??? field: EXCEPTION.line_number => DATA_EXCEPTION.line_number
+
+??? field: EXCEPTION.c_description => EIFFEL_RUNTIME_PANIC.c_description
+
+??? field: EXCEPTION.c_description => RESUMPTION_FAILURE.c_description
+
+??? field: EXCEPTION.type_name => DATA_EXCEPTION.type_name
+
+??? field: EXCEPTION.internal_is_ignorable => RESCUE_FAILURE.internal_is_ignorable
+
+??? field: EXCEPTION.type_name => NO_MORE_MEMORY.type_name
+
+??? field: EXCEPTION.recipient_name => DATA_EXCEPTION.recipient_name
+
+??? field: EXCEPTION.throwing_exception => RESUMPTION_FAILURE.throwing_exception
+
+??? field: EXCEPTION.throwing_exception => EIFFEL_RUNTIME_PANIC.throwing_exception
+??? field: EXCEPTION.recipient_name => NO_MORE_MEMORY.recipient_name
+
+
+??? field: EXCEPTION.line_number => RESUMPTION_FAILURE.line_number
+??? field: EXCEPTION.c_description => RESCUE_FAILURE.c_description
+
+
+??? field: EXCEPTION.line_number => EIFFEL_RUNTIME_PANIC.line_number
+
+??? field: EXCEPTION.type_name => RESUMPTION_FAILURE.type_name
+
+??? field: EXCEPTION.throwing_exception => RESCUE_FAILURE.throwing_exception
+
+??? field: EXCEPTION.type_name => EIFFEL_RUNTIME_PANIC.type_name
+??? field: EXCEPTION.recipient_name => RESUMPTION_FAILURE.recipient_name
+
+
+??? field: EXCEPTION.line_number => RESCUE_FAILURE.line_number
+
+??? field: EXCEPTION.recipient_name => EIFFEL_RUNTIME_PANIC.recipient_name
+
+??? field: EXCEPTION.type_name => RESCUE_FAILURE.type_name
+
+??? field: EXCEPTION.recipient_name => RESCUE_FAILURE.recipient_name
+
+Total Time: 0/0/0 0:0:10.380
