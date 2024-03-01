@@ -116,15 +116,31 @@ feature {NONE} -- Processing
 
 feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 
+	process_et_feature(a_class: ET_CLASS; l_other_precursor: detachable ET_FEATURE; query: ET_QUERY)
+		local
+			l_lower_name: STRING
+		do
+			if l_other_precursor /= Void then
+				if attached l_other_precursor as l_first_precursor then
+					l_lower_name := l_first_precursor.lower_name
+					if not l_lower_name.is_equal(query.lower_name) then
+					    error_handler.report_info_message ("[renamed field] " + l_first_precursor.implementation_class.upper_name + "." + l_lower_name +
+						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+					end
+				end
+			end
+		end
+
 	process_implicit_converts (a_class: ET_CLASS)
 			-- Process implicit conversions in `a_class' if it has not been marked yet.
 		require
 			a_class_not_void: a_class /= Void
 		local
-			i, nb: INTEGER
+			i, nb, j, np: INTEGER
 			l_expression: ET_EXPLICIT_CONVERT_EXPRESSION
 			l_position: ET_POSITION
 			query: ET_QUERY
+			l_other_precursor: ET_FEATURE
 		do
 			if not {PLATFORM}.is_thread_capable or else a_class.processing_mutex.try_lock then
 				if not a_class.is_marked then
@@ -134,14 +150,19 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 						nb := a_class.queries.count
 						from i := 1 until i > nb loop
 							query := a_class.queries.item(i)
-							-- query.other_precursors /= Void
-							if query.is_attribute and query.first_precursor /= Void then
-								if attached query.first_precursor as l_first_precursor then
-								if attached l_first_precursor.lower_name as l_lower_name then
-								if not l_lower_name.is_equal(query.lower_name) then
-								    error_handler.report_info_message ("[renamed field] " + a_class.upper_name + "." + query.lower_name + "%N")
-								end
-								end
+							if query.is_attribute then --
+								process_et_feature(a_class, query.first_precursor, query)
+								if attached query.other_precursors as l_other_precursors then
+									from
+										j := 1
+										np := l_other_precursors.count
+									until
+										j > np
+									loop
+										l_other_precursor := l_other_precursors.item (j)
+										process_et_feature(a_class, l_other_precursor, query)
+										j := j + 1
+									end
 								end
 							end
 							i := i + 1
