@@ -159,7 +159,7 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 				-- https://github.com/gobo-eiffel/gobo/issues/70#issuecomment-1973828362
 				-- If it has a precursor, it means that it is inherited.
 					l_lower_name := l_first_precursor.lower_name
-					if l_lower_name.is_equal(query.lower_name) then
+					if l_first_precursor.name.same_feature_name(query.name) then
 						how_inherited := "inherited"
 					else
 
