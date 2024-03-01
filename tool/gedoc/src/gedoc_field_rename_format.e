@@ -116,12 +116,38 @@ feature {NONE} -- Processing
 
 feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 
+	is_direct_parent(sub_class: ET_CLASS; super_class: ET_CLASS): BOOLEAN
+		local
+			i, nb: INTEGER
+			j, nb2: INTEGER
+			l_parent_list: ET_PARENT_LIST
+			l_parent: ET_PARENT
+		do
+			Result := False
+			if attached sub_class.parent_clauses as l_parents then
+				nb := l_parents.count
+				from i := 1 until (i > nb or Result) loop
+					l_parent_list := l_parents.item (i)
+					nb2 := l_parent_list.count
+					from j := 1 until (j > nb2 or Result) loop
+						l_parent := l_parent_list.parent (j)
+						if l_parent.type.base_class = super_class then
+							Result := True
+						end
+						j := j + 1
+					end
+					i := i + 1
+				end
+			end
+		end
+
 	process_et_feature(a_class: ET_CLASS; l_other_precursor: detachable ET_FEATURE; query: ET_QUERY)
 		local
 			l_lower_name: STRING
 			how_inherited: STRING
 		do
-			if not query.implementation_class.upper_name.is_equal(a_class.upper_name) then
+			-- https://github.com/gobo-eiffel/gobo/issues/70#issuecomment-1974028384
+			if query.implementation_class /= a_class and is_direct_parent(a_class, query.implementation_class) then
 				l_lower_name := query.implementation_feature.lower_name
 				how_inherited := "???"
 				error_handler.report_info_message (how_inherited + " field: " + query.implementation_class.upper_name + "." + l_lower_name +
