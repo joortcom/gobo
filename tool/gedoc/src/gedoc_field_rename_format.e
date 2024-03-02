@@ -141,19 +141,30 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 			end
 		end
 
-	process_et_feature(a_class: ET_CLASS; l_other_precursor: detachable ET_FEATURE; query: ET_QUERY)
+	process_feature_implementation_class(a_class: ET_CLASS; query: ET_QUERY)
 		local
 			l_lower_name: STRING
 			how_inherited: STRING
 		do
 			-- https://github.com/gobo-eiffel/gobo/issues/70#issuecomment-1974028384
 			if query.implementation_class /= a_class and is_direct_parent(a_class, query.implementation_class) then
-				l_lower_name := query.implementation_feature.lower_name
 				how_inherited := "???"
-				error_handler.report_info_message (how_inherited + " field: " + query.implementation_class.upper_name + "." + l_lower_name +
+				-- only process direct parent's *same* name feature
+				-- since renamed field are processed below in process_feature_precursor, we skip here
+				if query.is_attribute and query.implementation_feature.name.same_feature_name(query.name) then
+					l_lower_name := query.implementation_feature.lower_name
+					error_handler.report_info_message (how_inherited + " field: " + query.implementation_class.upper_name + "." + l_lower_name +
 						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+				end
 			end
 
+		end
+
+	process_feature_precursor(a_class: ET_CLASS; l_other_precursor: detachable ET_FEATURE; query: ET_QUERY)
+		local
+			l_lower_name: STRING
+			how_inherited: STRING
+		do
 			if l_other_precursor /= Void then
 				if attached l_other_precursor as l_first_precursor then
 				-- https://github.com/gobo-eiffel/gobo/issues/70#issuecomment-1973828362
@@ -229,7 +240,8 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 						from i := 1 until i > nb loop
 							query := a_class.queries.item(i)
 							if query.is_attribute then --
-								process_et_feature(a_class, query.first_precursor, query)
+								process_feature_implementation_class(a_class, query)
+								process_feature_precursor(a_class, query.first_precursor, query)
 								if attached query.other_precursors as l_other_precursors then
 									from
 										j := 1
@@ -238,7 +250,7 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 										j > np
 									loop
 										l_other_precursor := l_other_precursors.item (j)
-										process_et_feature(a_class, l_other_precursor, query)
+										process_feature_precursor(a_class, l_other_precursor, query)
 										j := j + 1
 									end
 								end
