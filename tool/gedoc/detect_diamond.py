@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 
+import glob
+import os
 import pandas as pd
+
+
+home_dir = os.path.expanduser('~')
+script_path = os.path.abspath(__file__)
+script_dir  = os.path.dirname(script_path)
 
 
 # map each field to its *direct* superclasses' fields that it inherited redefined or renamed
@@ -34,8 +41,9 @@ def mark_descendants(path):
     mark_descendants(curr_path)  # recursive call
 
 
-def detect_diamond(fn):
-  edges = pd.read_csv(fn, sep="[,\.]", skiprows=3, skipfooter=1, engine='python',
+INHERITED_FIELDS_FN = "inherited_fields.path"
+def detect_diamond(ecf_fn):
+  edges = pd.read_csv(INHERITED_FIELDS_FN, sep="[,\.]", skiprows=3, skipfooter=1, engine='python',
       names=["kind", "src_class", "src_field", "tgt_class", "tgt_field"])
   # print(edges)
 
@@ -47,7 +55,7 @@ def detect_diamond(fn):
     if tgt not in parent_fields:
       parent_fields[tgt] = set()
     parent_fields[tgt].add(src)
-  print("total fields: ", len(parent_fields))
+  # print("total fields: ", len(parent_fields))
 
   for field in parent_fields.keys():  # mark all the field's ancestors at *any* level
     mark_descendants((field,))
@@ -56,12 +64,24 @@ def detect_diamond(fn):
   for field, clazzs in descendant_fields.items():
     for class_name, field_paths in clazzs.items():
       if len(field_paths.keys()) >= 2:
+        print('=' * 40, ecf_fn, "total fields: ", len(parent_fields))
         print("diamond: ", field, " => ", class_name)
         for new_field, path in field_paths.items():
           print("  ", new_field, path)
 
 
+def process_all_ecf():
+
+  ecf_fns = glob.glob('**/*.ecf', recursive=True)
+  for ecf_fn in ecf_fns:
+    try:
+      # "%s/project/contrib/gobo/tool/gedoc" home_dir
+      os.system("%s/gedoc --format=field_rename %s > %s" %
+          (script_dir, ecf_fn, INHERITED_FIELDS_FN))
+      detect_diamond(ecf_fn)
+    except:
+      print("skip ", ecf_fn)
 
 if __name__ == "__main__":
-  fn = "inherited_fields.path"
-  detect_diamond(fn)
+  process_all_ecf()
+
