@@ -13,8 +13,11 @@ gobo:  # does not work: https://github.com/gobo-eiffel/gobo/issues/71
 
 fmt=implicit_converts
 fmt=field_rename
+
+demo_ecf = ./test/tool/system.ecf
+demo_ecf = src/system.ecf
 demo:
-	gedoc --format=$(fmt) ./test/tool/system.ecf
+	gedoc --format=$(fmt) $(demo_ecf) > inherited_fields.path
 
 clean:
 	$(RM) *.c *.o *.make *.h *.sh
