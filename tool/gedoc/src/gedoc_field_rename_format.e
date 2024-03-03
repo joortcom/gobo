@@ -153,8 +153,8 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 				-- since renamed field are processed below in process_feature_precursor, we skip here
 				if query.is_attribute and query.implementation_feature.name.same_feature_name(query.name) then
 					l_lower_name := query.implementation_feature.lower_name
-					error_handler.report_info_message (how_inherited + ", " + query.implementation_class.upper_name + "." + l_lower_name +
-						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+					error_handler.report_info_message (how_inherited + "," + query.implementation_class.upper_name + "." + l_lower_name +
+						    "," + a_class.upper_name + "." + query.lower_name + "%N")
 				end
 			end
 
@@ -175,8 +175,8 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 
 						how_inherited := "renamed"
 					end
-					error_handler.report_info_message (how_inherited + ", " + l_precursor.implementation_class.upper_name + "." + l_lower_name +
-						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+					error_handler.report_info_message (how_inherited + "," + l_precursor.implementation_class.upper_name + "." + l_lower_name +
+						    "," + a_class.upper_name + "." + query.lower_name + "%N")
 				    end
 				end
 			end
@@ -206,8 +206,8 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 								l_rename := l_item.rename_pair
 								if attached a_class.named_query(l_rename.new_name.feature_name) as query then
 									if query.is_attribute then
-					    error_handler.report_info_message ("renamed, " + parent.type.upper_name + "." + l_rename.old_name.lower_name +
-						    " => " + a_class.upper_name + "." + query.lower_name + "%N")
+					    error_handler.report_info_message ("renamed," + parent.type.upper_name + "." + l_rename.old_name.lower_name +
+						    "," + a_class.upper_name + "." + query.lower_name + "%N")
 									end
 								end
 								k := k + 1
