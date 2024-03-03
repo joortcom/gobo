@@ -29,6 +29,7 @@ gobo:
 fmt=field_rename
 demo:
 	../../gedoc --format=$(fmt) app.ecf > inherited_fields.path
+	../../detect_diamond.py
 
 clean:
 	$(RM) -fr app a.out EIFGENs/ app.make app.sh *.c *.h *.out *.o
