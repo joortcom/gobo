@@ -496,6 +496,7 @@ feature {NONE} -- Compilation script generation
 			l_wel_regexp: RX_PCRE_REGULAR_EXPRESSION
 			l_com_regexp: RX_PCRE_REGULAR_EXPRESSION
 			l_com_runtime_regexp: RX_PCRE_REGULAR_EXPRESSION
+			l_curl_regexp: RX_PCRE_REGULAR_EXPRESSION
 			l_replacement: STRING
 			l_external_include_pathnames: DS_ARRAYED_LIST [STRING]
 			l_external_library_pathnames: DS_ARRAYED_LIST [STRING]
@@ -529,19 +530,32 @@ feature {NONE} -- Compilation script generation
 			create l_com_runtime_regexp.make
 			l_com_runtime_regexp.set_case_insensitive (True)
 			l_com_runtime_regexp.compile ("(.*[\\/]library[\\/]com[\\/]).*[\\/](mt)?com_runtime\.(lib|a)")
+			create l_curl_regexp.make
+			l_curl_regexp.set_case_insensitive (True)
+			l_curl_regexp.compile ("(.*[\\/]library[\\/]curl[\\/]).*[\\/](mt)?eiffel_curl(_static)?\.(lib|o)")
 				-- Include files.
 			create l_includes.make (256)
 			l_external_include_pathnames := current_system.external_include_pathnames
 			nb := l_external_include_pathnames.count
+			if nb > 1 then
+					-- Add '$GOBO/backend/c/runtime' to the list of include paths if at least
+					-- one include path has been specified in the ECF file. That way if one such
+					-- include file tries to include one of the runtime 'eif_*.h' file, it can
+					-- be found by the C compiler.
+				l_pathname := file_system.nested_pathname ("${GOBO}", <<"tool", "gec", "backend", "c", "runtime">>)
+				l_pathname := Execution_environment.interpreted_string (l_pathname)
+				l_includes.append_string ("-I")
+				l_includes.append_character ('%"')
+				l_includes.append_string (l_pathname)
+				l_includes.append_character ('%"')
+			end
 			from i := 1 until i > nb loop
 				l_pathname := l_external_include_pathnames.item (i)
 				l_env_regexp.match (l_pathname)
 				l_replacement := STRING_.new_empty_string (l_pathname, 6)
 				l_replacement.append_string ("${\1\}")
 				l_pathname := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
-				if i /= 1 then
-					l_includes.append_character (' ')
-				end
+				l_includes.append_character (' ')
 				l_includes.append_string ("-I")
 				if l_pathname.starts_with ("%"") then
 					l_includes.append_string (l_pathname)
@@ -608,11 +622,13 @@ feature {NONE} -- Compilation script generation
 				l_replacement.append_string ("${\1\}")
 				l_pathname := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
 				if l_wel_regexp.recognizes (l_pathname) then
-					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "clib", c_filenames)
+					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "Clib", c_filenames)
 				elseif l_com_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "clib", c_filenames)
+					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "Clib", c_filenames)
 				elseif l_com_runtime_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "clib_runtime", c_filenames)
+					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "Clib_runtime", c_filenames)
+				elseif l_curl_regexp.recognizes (l_pathname) then
+					add_external_c_files ("curl", l_curl_regexp.captured_substring (1) + "Clib", c_filenames)
 				else
 					if i /= 1 then
 						l_libs.append_character (' ')
@@ -643,11 +659,13 @@ feature {NONE} -- Compilation script generation
 				l_replacement.append_string ("${\1\}")
 				l_pathname := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
 				if l_wel_regexp.recognizes (l_pathname) then
-					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "clib", c_filenames)
+					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "Clib", c_filenames)
 				elseif l_com_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "clib", c_filenames)
+					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "Clib", c_filenames)
 				elseif l_com_runtime_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "clib_runtime", c_filenames)
+					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "Clib_runtime", c_filenames)
+				elseif l_curl_regexp.recognizes (l_pathname) then
+					add_external_c_files ("curl", l_curl_regexp.captured_substring (1) + "Clib", c_filenames)
 				else
 					if not l_external_obj_filenames.is_empty then
 						l_external_obj_filenames.append_character (' ')
