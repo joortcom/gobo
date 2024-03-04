@@ -366,6 +366,13 @@ feature -- Compilation options
 			Result := multithreaded_mode or scoop_mode
 		end
 
+	check_for_void_target_mode: BOOLEAN
+			-- Should the attachment status of the target of qualified calls
+			-- be checked at runtime?
+		do
+			Result := current_system.check_for_void_target_mode
+		end
+
 	exception_trace_mode: BOOLEAN
 			-- Should the generated application be able to provide an exception trace?
 			-- An exception trace is the execution path from the root creation procedure
@@ -463,6 +470,9 @@ feature -- Generation
 			a_system_name_not_void: a_system_name /= Void
 		do
 			has_fatal_error := False
+			if use_boehm_gc then
+				add_boehm_gc_c_files (a_system_name)
+			end
 			generate_c_code (a_system_name)
 			generate_compilation_script (a_system_name)
 			c_filenames.wipe_out
@@ -492,6 +502,7 @@ feature {NONE} -- Compilation script generation
 			l_external_object_pathnames: DS_ARRAYED_LIST [STRING]
 			l_external_cflags: DS_ARRAYED_LIST [STRING]
 			l_external_linker_flags: DS_ARRAYED_LIST [STRING]
+			l_external_obj_filenames: STRING
 			l_includes: STRING
 			l_libs: STRING
 			l_cflags: STRING
@@ -501,7 +512,10 @@ feature {NONE} -- Compilation script generation
 			l_pathname: STRING
 			l_cursor: DS_HASH_TABLE_CURSOR [STRING, STRING]
 			l_external_c_filenames: DS_HASH_TABLE [STRING, STRING]
+			old_system_name: STRING
 		do
+			old_system_name := system_name
+			system_name := a_system_name
 			l_base_name := a_system_name
 			l_variables := c_config
 			create l_env_regexp.make
@@ -594,11 +608,11 @@ feature {NONE} -- Compilation script generation
 				l_replacement.append_string ("${\1\}")
 				l_pathname := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
 				if l_wel_regexp.recognizes (l_pathname) then
-					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "clib", l_external_c_filenames)
+					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "clib", c_filenames)
 				elseif l_com_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "clib", l_external_c_filenames)
+					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "clib", c_filenames)
 				elseif l_com_runtime_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "clib_runtime", l_external_c_filenames)
+					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "clib_runtime", c_filenames)
 				else
 					if i /= 1 then
 						l_libs.append_character (' ')
@@ -618,7 +632,36 @@ feature {NONE} -- Compilation script generation
 			l_variables.force (l_base_name + l_variables.item ("exe"), "exe")
 				-- Object files.
 			create l_obj_filenames.make (100)
+			create l_external_obj_filenames.make (100)
 			l_obj := l_variables.item ("obj")
+			l_external_object_pathnames := current_system.external_object_pathnames
+			nb := l_external_object_pathnames.count
+			from i := 1 until i > nb loop
+				l_pathname := l_external_object_pathnames.item (i)
+				l_env_regexp.match (l_pathname)
+				l_replacement := STRING_.new_empty_string (l_pathname, 6)
+				l_replacement.append_string ("${\1\}")
+				l_pathname := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
+				if l_wel_regexp.recognizes (l_pathname) then
+					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "clib", c_filenames)
+				elseif l_com_regexp.recognizes (l_pathname) then
+					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "clib", c_filenames)
+				elseif l_com_runtime_regexp.recognizes (l_pathname) then
+					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "clib_runtime", c_filenames)
+				else
+					if not l_external_obj_filenames.is_empty then
+						l_external_obj_filenames.append_character (' ')
+					end
+					if l_pathname.starts_with ("%"") then
+						l_external_obj_filenames.append_string (l_pathname)
+					else
+						l_external_obj_filenames.append_character ('%"')
+						l_external_obj_filenames.append_string (l_pathname)
+						l_external_obj_filenames.append_character ('%"')
+					end
+				end
+				i := i + 1
+			end
 				-- List objects in reverse order so that it looks like
 				-- a countdown when compiling since the filenames are numbered.
 			l_cursor := c_filenames.new_cursor
@@ -631,40 +674,9 @@ feature {NONE} -- Compilation script generation
 				l_obj_filenames.append_string (l_obj)
 				l_cursor.back
 			end
-			l_external_object_pathnames := current_system.external_object_pathnames
-			nb := l_external_object_pathnames.count
-			from i := 1 until i > nb loop
-				l_pathname := l_external_object_pathnames.item (i)
-				l_env_regexp.match (l_pathname)
-				l_replacement := STRING_.new_empty_string (l_pathname, 6)
-				l_replacement.append_string ("${\1\}")
-				l_pathname := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
-				if l_wel_regexp.recognizes (l_pathname) then
-					add_external_c_files ("wel", l_wel_regexp.captured_substring (1) + "clib", l_external_c_filenames)
-				elseif l_com_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com", l_com_regexp.captured_substring (1) + "clib", l_external_c_filenames)
-				elseif l_com_runtime_regexp.recognizes (l_pathname) then
-					add_external_c_files ("com_runtime", l_com_runtime_regexp.captured_substring (1) + "clib_runtime", l_external_c_filenames)
-				else
-					l_obj_filenames.append_character (' ')
-					if l_pathname.starts_with ("%"") then
-						l_obj_filenames.append_string (l_pathname)
-					else
-						l_obj_filenames.append_character ('%"')
-						l_obj_filenames.append_string (l_pathname)
-						l_obj_filenames.append_character ('%"')
-					end
-				end
-				i := i + 1
-			end
-				-- Boehm GC.
-			if use_boehm_gc then
-				if not attached gobo_variables.boehm_gc_value as l_boehm_gc_folder or else l_boehm_gc_folder.is_empty then
-					set_fatal_error
-					report_undefined_environment_variable_error (gobo_variables.boehm_gc_variable)
-				else
-					add_external_c_files ("boehm_gc", l_boehm_gc_folder, l_external_c_filenames)
-				end
+			if not l_external_obj_filenames.is_empty then
+				l_obj_filenames.append_character (' ')
+				l_obj_filenames.append_string (l_external_obj_filenames)
 			end
 			l_cursor := l_external_c_filenames.new_cursor
 			from l_cursor.start until l_cursor.after loop
@@ -679,13 +691,17 @@ feature {NONE} -- Compilation script generation
 			l_variables.force (l_base_name + h_file_extension, "header")
 				-- Script.
 			generate_compilation_shell_script (l_base_name, l_variables, l_obj_filenames, l_env_regexp, l_external_c_filenames)
-			if not operating_system.is_windows then
-				generate_compilation_makefile (l_base_name, l_variables)
-			end
+			system_name := old_system_name
 		end
 
 	generate_compilation_shell_script (a_system_name: STRING; a_variables: like c_config; an_obj_filenames: STRING; an_env_regexp: RX_PCRE_REGULAR_EXPRESSION; an_external_c_filenames: DS_HASH_TABLE [STRING, STRING])
 			-- Generate script to compile the C code.
+		require
+			a_system_name_not_void: a_system_name /= Void
+			a_variables_not_void: a_variables /= Void
+			an_obj_filenames_not_void: an_obj_filenames /= Void
+			an_env_regexp_not_void: an_env_regexp /= Void
+			an_external_c_filenames_not_void: an_external_c_filenames /= Void
 		local
 			l_base_name: STRING
 			l_script_filename: STRING
@@ -704,6 +720,7 @@ feature {NONE} -- Compilation script generation
 			l_external_resource_pathnames: DS_ARRAYED_LIST [STRING]
 			l_cc_template: STRING
 			l_filename: STRING
+			l_windows_variables: DS_STRING_HASH_TABLE
 		do
 			l_base_name := a_system_name
 			if operating_system.is_windows then
@@ -716,11 +733,34 @@ feature {NONE} -- Compilation script generation
 			if l_file.is_open_write then
 				if operating_system.is_windows then
 					l_file.put_line ("@echo off")
+						-- Set some environment variables.
+					create l_windows_variables.make (10)
+					if attached gobo_variables.gobo_value as l_gobo_value and then not l_gobo_value.is_empty then
+						l_file.put_line ("set " + gobo_variables.gobo_variable + "=" + l_gobo_value)
+						l_windows_variables.force ("%%GOBO%%", "GOBO")
+					end
+					if attached gobo_variables.zig_value as l_zig_value and then not l_zig_value.is_empty then
+						l_file.put_line ("set " + gobo_variables.zig_variable + "=" + l_zig_value)
+						l_windows_variables.force ("%%ZIG%%", "ZIG")
+					end
+					if use_boehm_gc and then attached gobo_variables.boehm_gc_value as l_boehm_gc_value and then not l_boehm_gc_value.is_empty then
+						l_file.put_line ("set " + gobo_variables.boehm_gc_variable + "=" + l_boehm_gc_value)
+						l_windows_variables.force ("%%BOEHM_GC%%", "BOEHM_GC")
+					end
 				else
 					l_file.put_line ("#!/bin/sh")
+						-- Set some environment variables only if they are not defined yet.
+						-- (See https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_03.html#sect_10_03_03)
+					if attached gobo_variables.gobo_value as l_gobo_value and then not l_gobo_value.is_empty then
+						l_file.put_line ("export " + gobo_variables.gobo_variable + "=${" + gobo_variables.gobo_variable + ":-" + l_gobo_value + "}")
+					end
+					if attached gobo_variables.zig_value as l_zig_value and then not l_zig_value.is_empty then
+						l_file.put_line ("export " + gobo_variables.zig_variable + "=${" + gobo_variables.zig_variable + ":-" + l_zig_value + "}")
+					end
+					if use_boehm_gc and then attached gobo_variables.boehm_gc_value as l_boehm_gc_value and then not l_boehm_gc_value.is_empty then
+						l_file.put_line ("export " + gobo_variables.boehm_gc_variable + "=${" + gobo_variables.boehm_gc_variable + ":-" + l_boehm_gc_value + "}")
+					end
 					if attached ise_variables.ise_platform_value as l_ise_platform_value and then not l_ise_platform_value.is_empty then
-							-- Set environment variable $ISE_PLATFORM only if it's not defined yet.
-							-- (See https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_03.html#sect_10_03_03)
 						l_file.put_line ("export " + ise_variables.ise_platform_variable + "=${" + ise_variables.ise_platform_variable + ":-" + l_ise_platform_value + "}")
 					end
 				end
@@ -753,6 +793,9 @@ feature {NONE} -- Compilation script generation
 					l_filename := l_cursor.key + l_cursor.item
 					a_variables.force (l_filename, "c")
 					l_command_name := a_variables.expanded_string (l_cc_template, False)
+					if l_windows_variables /= Void then
+						l_command_name := l_windows_variables.expanded_string (l_command_name, False)
+					end
 					l_file.put_line (l_command_name)
 					l_cursor.back
 				end
@@ -761,6 +804,9 @@ feature {NONE} -- Compilation script generation
 					l_filename := l_cursor.key + l_cursor.item
 					a_variables.force (l_filename, "c")
 					l_command_name := a_variables.expanded_string (l_cc_template, False)
+					if l_windows_variables /= Void then
+						l_command_name := l_windows_variables.expanded_string (l_command_name, False)
+					end
 					l_file.put_line (l_command_name)
 					l_cursor.forth
 				end
@@ -794,6 +840,9 @@ feature {NONE} -- Compilation script generation
 							a_variables.force (l_rc_filename, "rc_file")
 							a_variables.force (l_res_filename, "res_file")
 							l_command_name := a_variables.expanded_string (l_rc_template, False)
+							if l_windows_variables /= Void then
+								l_command_name := l_windows_variables.expanded_string (l_command_name, False)
+							end
 							l_file.put_line (l_command_name)
 						end
 						if l_res_filename /= Void then
@@ -814,6 +863,9 @@ feature {NONE} -- Compilation script generation
 						a_variables.force (l_rc_filename, "rc_file")
 						a_variables.force (l_res_filename, "res_file")
 						l_command_name := a_variables.expanded_string (l_rc_template, False)
+						if l_windows_variables /= Void then
+							l_command_name := l_windows_variables.expanded_string (l_command_name, False)
+						end
 						l_file.put_line (l_command_name)
 						an_obj_filenames.append_character (' ')
 						an_obj_filenames.append_string (l_res_filename)
@@ -821,6 +873,9 @@ feature {NONE} -- Compilation script generation
 				end
 				l_link_template := a_variables.item ("link")
 				l_command_name := a_variables.expanded_string (l_link_template, False)
+				if l_windows_variables /= Void then
+					l_command_name := l_windows_variables.expanded_string (l_command_name, False)
+				end
 				l_file.put_line (l_command_name)
 				l_file.close
 					-- Set executable mode.
@@ -828,30 +883,6 @@ feature {NONE} -- Compilation script generation
 			else
 				set_fatal_error
 				report_cannot_write_error (l_script_filename)
-			end
-		end
-
-	generate_compilation_makefile (a_system_name: STRING; a_variables: like c_config)
-			-- Generate Makefile to compile the C code.
-		local
-			l_base_name: STRING
-			l_makefile_filename: STRING
-			l_file: KL_TEXT_OUTPUT_FILE
-			l_makefile_template: STRING
-			l_command_name: STRING
-		do
-			l_base_name := a_system_name
-			l_makefile_filename := l_base_name + make_file_extension
-			create l_file.make (l_makefile_filename)
-			l_file.open_write
-			if l_file.is_open_write then
-				l_makefile_template := a_variables.item ("Makefile")
-				l_command_name := a_variables.expanded_string (l_makefile_template, False)
-				l_file.put_line (l_command_name)
-				l_file.close
-			else
-				set_fatal_error
-				report_cannot_write_error (l_makefile_filename)
 			end
 		end
 
@@ -864,10 +895,6 @@ feature {NONE} -- Compilation script generation
 			l_default: BOOLEAN
 			l_c_config_parser: UT_CONFIG_PARSER
 			l_cursor: DS_HASH_TABLE_CURSOR [STRING, STRING]
-			l_env_regexp: RX_PCRE_REGULAR_EXPRESSION
-			l_replacement: STRING
-			l_excluded: DS_HASH_SET [STRING]
-			l_value: STRING
 		do
 			l_name := Execution_environment.variable_value ("GOBO_CC")
 			if l_name = Void then
@@ -887,30 +914,19 @@ feature {NONE} -- Compilation script generation
 			end
 			if l_name = Void then
 				l_default := True
-				if operating_system.is_windows then
-					l_name := "msc"
-				else
-					l_name := "cc"
-				end
+				l_name := "zig"
 			end
 			create Result.make_map (10)
 			Result.set_key_equality_tester (string_equality_tester)
+			Result.put_new ("$ZIG cc -Wno-unused-value -Wno-deprecated-declarations -fno-sanitize=undefined $cflags $includes -c $c", "cc")
+			Result.put_new ("$ZIG cc $lflags -o $exe $objs $libs -lm", "link")
 				-- Put some platform-dependent default values.
 			if operating_system.is_windows then
-				Result.put_new ("cl -nologo $cflags $includes -c $c", "cc")
-				Result.put_new ("link -nologo $lflags -subsystem:console -out:$exe $objs $libs", "link")
 				Result.put_new (".obj", "obj")
 				Result.put_new (".exe", "exe")
-				Result.put_new ("", "cflags")
-				Result.put_new ("", "lflags")
 			else
-				Result.put_new ("cc $cflags $includes -c $c", "cc")
-				Result.put_new ("cc $lflags -o $exe $objs $libs", "link")
 				Result.put_new (".o", "obj")
 				Result.put_new ("", "exe")
-				Result.put_new ("", "cflags")
-				Result.put_new ("", "lflags")
-				Result.put_new (makefile_template, "Makefile")
 			end
 			l_filename := file_system.nested_pathname ("${GOBO}", <<"tool", "gec", "backend", "c", "config", l_name>>)
 			l_filename := Execution_environment.interpreted_string (l_filename)
@@ -944,23 +960,9 @@ feature {NONE} -- Compilation script generation
 				if l_c_config_parser.has_error then
 					set_fatal_error
 				else
-					create l_env_regexp.make
-					l_env_regexp.compile ("%%([^%%]+)%%")
-					create l_excluded.make (10)
-					l_excluded.set_equality_tester (string_equality_tester)
-					l_excluded.force_last ("cc")
-					l_excluded.force_last ("link")
-					l_excluded.force_last ("rc")
 					l_cursor := l_c_config_parser.config_values.new_cursor
 					from l_cursor.start until l_cursor.after loop
-						l_value := l_cursor.item
-						if not l_excluded.has (l_cursor.key) then
-							l_env_regexp.match (l_value)
-							l_replacement := STRING_.new_empty_string (l_value, 6)
-							l_replacement.append_string ("${\1\}")
-							l_value := Execution_environment.interpreted_string (l_env_regexp.replace_all (l_replacement))
-						end
-						Result.force (l_value, l_cursor.key)
+						Result.force (l_cursor.item, l_cursor.key)
 						l_cursor.forth
 					end
 				end
@@ -977,6 +979,116 @@ feature {NONE} -- Compilation script generation
 			obj_defined: Result.has ("obj")
 		end
 
+	add_boehm_gc_c_files (a_system_name: STRING)
+			-- Add C files of Boehm GC to the compilation script.
+		require
+			a_system_name_not_void: a_system_name /= Void
+			use_boehm_gc: use_boehm_gc
+		local
+			l_c_file: KL_TEXT_OUTPUT_FILE
+			l_c_filename: STRING
+			l_basename: STRING
+			l_filename: STRING
+		do
+			if not attached gobo_variables.boehm_gc_value as l_boehm_gc_folder or else l_boehm_gc_folder.is_empty then
+				set_fatal_error
+				report_undefined_environment_variable_error (gobo_variables.boehm_gc_variable)
+			else
+				l_basename := a_system_name + (c_filenames.count + 1).out
+				l_c_filename := l_basename + c_file_extension
+				create l_c_file.make (l_c_filename)
+				l_c_file.open_write
+				if not l_c_file.is_open_write then
+					set_fatal_error
+					report_cannot_write_error (l_c_filename)
+				else
+					c_filenames.force_last (c_file_extension, l_basename)
+					l_c_file.put_line ("[
+/* C files for Boehm GC. */
+
+#if defined(WIN32) || defined(WINVER) || defined(_WIN32_WINNT) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(_WIN_MSC_VER32)
+#	define GE_WINDOWS
+#elif defined(macintosh) || defined(Macintosh) || defined(__APPLE__) || defined(__MACH__)
+#	define GE_MACOS
+#endif
+
+#define GC_IGNORE_WARN
+#define GC_NOT_DLL
+#define GC_THREADS
+#define PARALLEL_MARK
+#define THREAD_LOCAL_ALLOC
+#define GC_ENABLE_SUSPEND_THREAD
+#define LARGE_CONFIG
+#define ALL_INTERIOR_POINTERS
+#define ENABLE_DISCLAIM
+#define GC_ATOMIC_UNCOLLECTABLE
+#define GC_GCJ_SUPPORT
+#define JAVA_FINALIZATION
+#define NO_EXECUTE_PERMISSION
+#define USE_MMAP
+#define USE_MUNMAP
+
+#if defined(GE_WINDOWS)
+#	undef GC_NO_THREAD_DECLS
+#	undef GC_NO_THREAD_REDIRECTS
+#	define EMPTY_GETENV_RESULTS
+#	define DONT_USE_USER32_DLL
+#else
+#	if !defined(GE_MACOS)
+#		define GC_PTHREAD_START_STANDALONE
+#	endif
+#	ifndef _REENTRANT
+#		define _REENTRANT
+#	endif
+#	define HANDLE_FORK
+#endif
+
+#if defined(__clang__) || defined(__GNUC__) || defined(__MINGW32__) || defined(__MINGW64__)
+#	define GC_BUILTIN_ATOMIC
+#endif
+
+#if defined(__clang__)
+#	define HAVE_DL_ITERATE_PHDR
+#	define GC_REQUIRE_WCSDUP
+#	define HAVE_DLADDR
+#	define HAVE_SYS_TYPES_H
+#	define HAVE_UNISTD_H
+#	if defined(GE_MACOS)
+#		define HAVE_PTHREAD_SETNAME_NP_WITHOUT_TID
+#	elif !defined(GE_WINDOWS)
+#		define HAVE_PTHREAD_SETNAME_NP_WITH_TID
+#		define HAVE_PTHREAD_SIGMASK
+#		define NO_GETCONTEXT
+#	endif
+#endif
+]")
+					l_c_file.put_new_line
+					l_filename := file_system.nested_pathname (l_boehm_gc_folder, <<"extra", "gc.c">>)
+					l_filename := STRING_.replaced_all_substrings (l_filename, "\", "\\")
+					l_c_file.put_string (c_include)
+					l_c_file.put_character (' ')
+					l_c_file.put_character ('"')
+					l_c_file.put_string (l_filename)
+					l_c_file.put_character ('"')
+					l_c_file.put_new_line
+					l_c_file.put_string (c_ifdef)
+					l_c_file.put_character (' ')
+					l_c_file.put_line ("GC_PTHREAD_START_STANDALONE")
+					l_filename := file_system.pathname (l_boehm_gc_folder, "pthread_start.c")
+					l_filename := STRING_.replaced_all_substrings (l_filename, "\", "\\")
+					l_c_file.put_string (c_include)
+					l_c_file.put_character (' ')
+					l_c_file.put_character ('"')
+					l_c_file.put_string (l_filename)
+					l_c_file.put_character ('"')
+					l_c_file.put_new_line
+					l_c_file.put_line (c_endif)
+					l_c_file.put_new_line
+					l_c_file.close
+				end
+			end
+		end
+
 	add_external_c_files (a_library_name, a_clib_dirname: STRING; a_external_c_filenames: DS_HASH_TABLE [STRING, STRING])
 			-- Add C files of `a_library_name' found in `a_clib_dirname' to the compilation script.
 		require
@@ -990,24 +1102,24 @@ feature {NONE} -- Compilation script generation
 			l_filename: STRING
 			l_extension: STRING
 			l_basename: STRING
-			l_newline_needed: BOOLEAN
 			l_c_filenames: detachable DS_ARRAYED_LIST [STRING]
 			l_cpp_filenames: detachable DS_ARRAYED_LIST [STRING]
+			l_all_filenames: DS_ARRAYED_LIST [DS_ARRAYED_LIST [STRING]]
 			l_filenames: detachable DS_ARRAYED_LIST [STRING]
 			l_sorter: DS_QUICK_SORTER [STRING]
 			l_comparator: UC_STRING_COMPARATOR
 			i, nb: INTEGER
+			j, nb2: INTEGER
 			l_common_defines: DS_ARRAYED_LIST [STRING]
 			l_common_includes: DS_ARRAYED_LIST [STRING]
-			l_builtin_atomic: DS_ARRAYED_LIST [STRING]
 		do
+			create l_all_filenames.make (2)
 			create l_dir.make (a_clib_dirname)
 			l_dir.open_read
 			if not l_dir.is_open_read then
 				set_fatal_error
 				report_cannot_read_error (a_clib_dirname)
 			else
-				create l_filenames.make (50)
 				from
 					l_dir.read_entry
 				until
@@ -1017,11 +1129,13 @@ feature {NONE} -- Compilation script generation
 					if l_filename.ends_with (c_file_extension) then
 						if l_c_filenames = Void then
 							create l_c_filenames.make (50)
+							l_all_filenames.force_last (l_c_filenames)
 						end
 						l_c_filenames.force_last (l_filename)
 					elseif l_filename.ends_with (cpp_file_extension) then
 						if l_cpp_filenames = Void then
 							create l_cpp_filenames.make (50)
+							l_all_filenames.force_last (l_cpp_filenames)
 						end
 						l_cpp_filenames.force_last (l_filename)
 					end
@@ -1029,126 +1143,70 @@ feature {NONE} -- Compilation script generation
 				end
 				l_dir.close
 			end
-			if l_c_filenames /= Void or l_cpp_filenames /= Void then
-				create l_comparator
-				create l_sorter.make (l_comparator)
-				if l_c_filenames /= Void then
-					l_c_filenames.sort (l_sorter)
-				end
-				if l_cpp_filenames /= Void then
-					l_cpp_filenames.sort (l_sorter)
-				end
-				create l_common_defines.make (15)
-				create l_common_includes.make (5)
-				if a_library_name.same_string ("boehm_gc") then
-					l_common_defines.force_last ("GC_NOT_DLL")
-					l_common_defines.force_last ("GC_THREADS")
-					l_common_defines.force_last ("THREAD_LOCAL_ALLOC")
-					l_common_defines.force_last ("PARALLEL_MARK")
-					l_common_defines.force_last ("LARGE_CONFIG")
-					l_common_defines.force_last ("ALL_INTERIOR_POINTERS")
-					l_common_defines.force_last ("ENABLE_DISCLAIM")
-					l_common_defines.force_last ("GC_ATOMIC_UNCOLLECTABLE")
-					l_common_defines.force_last ("GC_GCJ_SUPPORT")
-					l_common_defines.force_last ("JAVA_FINALIZATION")
-					l_common_defines.force_last ("NO_EXECUTE_PERMISSION")
-					l_common_defines.force_last ("USE_MUNMAP")
-				else
-					if use_threads then
-						l_common_defines.force_last (c_ge_use_threads)
-					end
-					if scoop_mode then
-						l_common_defines.force_last (c_ge_use_scoop)
-					end
-					l_common_includes.force_last ("ge_eiffel.h")
-					l_common_includes.force_last ("ge_gc.h")
-							-- Two header files needed to compile EiffelCOM.
-					l_common_includes.force_last ("eif_cecil.h")
-					l_common_includes.force_last ("eif_plug.h")
-				end
+			create l_comparator
+			create l_sorter.make (l_comparator)
+			create l_common_defines.make (15)
+			create l_common_includes.make (5)
+			if use_threads then
+				l_common_defines.force_last (c_ge_use_threads)
 			end
-			from
-				l_filenames := l_c_filenames
-				if l_filenames = Void then
-					l_filenames := l_cpp_filenames
-				end
-			until
-				l_filenames = Void
-			loop
-				if l_filenames = l_c_filenames then
+			if scoop_mode then
+				l_common_defines.force_last (c_ge_use_scoop)
+			end
+			l_common_includes.force_last ("ge_eiffel.h")
+			l_common_includes.force_last ("ge_gc.h")
+				-- Two header files needed to compile EiffelCOM.
+			l_common_includes.force_last ("eif_cecil.h")
+			l_common_includes.force_last ("eif_plug.h")
+			nb2 := l_all_filenames.count
+			from j := 1 until j > nb2 loop
+				l_filenames := l_all_filenames.item (j)
+				l_filenames.sort (l_sorter)
+				if l_filenames.first.ends_with (c_file_extension) then
 					l_extension := c_file_extension
-					l_external_filename := a_library_name + l_extension
 				else
 					l_extension := cpp_file_extension
-					l_external_filename := a_library_name + "_cpp" + l_extension
 				end
+				if a_external_c_filenames = c_filenames then
+					l_basename := system_name + (c_filenames.count + 1).out
+				else
+					l_basename := a_library_name + j.out
+				end
+				l_external_filename := l_basename + l_extension
 				create l_external_file.make (l_external_filename)
 				l_external_file.open_write
 				if not l_external_file.is_open_write then
 					set_fatal_error
 					report_cannot_write_error (l_external_filename)
 				else
-					l_basename := l_external_filename.twin
-					l_basename.remove_tail (l_extension.count)
 					a_external_c_filenames.force_last (l_extension, l_basename)
-					if l_common_defines /= Void then
-						nb := l_common_defines.count
-						from i := 1 until i > nb loop
-							l_external_file.put_string (c_define)
-							l_external_file.put_character (' ')
-							l_external_file.put_line (l_common_defines.item (i))
-							i := i + 1
-						end
-						l_newline_needed := nb > 0
+					l_external_file.put_string ("/* C files for ")
+					l_external_file.put_string (a_library_name)
+					l_external_file.put_string (" */")
+					l_external_file.put_new_line
+					l_external_file.put_new_line
+					nb := l_common_defines.count
+					from i := 1 until i > nb loop
+						l_external_file.put_string (c_define)
+						l_external_file.put_character (' ')
+						l_external_file.put_line (l_common_defines.item (i))
+						i := i + 1
 					end
-					if a_library_name.same_string ("boehm_gc") then
-						create l_builtin_atomic.make (5)
-							-- clang (and hence Zig) supports GCC atomic intrinsics.
-						l_builtin_atomic.force_last ("__clang__")
-						l_builtin_atomic.force_last ("__GNUC__")
-						l_builtin_atomic.force_last ("__MINGW32__")
-						l_builtin_atomic.force_last ("__MINGW64__")
-						nb := l_builtin_atomic.count
-						if nb > 0 then
-							l_external_file.put_character ('#')
-							l_external_file.put_string (c_if)
-							from i := 1 until i > nb loop
-								if i /= 1 then
-									l_external_file.put_character (' ')
-									l_external_file.put_string (c_or_else)
-								end
-								l_external_file.put_character (' ')
-								l_external_file.put_string (c_defined)
-								l_external_file.put_character ('(')
-								l_external_file.put_string (l_builtin_atomic.item (i))
-								l_external_file.put_character (')')
-								i := i + 1
-							end
-							l_external_file.put_new_line
-							l_external_file.put_string (c_define)
-							l_external_file.put_character (' ')
-							l_external_file.put_line ("GC_BUILTIN_ATOMIC")
-							l_external_file.put_line (c_endif)
-							l_newline_needed := True
-						end
-					end
-					if l_newline_needed then
+					if nb > 0 then
 						l_external_file.put_new_line
 					end
-					if l_common_includes /= Void then
-						nb := l_common_includes.count
-						from i := 1 until i > nb loop
-							l_external_file.put_string (c_include)
-							l_external_file.put_character (' ')
-							l_external_file.put_character ('"')
-							l_external_file.put_string (l_common_includes.item (i))
-							l_external_file.put_character ('"')
-							l_external_file.put_new_line
-							i := i + 1
-						end
-						if nb > 0 then
-							l_external_file.put_new_line
-						end
+					nb := l_common_includes.count
+					from i := 1 until i > nb loop
+						l_external_file.put_string (c_include)
+						l_external_file.put_character (' ')
+						l_external_file.put_character ('"')
+						l_external_file.put_string (l_common_includes.item (i))
+						l_external_file.put_character ('"')
+						l_external_file.put_new_line
+						i := i + 1
+					end
+					if nb > 0 then
+						l_external_file.put_new_line
 					end
 					nb := l_filenames.count
 					from i := 1 until i > nb loop
@@ -1165,7 +1223,7 @@ feature {NONE} -- Compilation script generation
 					end
 					l_external_file.close
 				end
-				l_filenames := l_cpp_filenames
+				j := j + 1
 			end
 		end
 
@@ -2334,12 +2392,16 @@ feature {NONE} -- Feature generation
 				end
 				print_external_c_body (a_feature.implementation_feature.name, l_arguments, l_result_type_set, l_signature_arguments, l_signature_result, a_feature.alias_clause, False)
 			elseif old_external_c_macro_regexp.recognizes (l_language_string) then
-					-- Regexp: C "[" macro <include> "]" ["(" {<type> "," ...}* ")"] [":" <type>]
+					-- Regexp: C "[" macro <include> "]" ["(" {<type> "," ...}* ")"] [":" <type>] ["|" {<include> "," ...}+]
 					-- \1: include file
 					-- \2: has signature arguments
 					-- \3: signature arguments
 					-- \5: signature result
+					-- \7: include files
 				print_external_c_includes (old_external_c_macro_regexp.captured_substring (1))
+				if old_external_c_regexp.match_count > 7 and then old_external_c_regexp.captured_substring_count (7) > 0 then
+					print_external_c_includes (old_external_c_macro_regexp.captured_substring (7))
+				end
 				if old_external_c_macro_regexp.match_count > 2 and then old_external_c_macro_regexp.captured_substring_count (2) > 0 then
 					l_signature_arguments := old_external_c_macro_regexp.captured_substring (3)
 					if old_external_c_macro_regexp.match_count > 5 and then old_external_c_macro_regexp.captured_substring_count (5) > 0 then
@@ -2384,7 +2446,7 @@ feature {NONE} -- Feature generation
 					-- \10: signature result
 					-- \17: include files
 				l_is_cpp := True
-				print_external_cpp_includes (external_c_macro_regexp.captured_substring (17))
+				print_external_cpp_includes (external_cpp_macro_regexp.captured_substring (17))
 				if external_cpp_macro_regexp.match_count > 4 and then external_cpp_macro_regexp.captured_substring_count (4) > 0 then
 					l_signature_arguments := external_cpp_macro_regexp.captured_substring (5)
 				end
@@ -10425,12 +10487,14 @@ feature {NONE} -- Expression generation
 					current_file.put_character ('(')
 					if a_source_type_set.can_be_void  then
 						can_be_void_target_count := can_be_void_target_count + 1
-						if finalize_mode then
-							current_file.put_string (c_ge_void)
-						else
-							current_file.put_string (c_ge_void2)
+						if check_for_void_target_mode then
+							if finalize_mode then
+								current_file.put_string (c_ge_void)
+							else
+								current_file.put_string (c_ge_void2)
+							end
+							current_file.put_character ('(')
 						end
-						current_file.put_character ('(')
 						l_do_check_void := True
 					else
 						never_void_target_count := never_void_target_count + 1
@@ -11299,13 +11363,15 @@ feature {NONE} -- Expression generation
 				l_dynamic_type_set := dynamic_type_set (a_expression)
 				if not a_dynamic_type.is_expanded and then l_dynamic_type_set.can_be_void and not a_expression.is_never_void then
 					can_be_void_target_count := can_be_void_target_count + 1
-					if finalize_mode then
-						current_file.put_string (c_ge_void)
-					else
-						current_file.put_string (c_ge_void2)
+					if check_for_void_target_mode then
+						if finalize_mode then
+							current_file.put_string (c_ge_void)
+						else
+							current_file.put_string (c_ge_void2)
+						end
+						current_file.put_character ('(')
+						l_do_check_void := True
 					end
-					current_file.put_character ('(')
-					l_do_check_void := True
 				else
 					never_void_target_count := never_void_target_count + 1
 				end
@@ -44200,11 +44266,12 @@ feature {NONE} -- External regexp
 			-- \7: include files
 
 	old_external_c_macro_regexp: RX_PCRE_REGULAR_EXPRESSION
-			-- Regexp: C "[" macro <include> "]" ["(" {<type> "," ...}* ")"] [":" <type>]
+			-- Regexp: C "[" macro <include> "]" ["(" {<type> "," ...}* ")"] [":" <type>] ["|" {<include> "," ...}+]
 			-- \1: include file
 			-- \2: has signature arguments
 			-- \3: signature arguments
 			-- \5: signature result
+			-- \7: include files
 
 	old_external_c_struct_regexp: RX_PCRE_REGULAR_EXPRESSION
 			-- Regexp: C "[" struct <include> "]" "(" {<type> "," ...}+ ")" [":" <type>]
@@ -44261,7 +44328,7 @@ feature {NONE} -- External regexp
 			external_c_regexp.compile ("[ \t\r\n]*[Cc]([ \t\r\n]+|$)(blocking([ \t\r\n]+|$))?(signature[ \t\r\n]*(\((([ \t\r\n]*[^ \t\r\n,)])+([ \t\r\n]*,([ \t\r\n]*[^ \t\r\n,)])+)*)?[ \t\r\n]*\))?[ \t\r\n]*(:[ \t\r\n]*((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$)((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$))*))?)?(use[ \t\r\n]*((.|\n)+))?")
 				-- Regexp: C [blocking] macro [signature ["(" {<type> "," ...}* ")"] [":" <type>]] use {<include> "," ...}+
 			create external_c_macro_regexp.make
-			external_c_macro_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]+(blocking[ \t\r\n]+)?macro([ \t\r\n]+|$)(signature[ \t\r\n]*(\((([ \t\r\n]*[^ \t\r\n,)])+([ \t\r\n]*,([ \t\r\n]*[^ \t\r\n,)])+)*)?[ \t\r\n]*\))?[ \t\r\n]*(:[ \t\r\n]*((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$)((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$))*))?)?(use[ \t\r\n]*((.|\n)+))")
+			external_c_macro_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]+(blocking[ \t\r\n]+)?[Mm]acro([ \t\r\n]+|$)(signature[ \t\r\n]*(\((([ \t\r\n]*[^ \t\r\n,)])+([ \t\r\n]*,([ \t\r\n]*[^ \t\r\n,)])+)*)?[ \t\r\n]*\))?[ \t\r\n]*(:[ \t\r\n]*((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$)((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$))*))?)?(use[ \t\r\n]*((.|\n)+))")
 				-- Regexp: C struct <struct-type> (access|get) <field-name> [type <field-type>] use {<include> "," ...}+
 			create external_c_struct_regexp.make
 			external_c_struct_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]+struct[ \t\r\n]+((a|ac|acc|acce|acces|g|ge|[^ag \t\r\n][^ \t\r\n]*|g[^e \t\r\n][^ \t\r\n]*|ge[^t \t\r\n][^ \t\r\n]*|get[^ \t\r\n]+|a[^c \t\r\n][^ \t\r\n]*|ac[^c \t\r\n][^ \t\r\n]*|acc[^e \t\r\n][^ \t\r\n]*|acce[^s \t\r\n][^ \t\r\n]*|acces[^s \t\r\n][^ \t\r\n]*|access[^ \t\r\n]+)[ \t\r\n]+((a|ac|acc|acce|acces|g|ge|[^ag \t\r\n][^ \t\r\n]*|g[^e \t\r\n][^ \t\r\n]*|ge[^t \t\r\n][^ \t\r\n]*|get[^ \t\r\n]+|a[^c \t\r\n][^ \t\r\n]*|ac[^c \t\r\n][^ \t\r\n]*|acc[^e \t\r\n][^ \t\r\n]*|acce[^s \t\r\n][^ \t\r\n]*|acces[^s \t\r\n][^ \t\r\n]*|access[^ \t\r\n]+)[ \t\r\n]+)*)(access|get)[ \t\r\n]+([^ \t\r\n]+)([ \t\r\n]+|$)(type[ \t\r\n]+((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$)((u|us|use[^ \t\r\n<%"]+|[^u \t\r\n][^ \t\r\n]*|u[^s \t\r\n][^ \t\r\n]*|us[^e \t\r\n][^ \t\r\n]*)([ \t\r\n]+|$))*))?(use[ \t\r\n]*((.|\n)+))")
@@ -44271,9 +44338,9 @@ feature {NONE} -- External regexp
 				-- Regexp: C [["(" {<type> "," ...}* ")"] [":" <type>]] ["|" {<include> "," ...}+]
 			create old_external_c_regexp.make
 			old_external_c_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]*((\(([^)]*)\))?[ \t\r\n]*(:[ \t\r\n]*([^|]+))?)?[ \t\r\n]*(\|[ \t\r\n]*((.|\n)+))?")
-				-- Regexp: C "[" macro <include> "]" ["(" {<type> "," ...}* ")"] [":" <type>]
+				-- Regexp: C "[" macro <include> "]" ["(" {<type> "," ...}* ")"] [":" <type>] ["|" {<include> "," ...}+]
 			create old_external_c_macro_regexp.make
-			old_external_c_macro_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]*\[[ \t\r\n]*macro[ \t\r\n]*([^]]+)\][ \t\r\n]*(\(([^)]*)\))?[ \t\r\n]*(:[ \t\r\n]*((.|\n)+))?")
+			old_external_c_macro_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]*\[[ \t\r\n]*macro[ \t\r\n]*([^]]+)\][ \t\r\n]*(\(([^)]*)\))?[ \t\r\n]*(:[ \t\r\n]*([^|]+))?[ \t\r\n]*(\|[ \t\r\n]*((.|\n)+))?")
 				-- Regexp: C "[" struct <include> "]" "(" {<type> "," ...}+ ")" [":" <type>]
 			create old_external_c_struct_regexp.make
 			old_external_c_struct_regexp.compile ("[ \t\r\n]*[Cc][ \t\r\n]*\[[ \t\r\n]*struct[ \t\r\n]*([^]]+)\][ \t\r\n]*\(([^)]+)\)[ \t\r\n]*(:[ \t\r\n]*((.|\n)+))?")
@@ -44750,51 +44817,7 @@ feature {NONE} -- Constants
 	resx_file_extension: STRING = ".resx"
 	rc_file_extension: STRING = ".rc"
 	sh_file_extension: STRING = ".sh"
-	make_file_extension: STRING = ".make"
 			-- File extensions
-
-	makefile_template: STRING = "[
-#
-# Makefile generated by gec.
-#
-
-.PHONY: all install clean distclean uninstall
-
-all: $exe
-
-prefix = /usr/local
-exec_prefix = $(prefix)
-bindir = $(exec_prefix)/bin
-mandir = $(prefix)/man
-man1dir = $(mandir)/man1
-
-INSTALL = install -C
-INSTALL_PROGRAM = $(INSTALL)
-INSTALL_DATA = $(INSTALL)
-
-CFLAGS += $cflags $includes $gc_includes
-LDFLAGS += $lflags $lflags_threads
-LDLIBS += -lm $gc_libs $libs
-OBJS = $objs
-
-$exe: $(OBJS) $header
-	$(CC) $(LDFLAGS) -o $exe $(OBJS) $(LDLIBS)
-
-clean:
-	-rm $(OBJS) $exe
-
-distclean: clean
-
-install:
-	$(INSTALL_PROGRAM) -d $(DESTDIR)$(bindir)
-	$(INSTALL_PROGRAM) $exe $(DESTDIR)$(bindir)
-
-uninstall:
-	-rm -f $(DESTDIR)$(bindir)/$exe
-
-.c.o:
-	$(CC) $(CFLAGS) -c $<
-]"
 
 invariant
 

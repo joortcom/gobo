@@ -8,12 +8,15 @@
 .PARAMETER CiTool
 	CI tool (azure, github, gitlab).
 
+.PARAMETER CCompiler
+	C Compiler (zig, gcc, clang, msc).
+
 .EXAMPLE
 	# Build Gobo Eiffel tools from the GitHub Actions pipeline:
-	build_ge.ps1 github
+	build_ge.ps1 github zig
 
 .NOTES
-	Copyright: "Copyright (c) 2021, Eric Bezault and others"
+	Copyright: "Copyright (c) 2021-2024, Eric Bezault and others"
 	License: "MIT License"
 #>
 
@@ -21,10 +24,35 @@ param
 (
 	[Parameter(Mandatory=$true)]
 	[ValidateSet("azure", "github", "gitlab")] 
-	[string] $CiTool
+	[string] $CiTool,
+	[Parameter(Mandatory=$true)]
+	[ValidateSet("zig", "gcc", "clang", "msc")] 
+	[string] $CCompiler
 )
 
-. "$PSScriptRoot/before_script.ps1" $CiTool
+$ErrorActionPreference = "Stop"
+
+. "$PSScriptRoot/before_script.ps1" $CiTool $CCompiler
+if ($LastExitCode -ne 0) {
+	Write-Error "Command 'before_script.ps1 $CiTool $CCompiler' exited with code $LastExitCode"
+	exit $LastExitCode
+}
+
+if ($GOBO_CI_C_COMPILER -eq "zig") {
+	& "$PSScriptRoot/install_zig.ps1" $CiTool
+	if ($LastExitCode -ne 0) {
+		Write-Error "Command 'install_zig.ps1 $CiTool' exited with code $LastExitCode"
+		exit $LastExitCode
+	}
+}
+
 & "$env:GOBO/bin/$GOBO_CI_BUILD_SCRIPT" $GOBO_CI_C_COMPILER
-if ($LastExitCode -ne 0) { exit $LastExitCode }
+if ($LastExitCode -ne 0) {
+	Write-Error "Command '$env:GOBO/bin/$GOBO_CI_BUILD_SCRIPT $GOBO_CI_C_COMPILER' exited with code $LastExitCode"
+	exit $LastExitCode
+}
 gec --version --verbose
+if ($LastExitCode -ne 0) {
+	Write-Error "Command 'gec --version --verbose' exited with code $LastExitCode"
+	exit $LastExitCode
+}

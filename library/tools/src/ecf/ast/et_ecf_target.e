@@ -93,6 +93,10 @@ feature -- Access
 	file_rules: detachable ET_ECF_FILE_RULES
 			-- File rules
 
+	namespaces: detachable ET_ECF_NAMESPACES
+			-- .Net namespaces
+			-- (Introduced in ECF 1.23.0)
+
 	external_includes: detachable ET_ECF_EXTERNAL_INCLUDES
 			-- External includes
 
@@ -264,6 +268,14 @@ feature -- Setting
 			file_rules := a_file_rules
 		ensure
 			file_rules_set: file_rules = a_file_rules
+		end
+
+	set_namespaces (a_namespaces: like namespaces)
+			-- Set `namespaces' to `a_namespaces'.
+		do
+			namespaces := a_namespaces
+		ensure
+			namespaces_set: namespaces = a_namespaces
 		end
 
 	set_external_includes (a_external_includes: like external_includes)
@@ -502,6 +514,24 @@ feature -- Basic operations
 			l_value := settings.value ({ET_ECF_SETTING_NAMES}.console_application_setting_name)
 			if l_value /= Void and then l_value.is_boolean then
 				a_system.set_console_application_mode (l_value.to_boolean)
+			end
+				-- "check_for_void_target".
+			l_value := settings.value ({ET_ECF_SETTING_NAMES}.check_for_void_target_setting_name)
+			if l_value = Void then
+					-- The default value for `check_for_void_target` depends on whether we are in void-safety mode or not:
+					--   * void-safety mode (all): False
+					--   * otherwise: True
+				l_value := capabilities.use_value ({ET_ECF_CAPABILITY_NAMES}.void_safety_capability_name)
+				if l_value = Void then
+					l_value := capabilities.support_value ({ET_ECF_CAPABILITY_NAMES}.void_safety_capability_name)
+				end
+				if l_value /= Void and then STRING_.same_case_insensitive (l_value, {ET_ECF_CAPABILITY_NAMES}.all_capability_value) then
+					a_system.set_check_for_void_target_mode (False)
+				else
+					a_system.set_check_for_void_target_mode (True)
+				end
+			elseif l_value.is_boolean then
+				a_system.set_check_for_void_target_mode (l_value.to_boolean)
 			end
 				-- "exception_trace".
 			l_value := settings.value ({ET_ECF_SETTING_NAMES}.exception_trace_setting_name)
