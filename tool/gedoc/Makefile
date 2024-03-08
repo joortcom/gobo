@@ -8,8 +8,9 @@ clean_ise:
 	ec -clean -config src/system.ecf
 
 
+OPT= --gc=no --capability=concurrency=none  #  --finalize --no-benchmark
 gobo:  # does not work: https://github.com/gobo-eiffel/gobo/issues/71
-	gec --finalize --no-benchmark src/system.ecf
+	gec $(OPT) src/system.ecf
 
 fmt=implicit_converts
 fmt=field_rename
@@ -20,4 +21,4 @@ demo:
 	gedoc --format=$(fmt) $(demo_ecf) > inherited_fields.path
 
 clean:
-	$(RM) *.c *.o *.make *.h *.sh
+	$(RM) -fr *.c *.o *.make *.h *.sh EIFGENs/
