@@ -186,10 +186,12 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 		local
 			i, k, nb, nr: INTEGER
 			j, nb2: INTEGER
+			old_name: STRING
 			l_parent_list: ET_PARENT_LIST
 			parent: ET_PARENT
 			l_item: ET_RENAME_ITEM
 			l_rename: ET_RENAME
+			attr_table: HASH_TABLE [BOOLEAN, STRING]
 		do
 			if attached a_class.parent_clauses as l_parent_clauses then
 				nb := l_parent_clauses.count
@@ -198,7 +200,13 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 					nb2 := l_parent_list.count
 					from j := 1 until j > nb2 loop
 						parent := l_parent_list.parent (j)
-						if attached parent.renames as l_renames then  -- loop on renames
+
+						-- collect all the fields
+						-- assumption: parent.base_class.queries is flattened / conslidated
+						attr_table := collect_all_attributes(parent.type.base_class)
+
+						-- loop on renames, and report
+						if attached parent.renames as l_renames then
 							-- e.g. STUDENT.addr => RESEARCH_ASSISTANT.student_addr only reported here
 							nr := l_renames.count
 							from k := 1 until k > nr loop
@@ -206,18 +214,45 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 								l_rename := l_item.rename_pair
 								if attached a_class.named_query(l_rename.new_name.feature_name) as query then
 									if query.is_attribute then
-					    error_handler.report_info_message ("renamed," + parent.type.upper_name + "." + l_rename.old_name.lower_name +
+										old_name := l_rename.old_name.lower_name
+					    error_handler.report_info_message ("renamed," + parent.type.upper_name + "." + old_name +
 						    "," + a_class.upper_name + "." + query.lower_name + "%N")
+										attr_table.remove (old_name)
 									end
 								end
 								k := k + 1
 							end
 						end
+
+						-- report un-renamed, directly inherited fields
+						across attr_table as it loop
+					error_handler.report_info_message ("inherited," + parent.type.upper_name + "." + @ it.key +
+						    "," + a_class.upper_name + "." + @ it.key + "%N")
+							end
 						j := j + 1
 					end
 					i := i + 1
 				end
 			end
+		end
+
+	collect_all_attributes (a_class: ET_CLASS): HASH_TABLE [BOOLEAN, STRING]
+		local
+			i, nb: INTEGER
+			query: ET_QUERY
+		do
+			create Result.make (10)
+			nb := a_class.queries.count
+			-- print(a_class.upper_name + ":"); print(nb); print("%N")
+			from i := 1 until i > nb loop
+				query := a_class.queries.item(i)
+				-- print(query.lower_name + "%N")
+				if query.is_attribute then
+					Result.put (False, query.lower_name)
+				end
+				i := i + 1
+			end
+			-- print("%N")
 		end
 
 	process_implicit_converts (a_class: ET_CLASS)
@@ -237,6 +272,8 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 						-- Do nothing.
 					else
 						process_parent_clauses(a_class)
+
+						if False then
 						nb := a_class.queries.count
 						from i := 1 until i > nb loop
 							query := a_class.queries.item(i)
@@ -257,6 +294,7 @@ feature {GEDOC_FIELD_RENAME_FORMAT} -- Processing
 								end
 							end
 							i := i + 1
+						end
 						end
 					end
 					system_processor.report_class_processed (a_class)
