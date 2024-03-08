@@ -3,7 +3,7 @@
 import glob
 import os
 import pandas as pd
-
+import pathlib
 
 home_dir = os.path.expanduser('~')
 script_path = os.path.abspath(__file__)
@@ -65,9 +65,11 @@ def detect_diamond(ecf_fn):
     for class_name, field_paths in clazzs.items():
       if len(field_paths.keys()) >= 2:
         print('=' * 40, ecf_fn, "total fields: ", len(parent_fields))
-        print("diamond: ", field, " => ", class_name)
+        new_fields = "%s.{%s}" % (class_name, ", ".join(field_paths.keys()))
+        print("diamond found: ", field, " => ", new_fields)
         for new_field, path in field_paths.items():
           print("  ", new_field, path)
+        print("new_fields:", new_fields)
 
 
 def process_all_ecf():
@@ -76,8 +78,10 @@ def process_all_ecf():
   for ecf_fn in ecf_fns:
     try:
       # "%s/project/contrib/gobo/tool/gedoc" home_dir
-      os.system("%s/gedoc --format=field_rename %s > %s" %
-          (script_dir, ecf_fn, INHERITED_FIELDS_FN))
+      pathlib.Path(INHERITED_FIELDS_FN).unlink(missing_ok=True)
+      cmd = "%s/gedoc --format=field_rename %s > %s" % (script_dir, ecf_fn, INHERITED_FIELDS_FN)
+      print(cmd)
+      os.system(cmd)
       detect_diamond(ecf_fn)
     except:
       print("skip ", ecf_fn)
